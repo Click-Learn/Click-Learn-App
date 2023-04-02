@@ -5,7 +5,7 @@
     align-items: center;
     max-width: 700px;
     text-align: center;
-    margin: 60px auto;
+    margin: 150px auto;
 }
 
 .DownloadExtension h1 {
@@ -38,10 +38,14 @@
     font-size: 18px;
     padding: 11.5px 34.5px;
 }
+
 .DownloadExtension .Download_Video_Container .btn_extension {
-    background-color: #58E5A5;
-    outline: 2px solid #58E5A5;
+    /* background-color: #2ccd85; */
+    background-color: var(--color-light-green);
+    outline: 2px solid #2ccd85;
     color: white;
+    box-shadow: 0 0 7px 3px #4ce8a2;
+    cursor: pointer !important;
 
 }
 

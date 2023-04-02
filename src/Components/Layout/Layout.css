@@ -1,3 +1,18 @@
 .Layout {
     margin: 0 auto;
 }
+
+.Layout .svg1 {
+    position:  absolute;
+    width: 700px;
+    right: 11%;
+    top: 25%;
+    z-index: -1;
+}
+.Layout .svg2 {
+    position:  absolute;
+    width: 600px;
+    left: 4%;
+    top: 75%;
+    z-index: -1;
+}

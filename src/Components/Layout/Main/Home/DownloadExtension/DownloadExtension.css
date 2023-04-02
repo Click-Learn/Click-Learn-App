@@ -1,0 +1,39 @@
+.DownloadExtension {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.DownloadExtension .Download_Video_Container {
+    display: flex;
+    gap: 40px;
+}
+
+.DownloadExtension .Download_Video_Container button {
+    padding: 12px 37px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.DownloadExtension .Download_Video_Container .btn_extension {
+    background-color: #0284FD;
+    outline: 3px solid #0284FD;
+    color: white;
+
+}
+
+.DownloadExtension .Download_Video_Container .btn_video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    outline: 1px solid rgb(120, 120, 120);
+    background-color: white;
+    color: rgb(120, 120, 120);
+}

@@ -15,7 +15,7 @@ function Login(): JSX.Element {
                     <div className="click_here_icon">👇</div>
                     <button>
                         <img src="https://cdn-icons-png.flaticon.com/512/2504/2504739.png" alt="" />
-                        <span>Continue with Google</span>
+                        <span>התחבר/י עם גוגל</span>
                     </button>
                 </div>
             </div>

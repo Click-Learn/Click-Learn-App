@@ -1,0 +1,62 @@
+.Login {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+
+.Login .Text_Conatiner  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+	font-size: 30px;
+    color: #252525;
+}
+
+.Login .login_google {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 55px;
+    position: relative;
+    bottom: 45px;
+}
+
+.Login .login_google .click_here_icon {
+    font-size: 50px;
+}
+
+.Login .login_image_and_google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 105px;
+}
+
+.Login .login_image_and_google img {
+    width: 300px;
+}
+
+.Login .login_image_and_google button {
+    padding: 18px 40px;
+    background-color: aliceblue;
+    outline: 1px solid rgb(180, 217, 250);
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    color: #252525;
+    cursor: pointer;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.Login .login_image_and_google button img {
+    width: 20px;
+}
+
+.Login .login_image_and_google button:hover {
+    transition: 0.2s;
+    background-color: white;
+}

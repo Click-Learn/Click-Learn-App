@@ -5,7 +5,16 @@
     align-items: center;
     max-width: 700px;
     text-align: center;
-    margin: 0 auto;
+    margin: 60px auto;
+}
+
+.DownloadExtension h1 {
+    font-size: 42px;
+    color: #252525;
+}
+
+.DownloadExtension p {
+    color: #252525;
 }
 
 .DownloadExtension .Download_Video_Container {
@@ -19,11 +28,19 @@
     border-radius: 5px;
     font-size: 17px;
     cursor: pointer;
+    margin-top: 40px;
+    box-shadow: 0 0 6px -1px rgb(185, 185, 185);
 }
 
+
+.DownloadExtension .Download_Video_Container button:hover {
+    transition: 0.2s;
+    font-size: 18px;
+    padding: 11.5px 34.5px;
+}
 .DownloadExtension .Download_Video_Container .btn_extension {
-    background-color: #0284FD;
-    outline: 3px solid #0284FD;
+    background-color: #55B85E;
+    outline: 2px solid #55B85E;
     color: white;
 
 }
@@ -33,7 +50,7 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
-    outline: 1px solid rgb(120, 120, 120);
+    outline: 1px solid rgb(203, 202, 202);
     background-color: white;
-    color: rgb(120, 120, 120);
+    color: rgb(74, 74, 74);
 }

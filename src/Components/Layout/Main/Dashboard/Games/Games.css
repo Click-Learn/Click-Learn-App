@@ -1,0 +1,80 @@
+.Games {
+	margin-bottom: 400px;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+}
+
+.Games .games_top_container {
+    width: 80%;
+    height: 160px;
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.Games .games_top_container .top_text {
+    color: var(--color-light-green);
+    /* color: #252525; */
+    font-size: 40px;
+}
+
+.Games .games_top_container .background_top_image {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    border-radius: 25px;
+    object-fit: cover;
+    opacity: 0.6;
+    box-shadow: 0 0 6px -1px rgba(0, 0, 0, 0.384);
+}
+
+
+.Games .games_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* align-items: center; */
+    /* margin: 0 auto; */
+}
+
+.Games .games_container .game_box {
+    width: 450px;
+    height: 450px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #252525;
+    cursor: pointer;
+}
+
+.Games .games_container .game_box p {
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 20%;
+}
+
+.Games .games_container .game_box img {
+    box-shadow: 0 0 10px 0px var(--color-light-green);
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    position:absolute;
+    z-index: -1;
+}
+
+.Games .games_container .game_box:hover > img {
+    box-shadow: 0 0 10px 1px var(--color-light-green);
+}

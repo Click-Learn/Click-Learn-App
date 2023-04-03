@@ -17,8 +17,8 @@ margin-top: 70px;
 
 .Dashboard .dashboard_top_container .dashboard_top_box {
     /* border: 1px solid black; */
-    width: 250px;
-    height: 100px;
+    width: 310px;
+    height: 120px;
     padding: 20px 25px;
     box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.150);
     /* box-shadow: 0 0 16px -8px var(--color-light-green); */
@@ -83,6 +83,7 @@ margin-top: 70px;
     flex-direction: column;
     border-radius: 15px;
     font-size: 18px;
+    background-color: white;
     justify-content: space-between;
     /* box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.350); */
     box-shadow: 0 0 10px 0px var(--color-light-green);

@@ -1,3 +1,105 @@
 .Dashboard {
-	
+margin-bottom: 200px;	
+display: flex;
+direction: rtl;
+flex-direction: column;
+margin-top: 70px;
+}
+
+.Dashboard .dashboard_top_container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+.Dashboard .dashboard_top_container .dashboard_top_box {
+    /* border: 1px solid black; */
+    width: 250px;
+    height: 100px;
+    padding: 20px 25px;
+    box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.150);
+    /* box-shadow: 0 0 16px -8px var(--color-light-green); */
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 22px;
+    gap: 27px;
+    position: relative;
+    bottom: 0;
+}
+
+.Dashboard .dashboard_top_container .dashboard_top_box:hover {
+    transition: 0.2s;
+    bottom: 5px;
+}
+
+.Dashboard .dashboard_top_container  .saved_words_box {
+    line-height: 10%;
+}
+.Dashboard .dashboard_top_container .dashboard_top_box .icon_arrow {
+    font-size: 28px;
+}
+.Dashboard .dashboard_top_container .dashboard_top_box .icon_box {
+    font-size: 45px;
+}
+.Dashboard .dashboard_top_container .dashboard_top_box .saved_text {
+    font-size: 12px;
+}
+.Dashboard .dashboard_top_container .dashboard_top_box .game_text {
+    font-size:18px;
+    font-weight: bold;
+}
+.Dashboard .dashboard_top_container .dashboard_top_box .saved_words_count {
+    font-size: 28px;
+    font-weight: bold;
+}
+.Dashboard .dashboard_top_container .dashboard_top_box span {
+    color: var(--color-light-green);
+}
+
+
+.Dashboard .dashboard_bottom_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 150px auto;
+    gap: 150px;
+}
+
+.Dashboard .dashboard_bottom_container .banner_dashboard img {
+    width: 400px;        
+}
+
+.Dashboard .dashboard_bottom_container .save_words_list_container {
+    /* border: 1px solid black; */
+    padding: 25px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    font-size: 18px;
+    justify-content: space-between;
+    /* box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.350); */
+    box-shadow: 0 0 10px 0px var(--color-light-green);
+    
+}
+
+.Dashboard .dashboard_bottom_container .save_words_lists_line {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.Dashboard .translate_saved_word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
 }

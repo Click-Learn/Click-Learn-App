@@ -1,8 +1,17 @@
 .Header .header_logo {
-	width: 160px;
+	width: 180px;
     
 }
 .Header {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
+}
+
+.Header .MuiPaper-root {
+    background-color: white !important;
+    color: black;
+}
+
+.Header .MuiButtonBase-root{
+    color: black !important;
 }

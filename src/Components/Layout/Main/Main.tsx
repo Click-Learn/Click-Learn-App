@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard/Dashboard";
+import Games from "./Dashboard/Games/Games";
 import Home from "./Home/Home";
 import "./Main.css";
 
@@ -11,6 +12,7 @@ function Main(): JSX.Element {
                 <Route path="/home" element={<Home/>}></Route>
                 {/* <Route path="/card/:id" element={<CardTemplate/>}></Route> */}
                 <Route path="/dashboard" element={<Dashboard/>}></Route>
+                <Route path="/games" element={<Games/>}></Route>
                 {/* <Route path="/*" element={<PageNotFound/>}></Route> */}
 			</Routes>
         </div>

@@ -11,18 +11,23 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 // import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import { BsSun } from "react-icons/bs"
+import { BsSun } from "react-icons/bs";
+import { CiSettings } from "react-icons/ci";
+import { MdDarkMode } from "react-icons/md";
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Dashboard from "../Main/Dashboard/Dashboard";
 // import AdbIcon from '@mui/icons-material/Adb';
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 // const pages = ['לוח בקרה', 'בלוג', 'התחברות'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header(): JSX.Element {
+    const navigate = useNavigate();
+    const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
 
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -71,7 +76,7 @@ function Header(): JSX.Element {
                             }}
                         >
 
-                            <img className="header_logo" src={logo} alt="" />
+                            <img className="header_logo" src={logo} alt="" onClick={() => navigate("/home")} />
 
                         </Typography>
 
@@ -135,7 +140,7 @@ function Header(): JSX.Element {
                         >
                             LOGO
                         </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end', marginRight: '15px' }}>
                             {/* {pages.map((page) => (
                                 <Button
                                     key={page}
@@ -145,24 +150,31 @@ function Header(): JSX.Element {
                                     {page}
                                 </Button>
                             ))} */}
-                                  <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/dashboard">
-                                    אזור אישי
+                                <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/blog">
+                                    בלוג
                                 </MenuItem>
 
                                 <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/games">
                                     משחקים
                                 </MenuItem>
 
-                                <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/blog">
-                                    בלוג
+                                  <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/dashboard">
+                                    אזור אישי
                                 </MenuItem>
 
                         </Box>
 
                         <Box sx={{ flexGrow: 0 }}>
+                                <IconButton onClick={() => setIsDarkMode(!isDarkMode)}  sx={{ p: 0, fontSize: '35px !important', margin: '0 25px' }} >
+                                    { isDarkMode ? 
+                                      <MdDarkMode style={{color: 'white'}}/>
+                                      : 
+                                      <BsSun />
+                                    }
+                                </IconButton>
                             <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <BsSun />
+                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, fontSize: '35px !important' }} >
+                                    <CiSettings />
                                 </IconButton>
                             </Tooltip>
                             <Menu

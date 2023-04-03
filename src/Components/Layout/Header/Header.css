@@ -9,9 +9,10 @@
 
 .Header .MuiPaper-root {
     background-color: white !important;
-    color: black;
+    color: #252525;
 }
 
 .Header .MuiButtonBase-root{
-    color: black !important;
+    color: #252525 !important;
+    font-size: 20px;
 }

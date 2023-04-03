@@ -2,8 +2,11 @@ import "./Dashboard.css";
 import { AiFillStar, AiFillRead } from "react-icons/ai";
 import { BsArrowLeft } from "react-icons/bs";
 import { IoGameController } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 
 function Dashboard(): JSX.Element {
+    const navigate = useNavigate();
+    
     return (
         <div className="Dashboard">
 			<div className="dashboard_top_container">
@@ -15,15 +18,16 @@ function Dashboard(): JSX.Element {
                         </div>
                         <span className="icon_arrow"><BsArrowLeft/></span>
                     </div>
-                <div className="dashboard_top_box">
-                <span className="icon_box"><IoGameController/></span>
+                <div className="dashboard_top_box" onClick={() => navigate("/games") }>
+                       <span className="icon_box"><IoGameController/></span>
                         <div>
                             <p className="game_text">לתרגל את המילים</p>
                             <p className="saved_words_count"></p>
                         </div>
                         <span className="icon_arrow"><BsArrowLeft/></span>
                 </div>
-                <div className="dashboard_top_box">
+
+                <div className="dashboard_top_box"  onClick={() => navigate("/articles") }>
                 <span className="icon_box"><AiFillRead/></span>
                         <div>
                             <p className="game_text">לקריאת מאמרים</p>

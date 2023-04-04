@@ -19,6 +19,7 @@ margin-top:110px;
     /* border: 1px solid black; */
     width: 310px;
     height: 120px;
+    background-color: white;
     padding: 20px 25px;
     box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.150);
     /* box-shadow: 0 0 16px -8px var(--color-light-green); */

@@ -12,7 +12,7 @@
     align-items: center;
     gap: 15px;
 	font-size: 30px;
-    color: #252525;
+    color: var(--color-dark);
 }
 
 .Login .login_google {
@@ -58,5 +58,5 @@
 
 .Login .login_image_and_google button:hover {
     transition: 0.2s;
-    background-color: white;
+    background-color: var(--color-white);
 }

@@ -1,13 +1,17 @@
 import "./Dashboard.css";
-import { AiFillStar, AiFillRead } from "react-icons/ai";
-import { BsArrowLeft } from "react-icons/bs";
+import { AiFillStar, AiFillRead, AiOutlineStar } from "react-icons/ai";
+import { BsArrowLeft, BsSun } from "react-icons/bs";
 import { IoGameController } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
+import { IconButton } from "@mui/material";
+import { MdDarkMode } from "react-icons/md";
 
 function Dashboard(): JSX.Element {
     const navigate = useNavigate();
-    const [isAnimating, setIsAnimating] = useState(false);
+    const [isAnimating, setIsAnimating] = useState<boolean>(false);
+    const [isSaved, setIsSaved] = useState<boolean>(true);
+    
 
     const saveWordsListRef = useRef<HTMLDivElement>(null);
     
@@ -54,14 +58,18 @@ function Dashboard(): JSX.Element {
             </div>
             <div className="dashboard_bottom_container">
                     <div className="banner_dashboard">
-                        <img src="https://img.freepik.com/free-vector/duplicate-concept-illustration_114360-4010.jpg?w=740&t=st=1680533346~exp=1680533946~hmac=a3ba35e309431c8289f0fd114cd36c45cd5912d6ac7c67d656b276486fbc676d" alt="" />
+                        <img src="https://i.ibb.co/0Zm9jyk/duplicate-concept-illustration-114360-4010-2.png" alt="" />
                     </div>
+                    
                     <div className={`save_words_list_container${isAnimating ? " animating" : ""}`} ref={saveWordsListRef}>
                         <div className="save_words_lists_line">
-
-                            <div>
-                                Star
-                            </div>
+                            <IconButton onClick={() => setIsSaved(!isSaved)}  sx={{ p: 0, fontSize: '25px !important' }} >
+                                    { isSaved ? 
+                                      <AiFillStar style={{ color : 'var(--color-dark)'}} />
+                                      : 
+                                      <AiOutlineStar style={{ color : 'var(--color-dark)'}} />
+                                    }
+                                </IconButton>
                             <div className="translate_saved_word">
                                 <p>מילה</p>
                                 <span>Array</span>

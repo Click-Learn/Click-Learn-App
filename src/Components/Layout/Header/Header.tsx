@@ -1,7 +1,5 @@
 import "./Header.css";
-// import logo from "./ClickLearnLogo.jpeg";
 import logo from "./clickLearnNewLogo.png";
-
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -9,23 +7,23 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-// import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import { BsSun } from "react-icons/bs";
 import { CiSettings } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import Dashboard from "../Main/Dashboard/Dashboard";
-// import AdbIcon from '@mui/icons-material/Adb';
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setLight, setDark } from "../../../App/lightDarkSlice";
 
-// const pages = ['לוח בקרה', 'בלוג', 'התחברות'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header(): JSX.Element {
+    const webMode = useSelector((state: any) => state.chosenMode.toggle)
+    let dispatch = useDispatch();
+
     const navigate = useNavigate();
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
 
@@ -48,18 +46,23 @@ function Header(): JSX.Element {
     };
 
 
+
+    function clickedWebMode() {
+        if(isDarkMode){
+          dispatch(setDark())
+          setIsDarkMode(!isDarkMode)
+        } else {
+          dispatch(setLight())
+          setIsDarkMode(!isDarkMode)
+        }
+      }
     return (
         <div className="Header">
-            {/* <div>
-                <img className="header_logo" src={logo} alt="" />
-                
-            </div> */}
-
+          
             <AppBar position="static">
 
                 <Container maxWidth="xl">
                     <Toolbar disableGutters >
-                        {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
                         <Typography
                             variant="h6"
                             noWrap
@@ -109,19 +112,8 @@ function Header(): JSX.Element {
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
-
-                                {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="left">{page}</Typography>
-                </MenuItem>
-              ))} */}
-                                <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/dasboard">
-                                    dashboard
-                                </MenuItem>
-
                             </Menu>
                         </Box>
-                        {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
                         <Typography
                             variant="h5"
                             noWrap
@@ -141,37 +133,29 @@ function Header(): JSX.Element {
                             LOGO
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end', marginRight: '15px' }}>
-                            {/* {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
-                                >
-                                    {page}
-                                </Button>
-                            ))} */}
-                                <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/blog">
-                                    בלוג
+                        
+                                <MenuItem onClick={handleCloseNavMenu} >
+                                    <NavLink to="/about">בלוג</NavLink>
                                 </MenuItem>
 
                                 <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/games">
-                                    משחקים
+                                    <NavLink to="/games">משחקים</NavLink>
                                 </MenuItem>
 
                                   <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/dashboard">
-                                    אזור אישי
+                                    <NavLink to="/dashboard">אזור אישי</NavLink>
                                 </MenuItem>
 
                         </Box>
 
                         <Box sx={{ flexGrow: 0 }}>
-                                <IconButton onClick={() => setIsDarkMode(!isDarkMode)}  sx={{ p: 0, fontSize: '35px !important', margin: '0 25px' }} >
+                      <IconButton onClick={clickedWebMode}   sx={{ p: 0, fontSize: '35px !important', margin: '0 25px' }} >
                                     { isDarkMode ? 
                                       <MdDarkMode style={{color: 'white'}}/>
                                       : 
                                       <BsSun />
                                     }
-                                </IconButton>
+                                </IconButton>          
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, fontSize: '35px !important' }} >
                                     <CiSettings />

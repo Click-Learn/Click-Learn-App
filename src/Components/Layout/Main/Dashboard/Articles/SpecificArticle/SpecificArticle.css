@@ -12,7 +12,7 @@
     align-items: center;
     font-size: 1.3em;
     margin-bottom: 40px;
-    color: #252525;
+    color: var(--color-dark);
 }
 
 
@@ -25,7 +25,7 @@
     border-radius: 15px;
     padding: 30px;
     overflow-y: auto;
-    background-color: #ffffff;
+    background-color: var(--color-white);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -34,7 +34,7 @@
 
 .SpecificArticle .article_main_container h2 {
     font-size: 28px;
-    color: #252525;
+    color: var(--color-dark);
     margin-bottom: 15px;
     font-weight: bold;
     border-bottom: 2px solid var(--color-light-green);
@@ -45,7 +45,7 @@
 
 .SpecificArticle .article_main_container p {
     font-size: 18px;
-    color: #666666;
+    color: var(--color-light-dark);
     line-height: 1.6;
     margin-bottom: 20px;
     text-align: justify;

@@ -14,7 +14,26 @@ code {
 }
 
 
-:root 
+/* :root 
 {
-  --color-light-green: #2ccd85
+  --color-light-green: #2ccd85;
+  --color-dark: #252525;
+  --color-light-dark: #423f3fce;
+  --color-white: #fff;
+} */
+
+.Layout[data-theme='dark-mode'] {
+  --color-light-green: #2ccd85;
+  --color-dark: #252525;
+  --color-light-dark: #423f3fce;
+  --color-white: #fff;
+  
+}
+
+.Layout[data-theme='light-mode'] {
+  --color-light-green: #2ccd85;
+  --color-dark: #c9c9c9;
+  --color-light-dark: #a1a1a1ce;
+  --color-white: #252525;
+
 }

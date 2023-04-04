@@ -17,7 +17,7 @@
 }
 
 .notFoundNumber{
-    color: #423f3fce;
+    color: var(--color-light-dark);
     font-size: 140px;
 }
 
@@ -30,7 +30,7 @@
 .PageNotFound button {
     width: 200px;
     margin: 50px auto;
-    background-color: white;
+    background-color: var(--color-white);
     border-radius: 20px;
     border: none;
     padding: 15px ;
@@ -38,10 +38,11 @@
     outline: 3px solid var(--color-light-green);
     font-size: 16px;
     font-weight: 600;
+    color: var(--color-dark);
 }
 
 .PageNotFound button:hover {
     transition: 0.2s;
     background-color: var(--color-light-green);
-    color: white;
+    color: var(--color-white);
 }

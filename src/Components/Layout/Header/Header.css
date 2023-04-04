@@ -8,11 +8,23 @@
 }
 
 .Header .MuiPaper-root {
-    background-color: white !important;
-    color: #252525;
+    background-color: var(--color-white) !important;
+    color: var(--color-dark);
 }
 
 .Header .MuiButtonBase-root{
-    color: #252525 !important;
+    color: var(--color-dark) !important;
     font-size: 20px;
+}
+
+.Header .active {
+    font-weight: bold;
+}
+
+.Header a {
+    color:  var(--color-dark);
+}
+
+.Header a:hover {
+    text-decoration: none;
 }

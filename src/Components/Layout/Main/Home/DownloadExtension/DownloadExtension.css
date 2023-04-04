@@ -10,11 +10,11 @@
 
 .DownloadExtension h1 {
     font-size: 42px;
-    color: #252525;
+    color: var(--color-dark);
 }
 
 .DownloadExtension p {
-    color: #252525;
+    color: var(--color-dark);
 }
 
 .DownloadExtension .Download_Video_Container {
@@ -42,8 +42,8 @@
 .DownloadExtension .Download_Video_Container .btn_extension {
     /* background-color: #2ccd85; */
     background-color: var(--color-light-green);
-    outline: 2px solid #2ccd85;
-    color: white;
+    outline: 2px solid var(--color-light-green);
+    color: var(--color-white);
     box-shadow: 0 0 7px 3px #4ce8a2;
     cursor: pointer !important;
 
@@ -55,6 +55,6 @@
     align-items: center;
     gap: 8px;
     outline: 1px solid rgb(203, 202, 202);
-    background-color: white;
-    color: rgb(74, 74, 74);
+    background-color: var(--color-white);
+    color: var(--color-light-dark);
 }

@@ -1,0 +1,29 @@
+.PageNotFound {
+	margin-bottom: 450px;
+}
+
+.pageNotFound_Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+.PageNotFound h1{
+    display: flex;
+    justify-content: center;
+    /* margin-top: 80px; */
+    margin: 0;
+}
+
+.notFoundNumber{
+    /* color: #252525; */
+    color: #423f3fce;
+    font-size: 200px;
+}
+
+.notFountText{
+    color: var(--color-light-green);
+    font-size: 100px;
+
+}

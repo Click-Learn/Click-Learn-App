@@ -90,6 +90,32 @@ margin-top:110px;
     
 }
 
+.Dashboard .dashboard_bottom_container .save_words_list_container.animating {
+    /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); */
+    animation: shadow-box 2s ease-out;
+  }
+  
+  @keyframes shadow-box {
+      0% {
+        box-shadow: 0 0 10px 0px var(--color-light-green);
+    }
+    20% {
+        box-shadow: 0 0 10px 5px var(--color-light-green);
+    }
+    40% {
+        box-shadow: 0 0 10px 0px var(--color-light-green);
+    }
+    60% {
+        box-shadow: 0 0 10px 5px var(--color-light-green);
+    }
+    80% {
+        box-shadow: 0 0 10px 0px var(--color-light-green);
+    }
+    100% {
+        box-shadow: 0 0 10px 0px var(--color-light-green);
+    }
+  }
+
 .Dashboard .dashboard_bottom_container .save_words_lists_line {
     text-align: left;
     display: flex;

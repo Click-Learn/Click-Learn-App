@@ -17,9 +17,9 @@ function Articles(): JSX.Element {
 
                 </div>
 
-                <div className="create_new_article">
+                <div className="create_new_article" onClick={()=> navigate('/specific-article')}>
                     <p>?רוצים לקרוא מאמר חדש</p>
-                    <button onClick={()=> navigate('/specific-article')}>לחצו כאן</button>
+                    <button >לחצו כאן</button>
                     <img src="https://img.freepik.com/free-photo/close-up-book-paper-with-white-background_23-2148255922.jpg?w=1480&t=st=1680545702~exp=1680546302~hmac=c0c948d64ae654bb9dcacbb287a39d3c27e9d5a010e94577dd58ee0e8ef5299b" alt="" />
                 </div>
             </div>

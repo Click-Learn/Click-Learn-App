@@ -1,5 +1,6 @@
 .PageNotFound {
 	margin-bottom: 450px;
+    margin-top: 150px;
 }
 
 .pageNotFound_Container{
@@ -17,11 +18,30 @@
 
 .notFoundNumber{
     color: #423f3fce;
-    font-size: 200px;
+    font-size: 140px;
 }
 
 .notFountText{
     color: var(--color-light-green);
-    font-size: 100px;
+    font-size: 60px;
 
+}
+
+.PageNotFound button {
+    width: 200px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 15px ;
+    cursor: pointer;
+    outline: 3px solid var(--color-light-green);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.PageNotFound button:hover {
+    transition: 0.2s;
+    background-color: var(--color-light-green);
+    color: white;
 }

@@ -10,23 +10,24 @@ function Games(): JSX.Element {
 
             <div className="games_container">
                 <div className="game_box">
-                    <img src="https://img.freepik.com/free-vector/white-question-mark-background-minimal-style_1017-25235.jpg?w=826&t=st=1680540900~exp=1680541500~hmac=0a5668bd4edcd2752b5b113cf6f1f305db9d6d0db742c12069ee0078ba2a9410" alt="" />
+                    <img src="https://i.ibb.co/TwcD0d6/New-Project-6.jpg" alt="" />
                     <p>תרגום לפי זמן</p>
                     <span>עם המילים שלך</span>
                 </div>
 
                 <div className="game_box">
-                    <img src="https://img.freepik.com/free-vector/white-question-mark-background-minimal-style_1017-25235.jpg?w=826&t=st=1680540900~exp=1680541500~hmac=0a5668bd4edcd2752b5b113cf6f1f305db9d6d0db742c12069ee0078ba2a9410" alt="" />
+                    <img src="https://i.ibb.co/WkkxbkB/New-Project-7.jpg" alt="" />
                     <p>חידון</p>
                     <span>עם המילים שלך</span>
                 </div>
 
                 <div className="game_box">
-                    <img src="https://img.freepik.com/free-vector/white-question-mark-background-minimal-style_1017-25235.jpg?w=826&t=st=1680540900~exp=1680541500~hmac=0a5668bd4edcd2752b5b113cf6f1f305db9d6d0db742c12069ee0078ba2a9410" alt="" />
+                    <img src="https://i.ibb.co/gtxJpfX/New-Project-8.jpg" alt="" />
                     <p>משחק הזיכרון</p>
                     <span>עם המילים שלך</span>
                 </div>
             </div>
+            
         </div>
     );
 }

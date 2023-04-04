@@ -40,7 +40,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 .Articles .articles_container .create_new_article:hover > img{
     box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.384);

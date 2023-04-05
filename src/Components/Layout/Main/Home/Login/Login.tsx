@@ -9,8 +9,9 @@ function Login(): JSX.Element {
             </div>
             <div className="login_image_and_google">
                 <div>
-                    <img src="https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7892.jpg?w=900&t=st=1680446646~exp=1680447246~hmac=223f77afdaadc58c6c63fb3b32eb0b9c1cba969426ee2e759c104e94bb4460f2" alt="" />
+                    <img src="https://i.ibb.co/cYwnYNX/New-Project.png" alt="" />
                 </div>
+                
                 <div className="login_google">
                     <div className="click_here_icon">👇</div>
                     <button>

@@ -2,10 +2,9 @@ import "./Dashboard.css";
 import { AiFillStar, AiFillRead, AiOutlineStar } from "react-icons/ai";
 import { BsArrowLeft, BsSun } from "react-icons/bs";
 import { IoGameController } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { IconButton } from "@mui/material";
-import { MdDarkMode } from "react-icons/md";
 
 function Dashboard(): JSX.Element {
     const navigate = useNavigate();

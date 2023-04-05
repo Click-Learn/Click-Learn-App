@@ -14,14 +14,6 @@ code {
 }
 
 
-/* :root 
-{
-  --color-light-green: #2ccd85;
-  --color-dark: #252525;
-  --color-light-dark: #423f3fce;
-  --color-white: #fff;
-} */
-
 .Layout[data-theme='dark-mode'] {
   --color-light-green: #2ccd85;
   --color-dark: #252525;

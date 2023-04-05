@@ -67,7 +67,6 @@ function Header(): JSX.Element {
                             variant="h6"
                             noWrap
                             component="a"
-                            href="/"
                             sx={{
                                 mr: 2,
                                 display: { xs: 'none', md: 'flex' },
@@ -79,7 +78,7 @@ function Header(): JSX.Element {
                             }}
                         >
 
-                            <img className="header_logo" src={logo} alt="" onClick={() => navigate("/home")} />
+                            <img className="header_logo" src={logo} alt="" onClick={() => navigate("/") } />
 
                         </Typography>
 
@@ -149,7 +148,7 @@ function Header(): JSX.Element {
                         </Box>
 
                         <Box sx={{ flexGrow: 0 }}>
-                      <IconButton onClick={clickedWebMode}   sx={{ p: 0, fontSize: '35px !important', margin: '0 25px' }} >
+                                <IconButton onClick={clickedWebMode}   sx={{ p: 0, fontSize: '35px !important', margin: '0 25px' }} >
                                     { isDarkMode ? 
                                       <MdDarkMode style={{color: 'white'}}/>
                                       : 

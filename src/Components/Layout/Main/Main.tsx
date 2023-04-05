@@ -13,7 +13,6 @@ function Main(): JSX.Element {
 			<Routes>
                 <Route path="/" element={<Home/>}></Route>
                 <Route path="/home" element={<Home/>}></Route>
-                {/* <Route path="/card/:id" element={<CardTemplate/>}></Route> */}
                 <Route path="/dashboard" element={<Dashboard/>}></Route>
                 <Route path="/games" element={<Games/>}></Route>
                 <Route path="/articles" element={<Articles/>}></Route>

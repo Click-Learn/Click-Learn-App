@@ -6,6 +6,8 @@
     max-width: 700px;
     text-align: center;
     margin: 150px auto;
+    z-index: 1;
+
 }
 
 .DownloadExtension h1 {

@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import "./Games.css";
 
 function Games(): JSX.Element {
+    const navigate = useNavigate();
     return (
         <div className="Games">
 			<div className="games_top_container">
@@ -16,7 +18,7 @@ function Games(): JSX.Element {
                 </div>
 
                 <div className="game_box">
-                    <img src="https://i.ibb.co/WkkxbkB/New-Project-7.jpg" alt="" />
+                    <img src="https://i.ibb.co/WkkxbkB/New-Project-7.jpg" alt="" onClick={() => navigate("/quiz")} />
                     <p>חידון</p>
                     <span>עם המילים שלך</span>
                 </div>

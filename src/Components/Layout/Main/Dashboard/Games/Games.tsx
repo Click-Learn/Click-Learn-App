@@ -24,7 +24,7 @@ function Games(): JSX.Element {
                 </div>
 
                 <div className="game_box">
-                    <img src="https://i.ibb.co/gtxJpfX/New-Project-8.jpg" alt="" />
+                    <img src="https://i.ibb.co/gtxJpfX/New-Project-8.jpg" alt=""  onClick={() => navigate("/memoryGame")} />
                     <p>משחק הזיכרון</p>
                     <span>עם המילים שלך</span>
                 </div>

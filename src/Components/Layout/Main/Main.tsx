@@ -8,6 +8,7 @@ import PageNotFound from "./PageNotFound/PageNotFound";
 import SpecificArticle from "./Dashboard/Articles/SpecificArticle/SpecificArticle";
 import Video from "./Video/Video";
 import Quiz from "./Dashboard/Games/Quiz/Quiz";
+import MemoryGame from "./Dashboard/Games/MemoryGame/MemoryGame";
 
 function Main(): JSX.Element {
     return (
@@ -18,6 +19,7 @@ function Main(): JSX.Element {
                 <Route path="/dashboard" element={<Dashboard/>}></Route>
                 <Route path="/games" element={<Games/>}></Route>
                 <Route path="/quiz" element={<Quiz/>}></Route>
+                <Route path="/memorygame" element={<MemoryGame/>}></Route>
                 <Route path="/articles" element={<Articles/>}></Route>
                 <Route path="/video" element={<Video/>}></Route>
                 <Route path="/specific-article" element={<SpecificArticle/>}></Route>

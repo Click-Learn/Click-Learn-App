@@ -6,6 +6,7 @@ import Home from "./Home/Home";
 import "./Main.css";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import SpecificArticle from "./Dashboard/Articles/SpecificArticle/SpecificArticle";
+import Video from "./Video/Video";
 
 function Main(): JSX.Element {
     return (
@@ -16,6 +17,7 @@ function Main(): JSX.Element {
                 <Route path="/dashboard" element={<Dashboard/>}></Route>
                 <Route path="/games" element={<Games/>}></Route>
                 <Route path="/articles" element={<Articles/>}></Route>
+                <Route path="/video" element={<Video/>}></Route>
                 <Route path="/specific-article" element={<SpecificArticle/>}></Route>
                 <Route path="/*" element={<PageNotFound/>}></Route>
 			</Routes>

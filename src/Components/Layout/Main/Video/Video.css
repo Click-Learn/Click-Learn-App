@@ -1,0 +1,15 @@
+.Video {
+    width: 100%;
+    margin-bottom: 250px ;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Video .video_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto;
+}

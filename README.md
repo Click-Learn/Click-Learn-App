@@ -5,8 +5,8 @@ The app uses AI learning algorithms to personalize your learning experience and 
 <img width="300px" src="https://user-images.githubusercontent.com/112413505/230037732-7743b5a9-8e2e-43f1-a21e-0cebb31da707.png" />
 
 # Features
-• Vocabulary Practice: The app provides a variety of vocabulary exercises and games to help you learn and remember words in English and Hebrew.<br/>
-• Topic-Based Articles: The app offers a selection of articles on various topics, which you can read and study at your own pace.<br/>
+• Vocabulary Practice: The app provides a variety of vocabulary exercises and games to help you learn and remember words in English and Hebrew.<br/><br/>
+• Topic-Based Articles: The app offers a selection of articles on various topics, which you can read and study at your own pace.<br/><br/>
 • Personalized Learning: The app uses AI learning algorithms to adapt to your learning style and provide customized exercises and content. <br/>
 
 

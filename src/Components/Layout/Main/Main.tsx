@@ -9,6 +9,7 @@ import SpecificArticle from "./Dashboard/Articles/SpecificArticle/SpecificArticl
 import Video from "./Video/Video";
 import Quiz from "./Dashboard/Games/Quiz/Quiz";
 import MemoryGame from "./Dashboard/Games/MemoryGame/MemoryGame";
+import TranslateWithTimer from "./Dashboard/Games/TranslateWithTimer/TranslateWithTimer";
 
 function Main(): JSX.Element {
     return (
@@ -19,6 +20,7 @@ function Main(): JSX.Element {
                 <Route path="/dashboard" element={<Dashboard/>}></Route>
                 <Route path="/games" element={<Games/>}></Route>
                 <Route path="/quiz" element={<Quiz/>}></Route>
+                <Route path="/TranslateWithTimer" element={<TranslateWithTimer/>}></Route>
                 <Route path="/memorygame" element={<MemoryGame/>}></Route>
                 <Route path="/articles" element={<Articles/>}></Route>
                 <Route path="/video" element={<Video/>}></Route>

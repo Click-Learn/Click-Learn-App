@@ -11,20 +11,20 @@ function Games(): JSX.Element {
             </div>
 
             <div className="games_container">
-                <div className="game_box">
+                <div className="game_box" onClick={() => navigate("/TranslateWithTimer")}>
                     <img src="https://i.ibb.co/TwcD0d6/New-Project-6.jpg" alt="" />
                     <p>תרגום לפי זמן</p>
                     <span>עם המילים שלך</span>
                 </div>
 
-                <div className="game_box">
-                    <img src="https://i.ibb.co/WkkxbkB/New-Project-7.jpg" alt="" onClick={() => navigate("/quiz")} />
+                <div className="game_box" onClick={() => navigate("/quiz")}>
+                    <img src="https://i.ibb.co/WkkxbkB/New-Project-7.jpg" alt="" />
                     <p>חידון</p>
                     <span>עם המילים שלך</span>
                 </div>
 
-                <div className="game_box">
-                    <img src="https://i.ibb.co/gtxJpfX/New-Project-8.jpg" alt=""  onClick={() => navigate("/memoryGame")} />
+                <div className="game_box " onClick={() => navigate("/memoryGame")}>
+                    <img src="https://i.ibb.co/gtxJpfX/New-Project-8.jpg" alt=""  />
                     <p>משחק הזיכרון</p>
                     <span>עם המילים שלך</span>
                 </div>

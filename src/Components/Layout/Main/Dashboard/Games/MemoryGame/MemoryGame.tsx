@@ -28,8 +28,7 @@ const game = new GameModel(cards);
 
 
 function MemoryGame(): JSX.Element {
-    const width = 100;
-    const height = 100;
+
     const [cardsState, setCardsState] = useState(game.cards);
     const [isGameOver, setIsGameOver] = useState<boolean>(false);
 

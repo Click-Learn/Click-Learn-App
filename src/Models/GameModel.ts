@@ -55,8 +55,14 @@ export default class GameModel {
           this.secondCardSelected!.isFlipped = false;
           this.firstCardSelected = null;
           this.secondCardSelected = null;
-        }, 1000);
+        }, 1500);
       }
+      
+      
     }
+    
   }
+
+
 }
+

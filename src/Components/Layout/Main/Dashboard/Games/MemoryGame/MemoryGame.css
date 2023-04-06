@@ -1,3 +1,13 @@
 .MemoryGame {
-	
+    display: flex;
+    justify-content: center;
+    margin-bottom: 300px;
+}
+
+.MemoryGame .game-board{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
 }

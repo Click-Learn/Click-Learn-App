@@ -1,7 +1,8 @@
 .MemoryGame {
     display: flex;
     justify-content: center;
-    margin-bottom: 300px;
+    max-width: 750px;
+    margin: 50px auto 300px auto;
 }
 
 .MemoryGame .game-board{
@@ -10,4 +11,17 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 35px;
+}
+
+.MemoryGame .game-over {
+    position: absolute;
+    top: 76px;
+    display: flex;
+    width: 1000px;
+    height: 500px;
+    align-items: center;
+}
+
+.MemoryGame .game-over canvas {
+    z-index: 0 !important;
 }

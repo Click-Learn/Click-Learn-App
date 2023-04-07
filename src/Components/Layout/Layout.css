@@ -4,6 +4,9 @@
 }
 
 .Layout .svg1 {
+    display: none;
+    
+    
     position:  absolute;
     width: 700px;
     right: 0%;
@@ -11,6 +14,11 @@
     z-index: 0;
 }
 .Layout .svg2 {
+    display: none;
+
+
+
+    
     position:  absolute;
     width: 600px;
     left: 0%;

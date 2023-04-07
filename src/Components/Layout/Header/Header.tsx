@@ -129,7 +129,7 @@ function Header(): JSX.Element {
                                 textDecoration: 'none',
                             }}
                         >
-                            LOGO
+                            <img src={logo} width={200} alt="" />
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end', marginRight: '15px' }}>
                         

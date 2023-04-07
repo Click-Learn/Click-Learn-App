@@ -2,7 +2,8 @@
     width: 150px;
     height: 150px;
     /* background-color: red; */
-    background-image: url("https://img.freepik.com/free-vector/green-curve-frame-template-vector_53876-113965.jpg?w=1380&t=st=1680791890~exp=1680792490~hmac=4ac51767e76d343ad2aa457a23b93567cdc66c29027ac237de388b734cf57803");
+    background-image: url("./testc.png");
+    /* background-image: url("https://img.freepik.com/free-vector/green-curve-frame-template-vector_53876-113965.jpg?w=1380&t=st=1680791890~exp=1680792490~hmac=4ac51767e76d343ad2aa457a23b93567cdc66c29027ac237de388b734cf57803"); */
     font-size: 30px;
     cursor: pointer;
     transition: 0.4s;
@@ -15,6 +16,7 @@
     position: relative; /* Add this to properly position the card-inner */
     box-shadow: 0 0 10px 0px var(--color-light-green);
     border-radius: 15px;
+    color: var(--color-light-green);
   }
   
   .card:hover {
@@ -26,6 +28,7 @@
   .flipped {
     transform: rotateY(360deg);
     background-color: var(--color-light-green);
+    color: white;
     background-image: url("");
   }
   

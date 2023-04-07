@@ -17,6 +17,19 @@ export default class GameModel {
     this.isGameOver = false;
   }
 
+  reset() {
+    this.cards = this.cards.sort(() => Math.random() - 0.5);
+    this.firstCardSelected = null;
+    this.secondCardSelected = null;
+    this.totalMoves = 0;
+    this.totalMatches = 0;
+    this.isGameOver = false;
+    this.cards.forEach(card => {
+      card.isFlipped = false;
+      card.isMatched = false;
+    });
+  }
+  
   selectCard(index: number) {
     const selectedCard = this.cards[index];
 
@@ -55,7 +68,7 @@ export default class GameModel {
           this.secondCardSelected!.isFlipped = false;
           this.firstCardSelected = null;
           this.secondCardSelected = null;
-        }, 800);
+        }, 200);
       }
       
       

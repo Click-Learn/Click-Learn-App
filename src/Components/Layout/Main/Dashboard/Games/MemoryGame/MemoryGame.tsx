@@ -5,6 +5,7 @@ import "./MemoryGame.css";
 import Card from "./Card/Card";
 import gameoverSound from "./game-success.mp3";
 import Confetti from 'react-confetti'
+import resetSount from './game-reset.mp3'
 
 // Sample card data
 const cardData = [
@@ -31,13 +32,29 @@ function MemoryGame(): JSX.Element {
 
     const [cardsState, setCardsState] = useState(game.cards);
     const [isGameOver, setIsGameOver] = useState<boolean>(false);
+    const [totalMoves, setTotalMoves] = useState<number>(0);
 
-    const handleCardClick = (index: number) => {
-        console.log('Card clicked:', index);
-        game.selectCard(index);
-        console.log('Updated cards state:', game.cards);
+    const resetGame = () => {
+        game.reset();
         setCardsState([...game.cards]);
+        setIsGameOver(false);
+        setTotalMoves(0);
+        playResetSound();
+      };
 
+      const playResetSound = () => {
+        const audio = new Audio(resetSount);
+        audio.play();
+      };
+      
+    const handleCardClick = (index: number) => {
+        // console.log('Card clicked:', index);
+        game.selectCard(index);
+        // console.log('Updated cards state:', game.cards);
+        setCardsState([...game.cards]);
+        setTotalMoves(game.totalMoves);
+        // console.log(GameModel.totalMoves);
+        
         if (game.isGameOver) {
             setIsGameOver(true);
             const audio = new Audio(gameoverSound);
@@ -49,9 +66,11 @@ function MemoryGame(): JSX.Element {
         <div className="MemoryGame">
           <div className="game-board">
             {cardsState.map((card, index) => (
-              <Card key={index} card={card} onSuccess={() => handleCardClick(index)} onClick={() => handleCardClick(index)} />
-            ))}
+                <Card key={index} card={card} onSuccess={() => handleCardClick(index)} onClick={() => handleCardClick(index)} />
+                ))}
+                <div className="total-moves">מספר מהלכים: {totalMoves}</div>
           </div>
+          <button className="reset-button" onClick={resetGame}>איפוס</button>
           {isGameOver && (
             <div className="game-over">
               <Confetti

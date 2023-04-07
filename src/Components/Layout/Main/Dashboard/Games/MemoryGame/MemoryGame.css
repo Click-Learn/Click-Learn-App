@@ -1,6 +1,8 @@
 .MemoryGame {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     max-width: 750px;
     margin: 50px auto 300px auto;
 }
@@ -24,4 +26,20 @@
 
 .MemoryGame .game-over canvas {
     z-index: 0 !important;
+}
+
+.MemoryGame .total-moves {
+    font-size: 35px;
+    color: var(--color-dark);
+}
+
+.MemoryGame .reset-button {
+    margin-top: 10px;
+    width: 50%;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 15px;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    cursor: pointer !important;
 }

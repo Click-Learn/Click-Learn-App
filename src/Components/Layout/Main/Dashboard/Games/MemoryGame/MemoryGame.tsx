@@ -48,19 +48,21 @@ function MemoryGame(): JSX.Element {
       };
       
     const handleCardClick = (index: number) => {
-        // console.log('Card clicked:', index);
-        game.selectCard(index);
-        // console.log('Updated cards state:', game.cards);
+        game.selectCard(index, () => {
+          setCardsState([...game.cards]);
+          setTotalMoves(game.totalMoves);
+        });
+      
         setCardsState([...game.cards]);
-        setTotalMoves(game.totalMoves);
-        // console.log(GameModel.totalMoves);
-        
+      
         if (game.isGameOver) {
-            setIsGameOver(true);
-            const audio = new Audio(gameoverSound);
-            audio.play();
-          }
-    };
+          setIsGameOver(true);
+          const audio = new Audio(gameoverSound);
+          audio.play();
+        }
+      };
+      
+      
 
     return (
         <div className="MemoryGame">

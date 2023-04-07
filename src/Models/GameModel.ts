@@ -30,9 +30,10 @@ export default class GameModel {
     });
   }
   
-  selectCard(index: number) {
-    const selectedCard = this.cards[index];
 
+selectCard(index: number, callback?: () => void) {
+    const selectedCard = this.cards[index];
+  
     if (
       selectedCard.isFlipped ||
       selectedCard.isMatched ||
@@ -40,15 +41,15 @@ export default class GameModel {
     ) {
       return;
     }
-
+  
     selectedCard.isFlipped = true;
-
+  
     if (!this.firstCardSelected) {
       this.firstCardSelected = selectedCard;
     } else {
       this.secondCardSelected = selectedCard;
       this.totalMoves++;
-
+  
       if (
         this.firstCardSelected.englishWord === this.secondCardSelected.hebrewWord ||
         this.firstCardSelected.hebrewWord === this.secondCardSelected.englishWord
@@ -56,7 +57,7 @@ export default class GameModel {
         this.firstCardSelected.isMatched = true;
         this.secondCardSelected.isMatched = true;
         this.totalMatches++;
-
+  
         if (this.totalMatches === this.cards.length / 2) {
           this.isGameOver = true;
         }
@@ -68,14 +69,15 @@ export default class GameModel {
           this.secondCardSelected!.isFlipped = false;
           this.firstCardSelected = null;
           this.secondCardSelected = null;
-        }, 200);
+  
+          if (callback) {
+            callback();
+          }
+        }, 1000);
       }
-      
-      
     }
-    
   }
-
+  
 
 }
 

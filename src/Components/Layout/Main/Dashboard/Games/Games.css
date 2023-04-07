@@ -38,7 +38,7 @@
 
 
 .Games .games_container {
-    width: 100%;
+    width: 80vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -47,8 +47,8 @@
 }
 
 .Games .games_container .game_box {
-    width: 450px;
-    height: 450px;
+    width: 30%;
+    height: 24vw;
     position: relative;
     display: flex;
     justify-content: center;
@@ -59,7 +59,7 @@
 }
 
 .Games .games_container .game_box p {
-    font-size: 55px;
+    font-size: 150%;
     font-weight: bold;
     line-height: 20%;
     z-index: 1;
@@ -83,3 +83,30 @@
 .Games .games_container .game_box:hover > img {
     box-shadow: 0 0 10px 1px var(--color-light-green);
 }
+
+
+@media only screen and (max-width: 680px) {
+    .Games .games_container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .Games .games_container .game_box {
+        width: 90%;
+    
+    }
+    
+    .Games {
+        margin-bottom: 100px;
+        margin-top: 0px;
+        gap: 0px;
+    }
+
+    .Games .games_top_container .top_text {
+        font-size: 20px;
+    }
+    
+    
+  }

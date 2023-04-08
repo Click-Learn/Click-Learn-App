@@ -98,7 +98,7 @@ const Quiz: React.FC = () => {
         <p>Translate this word:</p>
         <h2>{currentWord.englishWord}</h2>
       </div>
-      <div>
+      <div className="answer_button_container">
         {shuffledAnswers.map((answer, index) => (
           <button
             key={index}

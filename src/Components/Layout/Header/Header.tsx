@@ -133,7 +133,7 @@ function Header(): JSX.Element {
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end', marginRight: '15px' }}>
                         <MenuItem onClick={handleCloseNavMenu}>
-                        <RouterLink to="/about">בלוג</RouterLink>
+                        <RouterLink to="/blog">בלוג</RouterLink>
                         </MenuItem>
 
                         <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/games">

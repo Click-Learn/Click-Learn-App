@@ -32,3 +32,17 @@
     background-image: url("");
   }
   
+
+@media only screen and (max-width: 680px) {
+  .card {
+    width: 60px;
+    height: 60px;
+    background-image: url("./memory-card-cover-b.png");
+    object-fit: cover;
+    font-size: 12px;
+
+  }
+  .flipped {
+    background-image: url("");
+  }
+}

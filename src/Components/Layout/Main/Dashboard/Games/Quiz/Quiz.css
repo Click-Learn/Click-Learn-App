@@ -2,3 +2,79 @@
 	
     margin-bottom: 550px;
 }
+
+
+.Quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    }
+    
+    .Quiz  h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    }
+    
+    .Quiz  p {
+    margin: 0;
+    }
+    
+    .Quiz  h2 {
+    font-size: 60px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    }
+    
+    .Quiz  button {
+    background-color: var(--color-light-green);
+    color: white;
+    font-size: 18px;
+    height: 35px;
+    width: 125px;
+    margin: 10px 5px;
+    box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.342);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    }
+    
+    .Quiz button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    }
+    
+    .Quiz progress {
+    margin-top: 20px;
+    width: 100%;
+    }
+    
+    .Quiz .correct-answer {
+    color: green;
+    font-weight: bold;
+    }
+    
+    .Quiz  .incorrect-answer {
+    color: red;
+    font-weight: bold;
+    }
+    
+
+      .Quiz button.correct {
+        border: 1px solid green;
+      }
+      
+      .Quiz button.incorrect {
+        border: 1px solid red;
+      }
+      
+      .Quiz .correct-answer {
+        color: green;
+      }
+      
+      .Quiz .incorrect-answer {
+        color: red;
+      }
+      

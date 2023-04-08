@@ -28,22 +28,27 @@
         margin-bottom: -10px;
     }
     
-    .Quiz  h2 {
+    .Quiz h2 {
     font-size: 60px;
     margin-top: 20px;
     margin-bottom: 30px;
     }
     
-    .Quiz  button {
+    .Quiz .answer_button_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .Quiz button {
     background-color: var(--color-light-green);
     color: white;
     font-size: 18px;
-    height: 35px;
-    width: 125px;
+    height: 55px;
+    width: 225px;
     margin: 10px 5px;
     box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.342);
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     }
     

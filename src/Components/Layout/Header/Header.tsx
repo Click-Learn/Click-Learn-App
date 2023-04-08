@@ -132,19 +132,17 @@ function Header(): JSX.Element {
                             <img src={logo} width={200} alt="" />
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end', marginRight: '15px' }}>
-                        
-                                <MenuItem onClick={handleCloseNavMenu} >
-                                    <NavLink to="/about">בלוג</NavLink>
-                                </MenuItem>
+                        <MenuItem onClick={handleCloseNavMenu}>
+                        <RouterLink to="/about">בלוג</RouterLink>
+                        </MenuItem>
 
-                                <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/games">
-                                    <NavLink to="/games">משחקים</NavLink>
-                                </MenuItem>
+                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/games">
+                        משחקים
+                        </MenuItem>
 
-                                  <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/dashboard">
-                                    <NavLink to="/dashboard">אזור אישי</NavLink>
-                                </MenuItem>
-
+                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/dashboard">
+                        אזור אישי
+                        </MenuItem>
                         </Box>
 
                         <Box sx={{ flexGrow: 0 }}>

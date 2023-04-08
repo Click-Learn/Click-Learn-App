@@ -20,6 +20,12 @@
     
     .Quiz  p {
     margin: 0;
+    text-align: center;
+    }
+
+    .Quiz .time_left_p {
+        margin-top: 20px;
+        margin-bottom: -10px;
     }
     
     .Quiz  h2 {
@@ -46,35 +52,45 @@
     cursor: not-allowed;
     }
     
-    .Quiz progress {
+    /* .Quiz progress {
     margin-top: 20px;
-    width: 100%;
+    width: 250px;
+    height: 24px;
     }
-    
-    .Quiz .correct-answer {
-    color: green;
-    font-weight: bold;
-    }
-    
-    .Quiz  .incorrect-answer {
-    color: red;
-    font-weight: bold;
-    }
-    
+     */
+    .Quiz progress {
+        margin: 20px;
+        width: 250px;
+        height: 24px;
+        appearance: none;
+        background-color: #eee;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2) inset;
+      }
+      
+      .Quiz progress::-webkit-progress-value {
+        background-color: var(--color-light-green);
+        border-radius: 12px;
+        transition: width 0.2s ease-in-out;
+      }
+      
+      .Quiz progress[value]::-webkit-progress-bar {
+        background-color: #eee;
+        border-radius: 12px;
+      }
+      
+      .Quiz progress[value="10"]::-webkit-progress-value {
+        width: 100%;
+      }
+      
+
 
       .Quiz button.correct {
-        border: 1px solid green;
+        border: 3px solid green;
       }
       
       .Quiz button.incorrect {
-        border: 1px solid red;
+        border: 3px solid red;
       }
-      
-      .Quiz .correct-answer {
-        color: green;
-      }
-      
-      .Quiz .incorrect-answer {
-        color: red;
-      }
-      
+   

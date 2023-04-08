@@ -29,14 +29,14 @@ const Quiz: React.FC = () => {
     let intervalId: NodeJS.Timeout;
     if (isTimerRunning) {
       intervalId = setInterval(() => {
-        if (timer > 1) {
-          setTimer((prevTimer) => prevTimer - 1);
+        if (timer > 0) {
+          setTimer((prevTimer) => prevTimer - 0.1);
         } else {
           setIsTimerRunning(false);
           setIsCorrectAnswer(false);
           setHasAnswered(true);
         }
-      }, 1000);
+      }, 100);
     }
 
     return () => clearInterval(intervalId);
@@ -47,9 +47,24 @@ const Quiz: React.FC = () => {
     setIsCorrectAnswer(isAnswerCorrect);
     setIsTimerRunning(false);
     setHasAnswered(true);
+
+    const answerButtons = document.querySelectorAll(".Quiz button");
+    answerButtons.forEach((button, index) => {
+      if (index === shuffledAnswers.indexOf(currentWord.hebrewWord)) {
+        button.classList.add("correct");
+      } else if (index === answerIndex) {
+        button.classList.add("incorrect");
+      }
+    });
   };
 
   const handleNextWord = () => {
+    const answerButtons = document.querySelectorAll(".Quiz button");
+    answerButtons.forEach((button, index) => {
+        button.classList.remove("correct");
+        button.classList.remove("incorrect");
+    });
+
     setCurrentWordIndex((prevIndex) => {
       const nextIndex = prevIndex + 1;
       if (nextIndex < words.length) {
@@ -95,7 +110,7 @@ const Quiz: React.FC = () => {
         ))}
       </div>
       <div>
-        <p>Time left:</p>
+        <p className="time_left_p">Time left:</p>
         <progress max="10" value={timer}></progress>
       </div>
       {isCorrectAnswer !== null && (
@@ -109,21 +124,7 @@ const Quiz: React.FC = () => {
       )}
       {hasAnswered && (
         <div>
-          <button
-            onClick={() => {
-              setCurrentWordIndex((prevIndex) => {
-                const nextIndex = prevIndex + 1;
-                if (nextIndex < words.length) {
-                  return nextIndex;
-                } else {
-                  return 0;
-                }
-              });
-              setTimer(10);
-              setIsCorrectAnswer(null);
-              setHasAnswered(false);
-            }}
-          >
+          <button onClick={() => {handleNextWord()}}>
             Next word
           </button>
         </div>

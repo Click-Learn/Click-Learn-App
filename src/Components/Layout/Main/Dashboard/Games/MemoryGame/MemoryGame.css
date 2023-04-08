@@ -43,3 +43,11 @@
     color: var(--color-white);
     cursor: pointer !important;
 }
+
+
+    
+@media only screen and (max-width: 680px) {
+    .MemoryGame .game-board{
+        gap: 20px;
+    }
+}

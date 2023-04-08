@@ -42,9 +42,6 @@ margin-top:110px;
     bottom: 5px;
 }
 
-.Dashboard .dashboard_top_container  .saved_words_box {
-    line-height: 10%;
-}
 .Dashboard .dashboard_top_container .dashboard_top_box .icon_arrow {
     font-size: 28px;
 }
@@ -53,7 +50,10 @@ margin-top:110px;
 }
 .Dashboard .dashboard_top_container .dashboard_top_box .saved_text {
     font-size: 12px;
+    height: 0px;
     color: var(--color-dark);
+
+    margin: 0 auto;
 }
 .Dashboard .dashboard_top_container .dashboard_top_box .game_text {
     font-size:18px;
@@ -63,6 +63,8 @@ margin-top:110px;
 .Dashboard .dashboard_top_container .dashboard_top_box .saved_words_count {
     font-size: 28px;
     font-weight: bold;
+    position: relative;
+    bottom: 5px;
     color: var(--color-dark);
 }
 .Dashboard .dashboard_top_container .dashboard_top_box span {
@@ -75,7 +77,7 @@ margin-top:110px;
     justify-content: center;
     align-items: center;
     margin: 150px auto;
-    gap: 150px;
+    gap: 10vw;
 }
 
 .Dashboard .dashboard_bottom_container .banner_dashboard img {
@@ -85,7 +87,8 @@ margin-top:110px;
 .Dashboard .dashboard_bottom_container .save_words_list_container {
     /* border: 1px solid black; */
     padding: 25px;
-    width: 450px;
+    max-width: 450px;
+    width: 35vw;
     display: flex;
     flex-direction: column;
     border-radius: 15px;
@@ -143,7 +146,9 @@ margin-top:110px;
 
 
 @media only screen and (max-width: 1000px) {
-
+    .Dashboard {
+        margin-bottom: 30px;
+    }
     .Dashboard .dashboard_top_container {
         width: 100%;
     }
@@ -152,9 +157,24 @@ margin-top:110px;
     width: 22vw;
     height: 10vw;
     }
+
+    
+.Dashboard .dashboard_bottom_container .banner_dashboard img {
+    width: 300px;        
+}
+.Dashboard .dashboard_bottom_container {
+gap: 5vw;
+}
+.Dashboard .dashboard_bottom_container .save_words_list_container {
+width: 30vw ;
+}
 }
 
 @media only screen and (max-width: 680px) {
+    .Dashboard {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
 
     .Dashboard .dashboard_top_container {
     flex-direction: column;
@@ -164,5 +184,18 @@ margin-top:110px;
     width: 70vw;
     height: 10vw;
     margin-bottom: 25px;
+
+    }
+
+    .Dashboard .dashboard_bottom_container {
+    flex-direction: column;
+    margin: 30px auto;
+    gap: 30px;
+
+    }
+
+    .Dashboard .dashboard_bottom_container .save_words_list_container {
+        width: 70vw ;
+        
     }
 }

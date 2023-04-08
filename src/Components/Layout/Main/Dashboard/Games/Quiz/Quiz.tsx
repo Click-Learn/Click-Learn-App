@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from "react";
 import "./Quiz.css";
 
-    return (
 interface Word {
 englishWord: string;
 hebrewWord: string;
 }
+
 
 const words: Word[] = [
 { englishWord: "hello", hebrewWord: "שלום" },

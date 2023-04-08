@@ -58,6 +58,7 @@
     font-weight: bold;
     font-size: 25px;
     cursor: pointer;
+    z-index: 1;
 
 }
 
@@ -65,6 +66,7 @@
     font-size: 35px;
     font-weight: bold;
     color: var(--color-dark);
+    z-index: 1;
 }
 .Articles .articles_container .create_new_article img {
     position: absolute;
@@ -74,5 +76,4 @@
     border-radius: 15px;
     opacity: 0.6;
     box-shadow: 0 0 6px -1px rgba(0, 0, 0, 0.384);
-    z-index: -1;
 }

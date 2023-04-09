@@ -3,23 +3,30 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Layout from './Components/Layout/Layout';
 import { BrowserRouter } from 'react-router-dom';
-import { useState } from 'react';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { store } from './App/store';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function App() {
+  const webMode = useSelector((state: any) => state.chosenMode.toggle);
+
+  return (
+    <BrowserRouter>
+      <Layout />
+      <ToastContainer theme={webMode ? 'light' : 'dark'} />
+    </BrowserRouter>
+  );
+}
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
+    <App />
   </Provider>
-
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

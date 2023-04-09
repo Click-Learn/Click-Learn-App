@@ -1,6 +1,9 @@
 
 
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 import "./Quiz.css";
 
 interface Word {
@@ -25,6 +28,18 @@ const Quiz: React.FC = () => {
   const [hasAnswered, setHasAnswered] = useState(false);
   const [isTimerRunning, setIsTimerRunning] = useState(true);
 
+
+  const isLogin = useSelector((state : any) => state.authSlice)
+  const navigate = useNavigate()
+  
+  useEffect(() => {
+      if(!isLogin){
+          navigate("/")
+          toastsFunctions.toastError("Must be Login to continue...")
+      }
+  })
+
+  
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
     if (isTimerRunning) {

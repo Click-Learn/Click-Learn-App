@@ -1,6 +1,18 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 import "./SpecificArticle.css";
 
 function SpecificArticle(): JSX.Element {
+    const isLogin = useSelector((state : any) => state.authSlice)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if(!isLogin){
+            navigate("/")
+            toastsFunctions.toastError("Must be Login to continue...")
+        }
+    })
     return (
         <div className="SpecificArticle">
             <div className="specificArticle_top_container">

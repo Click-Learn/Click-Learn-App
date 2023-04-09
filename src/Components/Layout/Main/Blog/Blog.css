@@ -29,16 +29,17 @@
 }
 .Blog .blog_articles_container .article .article_title {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
-    color: #072c91;
+    color: var(--color-dark);
     max-width: 70%;
     display: flex;
-    margin: 10px auto 5px auto;
+    margin: 10px auto 0px auto;
 }
 .Blog .blog_articles_container .article .article_author {
     max-width: 70%;
     color: #8f8f8f;
+    direction: rtl;
 }
 .Blog .blog_articles_container .article .image_article {
     cursor: pointer;

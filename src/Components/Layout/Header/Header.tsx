@@ -10,10 +10,11 @@ import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
 import { BsSun } from "react-icons/bs";
 import { CiSettings } from "react-icons/ci";
+import { AiOutlineMenu } from "react-icons/ai";
 import { MdDarkMode } from "react-icons/md";
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link as RouterLink, NavLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLight, setDark } from "../../../App/lightDarkSlice";
@@ -82,7 +83,8 @@ function Header(): JSX.Element {
 
                         </Typography>
 
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', } }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none'} }}>
+                            
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -91,27 +93,41 @@ function Header(): JSX.Element {
                                 onClick={handleOpenNavMenu}
                                 color="inherit"
                             >
-                                {/* <MenuIcon /> */}
+                                <AiOutlineMenu />
                             </IconButton>
                             <Menu
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
                                 anchorOrigin={{
                                     vertical: 'bottom',
-                                    horizontal: 'left',
+                                    horizontal: 'right',
                                 }}
                                 keepMounted
                                 transformOrigin={{
                                     vertical: 'top',
-                                    horizontal: 'left',
+                                    horizontal: 'right',
                                 }}
                                 open={Boolean(anchorElNav)}
                                 onClose={handleCloseNavMenu}
                                 sx={{
                                     display: { xs: 'block', md: 'none' },
                                 }}
+                                
                             >
+
+                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/dashboard">
+                        אזור אישי
+                        </MenuItem>
+
+                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/games">
+                        משחקים
+                        </MenuItem>
+                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/blog">
+                        בלוג
+                        </MenuItem>
+
                             </Menu>
+                            
                         </Box>
                         <Typography
                             variant="h5"
@@ -129,7 +145,7 @@ function Header(): JSX.Element {
                                 textDecoration: 'none',
                             }}
                         >
-                            <img src={logo} width={200} alt="" />
+                            <img src={logo} width={150} alt="" />
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end', marginRight: '15px' }}>
                         <MenuItem onClick={handleCloseNavMenu}>

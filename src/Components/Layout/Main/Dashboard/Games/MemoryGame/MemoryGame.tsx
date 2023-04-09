@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardModel from "../../../../../../Models/CardModel";
 import GameModel from "../../../../../../Models/GameModel";
 import "./MemoryGame.css";
@@ -6,6 +6,9 @@ import Card from "./Card/Card";
 import gameoverSound from "./game-success.mp3";
 import Confetti from 'react-confetti'
 import resetSount from './game-reset.mp3'
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 
 // Sample card data
 const cardData = [
@@ -29,6 +32,15 @@ const game = new GameModel(cards);
 
 
 function MemoryGame(): JSX.Element {
+
+  const isLogin = useSelector((state : any) => state.authSlice)
+  const navigate = useNavigate()
+  useEffect(() => {
+      if(!isLogin){
+          navigate("/")
+          toastsFunctions.toastError("Must be Login to continue...")
+      }
+  })
 
     const [cardsState, setCardsState] = useState(game.cards);
     const [isGameOver, setIsGameOver] = useState<boolean>(false);

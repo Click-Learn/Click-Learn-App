@@ -85,6 +85,13 @@
 }
 
 
+@media only screen and (max-width: 1000px) {
+    .Games {
+        margin-bottom: 100px;
+        gap: 50px;
+        margin-top: 50px;
+    }
+}
 @media only screen and (max-width: 680px) {
     .Games .games_container {
         flex-direction: column;

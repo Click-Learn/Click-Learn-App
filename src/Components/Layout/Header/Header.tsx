@@ -115,14 +115,14 @@ function Header(): JSX.Element {
                                 
                             >
 
-                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/dashboard">
+                        <MenuItem sx={{justifyContent: 'flex-end', WebkitJustifyContent: 'flex-end'}} onClick={handleCloseNavMenu} component={RouterLink} to="/dashboard">
                         אזור אישי
                         </MenuItem>
 
-                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/games">
+                        <MenuItem sx={{justifyContent: 'flex-end', WebkitJustifyContent: 'flex-end'}} onClick={handleCloseNavMenu} component={RouterLink} to="/games">
                         משחקים
                         </MenuItem>
-                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/blog">
+                        <MenuItem sx={{justifyContent: 'flex-end', WebkitJustifyContent: 'flex-end'}} onClick={handleCloseNavMenu} component={RouterLink} to="/blog">
                         בלוג
                         </MenuItem>
 
@@ -145,7 +145,7 @@ function Header(): JSX.Element {
                                 textDecoration: 'none',
                             }}
                         >
-                            <img src={logo} width={150} alt="" />
+                            <img src={logo} width={150} alt=""  onClick={() => navigate("/")}/>
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end', marginRight: '15px' }}>
                         <MenuItem onClick={handleCloseNavMenu}>

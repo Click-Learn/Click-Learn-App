@@ -25,20 +25,24 @@
 }
 
 .DownloadExtension .Download_Video_Container button {
-    padding: 12px 37px;
+    /* padding: 12px 37px; */
+    width: 170px;
+    height: 45px;
     border: none;
     border-radius: 5px;
     font-size: 17px;
     cursor: pointer;
     margin-top: 40px;
     box-shadow: 0 0 6px -1px rgb(185, 185, 185);
+    transition: 0.2s;
+    transition: all .2s ease-in-out;
 }
 
 
 .DownloadExtension .Download_Video_Container button:hover {
-    transition: 0.2s;
+    /* transition: 0.2s; */
     font-size: 18px;
-    padding: 11.5px 34.5px;
+    /* padding: 11.5px 34.4px; */
 }
 
 .DownloadExtension .Download_Video_Container .btn_extension {
@@ -59,4 +63,28 @@
     outline: 1px solid rgb(203, 202, 202);
     background-color: var(--color-white);
     color: var(--color-light-dark);
+}
+
+
+@media only screen and (max-width: 680px) {
+    .DownloadExtension {
+        width: 80%;    
+        margin: 50px auto;
+    }
+
+    .DownloadExtension h1 {
+        font-size: 32px;
+    }
+    .DownloadExtension p {
+        font-size: 14px;
+    }
+
+    .DownloadExtension .Download_Video_Container button {
+        width: 120px;
+        height: 35px;
+        font-size: 12px;
+    }
+    .DownloadExtension .Download_Video_Container button:hover {
+       font-size: 14px;
+    }
 }

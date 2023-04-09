@@ -2,7 +2,7 @@ import CardModel from "../../../../../../../Models/CardModel";
 import "./Card.css";
 import flipSound from "./card-flip.mp3";
 import cardSuccess from "./card-success.mp3";
-import backImage from "./memory-card-cover-b.png";
+// import backImage from "./memory-card-cover-b.png";
 interface CardProps {
   card: CardModel;
   onClick: () => void;

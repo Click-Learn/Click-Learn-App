@@ -5,12 +5,15 @@ import { IoGameController } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { IconButton } from "@mui/material";
+import { useSelector } from "react-redux";
+import LoginButton from "../Home/Login/LoginButton/LoginButton";
 
 function Dashboard(): JSX.Element {
     const navigate = useNavigate();
     const [isAnimating, setIsAnimating] = useState<boolean>(false);
     const [isSaved, setIsSaved] = useState<boolean>(true);
     
+    const isLogin = useSelector((state : any) => state.authSlice)
 
     const saveWordsListRef = useRef<HTMLDivElement>(null);
     
@@ -32,7 +35,13 @@ function Dashboard(): JSX.Element {
                         <span className="icon_box"><AiFillStar/></span>
                         <div>
                             <p className="saved_text">מילים שמורות</p>
-                            <p className="saved_words_count">9</p>
+                            <p className="saved_words_count">
+                                {isLogin ? 
+                            9 
+                            : 
+                            0    
+                            }
+                            </p>
                         </div>
                         <span className="icon_arrow"><BsArrowLeft/></span>
                     </div>
@@ -59,8 +68,11 @@ function Dashboard(): JSX.Element {
                     <div className="banner_dashboard">
                         <img src="https://i.ibb.co/0Zm9jyk/duplicate-concept-illustration-114360-4010-2.png" alt="" />
                     </div>
-                    
                     <div className={`save_words_list_container${isAnimating ? " animating" : ""}`} ref={saveWordsListRef}>
+                    
+                    {isLogin ?
+                    <div>
+
                         <div className="save_words_lists_line">
                             <IconButton onClick={() => setIsSaved(!isSaved)}  sx={{ p: 0, fontSize: '25px !important' }} >
                                     { isSaved ? 
@@ -120,8 +132,15 @@ function Dashboard(): JSX.Element {
                             </div>
                         </div>
                     </div>
+                 :
+                 <div className="notLogged_dashboard_container">
+                    <p>התחבר כדי לראות את המילים ששמרת</p>
+                     <LoginButton/> 
+                 </div>
+        }
+                    </div>
             </div>
-        </div>
+            </div>
     );
 }
 

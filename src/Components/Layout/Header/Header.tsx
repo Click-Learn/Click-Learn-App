@@ -133,7 +133,6 @@ function Header(): JSX.Element {
                             variant="h5"
                             noWrap
                             component="a"
-                            href=""
                             sx={{
                                 mr: 2,
                                 display: { xs: 'flex', md: 'none' },

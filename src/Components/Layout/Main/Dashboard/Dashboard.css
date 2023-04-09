@@ -179,6 +179,10 @@ width: 30vw ;
     .Dashboard .dashboard_top_container {
     flex-direction: column;
     }
+    .Dashboard .dashboard_top_container .dashboard_top_box .saved_text {
+        position: relative;
+        top: 10px;
+    }
     
     .Dashboard .dashboard_top_container .dashboard_top_box {
     width: 70vw;
@@ -196,6 +200,5 @@ width: 30vw ;
 
     .Dashboard .dashboard_bottom_container .save_words_list_container {
         width: 70vw ;
-        
     }
 }

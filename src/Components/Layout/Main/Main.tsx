@@ -11,6 +11,9 @@ import Quiz from "./Dashboard/Games/Quiz/Quiz";
 import MemoryGame from "./Dashboard/Games/MemoryGame/MemoryGame";
 import TranslateWithTimer from "./Dashboard/Games/TranslateWithTimer/TranslateWithTimer";
 import Blog from "./Blog/Blog";
+import BlogArticle1 from "./Blog/BlogArticles/BlogArticle1/BlogArticle1";
+import BlogArticle2 from "./Blog/BlogArticles/BlogArticle2/BlogArticle2";
+import BlogArticle3 from "./Blog/BlogArticles/BlogArticle3/BlogArticle3";
 
 function Main(): JSX.Element {
     return (
@@ -27,6 +30,9 @@ function Main(): JSX.Element {
                 <Route path="/video" element={<Video/>}></Route>
                 <Route path="/specific-article" element={<SpecificArticle/>}></Route>
                 <Route path="/blog" element={<Blog/>}></Route>
+                <Route path="/blog-post-1" element={<BlogArticle1/>}></Route>
+                <Route path="/blog-post-2" element={<BlogArticle2/>}></Route>
+                <Route path="/blog-post-3" element={<BlogArticle3/>}></Route>
                 <Route path="/*" element={<PageNotFound/>}></Route>
 			</Routes>
         </div>

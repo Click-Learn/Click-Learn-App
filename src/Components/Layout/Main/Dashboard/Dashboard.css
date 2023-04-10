@@ -151,6 +151,9 @@ margin-top:110px;
     gap: 20px;
     margin-bottom: 20px;
 }
+.Dashboard .notLogged_dashboard_container p {
+color: var(--color-dark);
+}
 
 @media only screen and (max-width: 1000px) {
     .Dashboard {

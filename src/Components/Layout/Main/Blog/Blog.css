@@ -35,6 +35,7 @@
     max-width: 70%;
     display: flex;
     margin: 10px auto 0px auto;
+    direction: rtl;
 }
 .Blog .blog_articles_container .article .article_author {
     max-width: 70%;

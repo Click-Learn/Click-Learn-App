@@ -7,6 +7,7 @@ import { Provider, useSelector } from 'react-redux';
 import { store } from './App/store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollToTop from "./helpers/ScrollToTop";
 
 function App() {
   const webMode = useSelector((state: any) => state.chosenMode.toggle);
@@ -14,6 +15,8 @@ function App() {
   return (
     <BrowserRouter>
       <Layout />
+      <ScrollToTop />
+
       <ToastContainer theme={webMode ? 'light' : 'dark'} />
     </BrowserRouter>
   );

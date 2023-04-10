@@ -1,5 +1,6 @@
 import "./Blog.css";
 import MainBanner from "./MainBanner.jpg";
+import MainBannerGIF from "./MainBannerBlogGIF.gif";
 import blog1Image from "./blog1.jpg";
 import blog2Image from "./blog2.jpg";
 import blog3Image from "./blog3.jpg";

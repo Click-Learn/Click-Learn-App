@@ -18,12 +18,17 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLight, setDark } from "../../../App/lightDarkSlice";
+import Avatar from "@mui/material/Avatar";
+import { logoutRedux } from "../../../App/authSlice";
+import LoginButton from "../Main/Home/Login/LoginButton/LoginButton";
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header(): JSX.Element {
     const webMode = useSelector((state: any) => state.chosenMode.toggle)
     let dispatch = useDispatch();
+    const isLogin = useSelector((state : any) => state.authSlice)
+
 
     const navigate = useNavigate();
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
@@ -36,7 +41,7 @@ function Header(): JSX.Element {
     };
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElUser(event.currentTarget);
-    };
+           };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
@@ -161,16 +166,20 @@ function Header(): JSX.Element {
                         </Box>
 
                         <Box sx={{ flexGrow: 0 }}>
-                                <IconButton onClick={clickedWebMode}   sx={{ p: 0, fontSize: '35px !important', margin: '0 25px' }} >
+                                {/* <IconButton onClick={clickedWebMode}   sx={{ p: 0, fontSize: '35px !important', margin: '0 25px' }} >
                                     { isDarkMode ? 
                                       <MdDarkMode style={{color: 'white'}}/>
                                       : 
                                       <BsSun />
                                     }
-                                </IconButton>          
+                                </IconButton>           */}
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, fontSize: '35px !important' }} >
-                                    <CiSettings />
+                                    {isLogin ? 
+                                    <Avatar alt={isLogin.name} src={isLogin.picture} />
+                                    : 
+                                     <CiSettings />
+                                    }
                                 </IconButton>
                             </Tooltip>
                             <Menu
@@ -189,11 +198,30 @@ function Header(): JSX.Element {
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                {settings.map((setting) => (
-                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center">{setting}</Typography>
+                                {/* {settings.map((setting) => ( */}
+                                <MenuItem key={"2"} onClick={() => {
+                                    handleCloseUserMenu()
+                                    clickedWebMode()
+                                    }} sx={{justifyContent: 'end'}}>
+                                    {webMode ? 
+                                        <Typography sx={{display: 'flex', gap: '10px', alignItems: 'center'}} textAlign="center"> <span>הפוך למצב כהה </span> <MdDarkMode/></Typography>
+                                        :
+                                        <Typography  sx={{display: 'flex', gap: '10px', alignItems: 'center'}} textAlign="center"> <span>הפוך למצב בהיר </span> <BsSun/></Typography>
+                                    }
                                     </MenuItem>
-                                ))}
+                                {isLogin ?
+                                    <MenuItem key={"logout"} sx={{justifyContent: 'end'}} onClick={() => {
+                                        handleCloseUserMenu()
+                                        dispatch(logoutRedux())
+                                    }}>
+                                        <Typography textAlign="center">התנתק</Typography>
+                                    </MenuItem>
+                                : 
+                                    <MenuItem key={"login"}  >
+                                        <Typography textAlign="center"  sx={{display: 'flex', flexDirection: 'column', gap: '5px'}}><span >התחבר</span> <LoginButton/></Typography>
+                                    </MenuItem>
+                                }
+                                   
                             </Menu>
                         </Box>
                     </Toolbar>

@@ -5,6 +5,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import "./LoginButton.css";
 import { useDispatch } from "react-redux";
+import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 
 function LoginButton(): JSX.Element {
     const navigate = useNavigate()
@@ -17,14 +18,13 @@ function LoginButton(): JSX.Element {
         // const email= details.email; 
         // console.log(email);
             try {
-                    dispatch(loginRedux(credentialResponse.credential))
-                    // if (!notComputer) {
-                        // toastsFunctions.toastInfo("Head to the settings to choose a different language");
-                    // }
+                dispatch(loginRedux(credentialResponse.credential))
+                if (window.location.pathname === "/" || window.location.pathname === "/home") {
                     navigate("/dashboard");
-            } catch (e) {
+                  }
+            } catch (e : any) {
                 console.log(e);
-                // toastsFunctions.toastError(e.response.data);
+                toastsFunctions.toastError(e);
             }
         }
 

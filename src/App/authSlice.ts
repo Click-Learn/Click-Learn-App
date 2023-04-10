@@ -5,8 +5,8 @@ const token = window.localStorage.getItem('ClickLearnLogged');
 let initialState = null;
 
 if (token) {
-    const { email } : any = jwtDecode(token);
-    initialState =  email ;
+    const { email, name, picture } : any = jwtDecode(token);
+    initialState =  { email, name, picture } ;
 }
 
 const authSlice = createSlice({
@@ -15,9 +15,9 @@ const authSlice = createSlice({
     reducers: {
         loginRedux: (state, action) => {
             window.localStorage.setItem('ClickLearnLogged', action.payload);
-            const { email } : any= jwtDecode(action.payload);
-            console.log(email);
-            state =  email;
+            const { email, name, picture } : any= jwtDecode(action.payload);
+            console.log({email, name, picture});
+            state =  { email, name, picture };
             return state;
         },
 

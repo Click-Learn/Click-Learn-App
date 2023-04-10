@@ -1,5 +1,8 @@
 import "./Footer.css";
 import studentHatImage from "./illustration-student.png"
+import logo from "../Header/clickLearnNewLogo.png";
+import { Link } from "react-router-dom";
+
 function Footer(): JSX.Element {
     return (
         <div className="Footer">
@@ -69,40 +72,41 @@ function Footer(): JSX.Element {
             <div className="column is-logo">
                 <a href="#" className="main-logo">
                     <div className="logo">
-                        <img src="logo.png" alt="stackfindover"/>
+                        <img src={logo} alt="Click Learn App Logo"/>
                     </div>
-                    <div className="logo-info">
-                        <div className="text">Stackfindover</div>
+                    {/* <div className="logo-info">
+                        <div className="text">Click Learn App</div>
                         <span className="copyright">© 2021. All rights reserved.</span>
-                    </div>
+                    </div> */}
                 </a>
             </div>
             <div className="column is-nav">
-                <div className="column-title">Navigation</div>
+                <div className="column-title">ניווט באתר</div>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Join</a></li>
+                    <li> <Link to="/">דף הבית</Link></li>
+                    <li> <Link to="/dashboard">איזור אישי</Link></li>
+                    <li> <Link to="/games">משחקים</Link></li>
+                    <li> <Link to="/blog">בלוג</Link></li>
                 </ul>
             </div>
             <div className="column is-nav">
-                <div className="column-title">Contact</div>
+                <div className="column-title">צור קשר</div>
                 <ul>
-                    <li><a href="#"><i className="fa fa-envelope-open"></i> info@stackfindover.com</a></li>
-                    <li><a href="#"><i className="fa fa-twitter"></i>@stackfindover</a></li>
+                    <li><a href="#"><i className="fa fa-envelope-open"></i> clicklearnapp@gmail.com</a></li>
+                    <li><a href="#"><i className="fa fa-twitter"></i>@Youtube</a></li>
                     <li><a href="#"><i className="fa fa-linkedin"></i>Linkedin</a></li>
                 </ul>
-                <div className="column-title">Other</div>
+                {/* <div className="column-title">Other</div>
                 <ul>
                     <li><a href="#">Quiz</a></li>
-                </ul>
+                </ul> */}
             </div>
-            <div className="column is-nav">
-                <div className="column-title">Blog</div>
+            <div className="column is-nav last_column">
+                <div className="column-title">בלוג</div>
                 <ul>
-                    <li><a href="#">What is jQuery</a></li>
-                    <li><a href="#">What is JavaScript</a></li>
-                    <li><a href="#">How to make money with a blog</a></li>
+                    <li> <Link to="/blog-post-1">"טיפים לשיפור האנגלית שלך"</Link></li>
+                    <li> <Link to="/blog-post-2">"הדרך הקלה ביותר ללמוד אנגלית"</Link></li>
+                    <li> <Link to="/blog-post-3">"האנגלית כשפת מפתח להצלחה"</Link></li>
                 </ul>
             </div>
         </div>

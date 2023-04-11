@@ -46,3 +46,17 @@
     background-color: var(--color-light-green);
     color: var(--color-white);
 }
+
+
+@media only screen and (max-width: 680px) {
+ .notFoundNumber{
+    font-size: 60px;
+ }
+
+ .notFountText{
+    font-size: 40px;
+ }
+ .pageNotFound_Container{
+    margin-bottom: -350px;
+ }
+}

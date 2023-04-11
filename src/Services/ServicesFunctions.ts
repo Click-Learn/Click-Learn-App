@@ -1,6 +1,7 @@
 import { log } from "console";
 import { config } from "../helpers/config";
 import { WordModel } from "../Models/WordModel";
+import { toastsFunctions } from "./ToastFunctions";
 
 class ServicesFunctions {
 
@@ -117,12 +118,16 @@ class ServicesFunctions {
         body : JSON.stringify({word})
       }).then((res) => res.json());
       console.log(response);
-
-      return response;
-    } catch (e: any) {
-      console.log(e);
+      if(response.error == "duplicate"){
+        toastsFunctions.toastInfo(` כבר שמורה ${response.word} המילה `)
+        return false;
     }
+    return true;
+  } catch (e: any) {
+    console.log(e);
+    return false;
   }
+}
 }
 
 export const servicesFunctions = new ServicesFunctions()

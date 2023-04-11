@@ -1,0 +1,51 @@
+.BankWords {
+    margin-top: 35px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 8px;
+}
+
+.BankWords button {
+    cursor: pointer;
+    padding: 7px 10px;
+    border-radius: 7px;
+    border: none;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    border: 1px solid #d5d9d9;
+    min-width: 90px;
+}
+
+/* 
+.BankWords  button {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+} */
+
+.BankWords  button:hover {
+    border: 1px solid var(--color-light-green);
+}
+
+.BankWords  button:focus {
+  border-color: #048138;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+}

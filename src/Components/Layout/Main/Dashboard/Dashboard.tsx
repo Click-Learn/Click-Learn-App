@@ -3,16 +3,18 @@ import { AiFillStar, AiFillRead, AiOutlineStar } from "react-icons/ai";
 import { BsArrowLeft, BsSun } from "react-icons/bs";
 import { IoGameController } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
-import { IconButton } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import LoginButton from "../Home/Login/LoginButton/LoginButton";
+import SavedWords from "./SavedWords/SavedWords";
+import { servicesFunctions } from "../../../../Services/ServicesFunctions";
+import { WordModel } from "../../../../Models/WordModel";
 
 function Dashboard(): JSX.Element {
     const navigate = useNavigate();
     const [isAnimating, setIsAnimating] = useState<boolean>(false);
-    const [isSaved, setIsSaved] = useState<boolean>(true);
-    
+    const [userWords, setUserWords] = useState<WordModel[]>([]);
+
     const isLogin = useSelector((state : any) => state.authSlice)
 
     const saveWordsListRef = useRef<HTMLDivElement>(null);
@@ -28,6 +30,16 @@ function Dashboard(): JSX.Element {
         }, 2000);      }
     };
 
+    useEffect(() => {
+        servicesFunctions.getAllWordByUser().then((words: WordModel[] | undefined) => {
+          if (words) {
+            setUserWords(words);
+          }
+        });
+      }, []);
+      
+ 
+
     return (
         <div className="Dashboard">
 			<div className="dashboard_top_container">
@@ -37,7 +49,7 @@ function Dashboard(): JSX.Element {
                             <p className="saved_text">מילים שמורות</p>
                             <p className="saved_words_count">
                                 {isLogin ? 
-                            9 
+                            userWords.length 
                             : 
                             0    
                             }
@@ -71,67 +83,8 @@ function Dashboard(): JSX.Element {
                     <div className={`save_words_list_container${isAnimating ? " animating" : ""}`} ref={saveWordsListRef}>
                     
                     {isLogin ?
-                    <div>
-
-                        <div className="save_words_lists_line">
-                            <IconButton onClick={() => setIsSaved(!isSaved)}  sx={{ p: 0, fontSize: '25px !important' }} >
-                                    { isSaved ? 
-                                      <AiFillStar style={{ color : 'var(--color-dark)'}} />
-                                      : 
-                                      <AiOutlineStar style={{ color : 'var(--color-dark)'}} />
-                                    }
-                                </IconButton>
-                            <div className="translate_saved_word">
-                                <p>מילה</p>
-                                <span>Array</span>
-                                <p>Word</p>
-                            </div>
-                        </div>
-                        <div className="save_words_lists_line">
-
-                            <div>
-                                Star
-                            </div>
-                            <div className="translate_saved_word">
-                                <p>מילה</p>
-                                <span>Array</span>
-                                <p>Word</p>
-                            </div>
-                        </div>
-                        <div className="save_words_lists_line">
-
-                            <div>
-                                Star
-                            </div>
-                            <div className="translate_saved_word">
-                                <p>מילה</p>
-                                <span>Array</span>
-                                <p>Word</p>
-                            </div>
-                        </div>
-                        <div className="save_words_lists_line">
-
-                            <div>
-                                Star
-                            </div>
-                            <div className="translate_saved_word">
-                                <p>מילה</p>
-                                <span>Array</span>
-                                <p>Word</p>
-                            </div>
-                        </div>
-                        <div className="save_words_lists_line">
-
-                            <div>
-                                Star
-                            </div>
-                            <div className="translate_saved_word">
-                                <p>מילה</p>
-                                <span>Array</span>
-                                <p>Word</p>
-                            </div>
-                        </div>
-                    </div>
+                        <SavedWords userWords={userWords} />
+         
                  :
                  <div className="notLogged_dashboard_container">
                     <p>התחבר כדי לראות את המילים ששמרת</p>

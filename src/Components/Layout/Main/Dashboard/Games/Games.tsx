@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "./Games.css";
+import translateWithTimePhoto from './translate-with-time-photo.jpg';
+import memoryGamePhoto from './memory-game-photo.jpg';
+import quizGamePhoto from './quiz-game-photo.jpg';
 
 function Games(): JSX.Element {
     const navigate = useNavigate();
@@ -12,20 +15,20 @@ function Games(): JSX.Element {
 
             <div className="games_container">
                 <div className="game_box" onClick={() => navigate("/TranslateWithTimer")}>
-                    <img src="https://i.ibb.co/TwcD0d6/New-Project-6.jpg" alt="" />
-                    <p>תרגום לפי זמן</p>
+                    <img src={translateWithTimePhoto} alt="" />
+                    <p className="game_name">תרגום לפי זמן</p>
                     <span>עם המילים שלך</span>
                 </div>
 
                 <div className="game_box" onClick={() => navigate("/quiz")}>
-                    <img src="https://i.ibb.co/WkkxbkB/New-Project-7.jpg" alt="" />
-                    <p>חידון</p>
+                    <img src={quizGamePhoto} alt="" />
+                    <p className="game_name">חידון</p>
                     <span>עם המילים שלך</span>
                 </div>
 
                 <div className="game_box " onClick={() => navigate("/memoryGame")}>
-                    <img src="https://i.ibb.co/gtxJpfX/New-Project-8.jpg" alt=""  />
-                    <p>משחק הזיכרון</p>
+                    <img src={memoryGamePhoto} alt=""  />
+                    <p className="game_name">משחק הזיכרון</p>
                     <span>עם המילים שלך</span>
                 </div>
             </div>

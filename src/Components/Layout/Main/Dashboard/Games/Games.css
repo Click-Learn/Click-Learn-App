@@ -54,12 +54,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: var(--color-dark);
+    /* color: var(--color-dark); */
     cursor: pointer;
 }
 
 .Games .games_container .game_box p {
-    font-size: 150%;
+    /* font-size: 150%; */
     font-weight: bold;
     line-height: 20%;
     z-index: 1;
@@ -84,6 +84,10 @@
     box-shadow: 0 0 10px 1px var(--color-light-green);
 }
 
+
+.game_name{
+    font-size: 50px;
+}
 
 @media only screen and (max-width: 1000px) {
     .Games {

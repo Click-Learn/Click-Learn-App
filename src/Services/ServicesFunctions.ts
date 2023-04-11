@@ -15,9 +15,26 @@ class ServicesFunctions {
       }).then((res) => res.json());
       console.log(response);
 
-      return response;
-    } catch (e: any) {
-      console.log(e);
+    async getAllWordByUser(): Promise<WordModel[]>{
+            try {
+        const response =  await fetch(`${config.BASE_URL}/words`, {
+             mode: "cors",
+             method: "GET",
+             headers : {
+                "Content-Type": "application/json",                                                                                                
+                "Access-Control-Origin": "*",
+                "authorization": "" + window.localStorage.getItem("ClickLearnLogged")
+             },
+             
+          }).then(res => res.json());
+            console.log(response);
+            
+           return response;
+           
+        } catch(e: any) {
+            console.log(e);
+            return [];
+        }
     }
   }
 

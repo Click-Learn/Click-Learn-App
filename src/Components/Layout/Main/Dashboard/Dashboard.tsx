@@ -14,7 +14,7 @@ function Dashboard(): JSX.Element {
     const navigate = useNavigate();
     const [isAnimating, setIsAnimating] = useState<boolean>(false);
     const [userWords, setUserWords] = useState<WordModel[]>([]);
-
+    const [refresh, setRefresh] = useState<boolean>(false);
     const isLogin = useSelector((state : any) => state.authSlice)
 
     const saveWordsListRef = useRef<HTMLDivElement>(null);
@@ -31,12 +31,17 @@ function Dashboard(): JSX.Element {
     };
 
     useEffect(() => {
-        servicesFunctions.getAllWordByUser().then((words: WordModel[] | undefined) => {
-          if (words) {
-            setUserWords(words);
-          }
-        });
-      }, []);
+        if(isLogin) {
+            servicesFunctions.getAllWordByUser().then((words: WordModel[] | undefined) => {
+                if (words) {
+                    setUserWords(words);
+                }
+            });
+        } else {
+            console.log("not logged");
+            
+        }
+      }, [refresh]);
       
  
 
@@ -83,7 +88,7 @@ function Dashboard(): JSX.Element {
                     <div className={`save_words_list_container${isAnimating ? " animating" : ""}`} ref={saveWordsListRef}>
                     
                     {isLogin ?
-                        <SavedWords userWords={userWords} />
+                        <SavedWords userWords={userWords} refresh={refresh} setRefresh={setRefresh} />
          
                  :
                  <div className="notLogged_dashboard_container">

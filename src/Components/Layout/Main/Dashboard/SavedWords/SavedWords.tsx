@@ -6,6 +6,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { WordModel } from "../../../../../Models/WordModel";
 import { servicesFunctions } from "../../../../../Services/ServicesFunctions";
 import { toastsFunctions } from "../../../../../Services/ToastFunctions";
+import BankWords from "./BankWords/BankWords";
 
 function SavedWords({ userWords, refresh, setRefresh }: { userWords: WordModel[], refresh: boolean, setRefresh: (e: boolean) => void  }): JSX.Element {
 
@@ -56,6 +57,28 @@ function SavedWords({ userWords, refresh, setRefresh }: { userWords: WordModel[]
                                         </div>
                                     </div>
                         ))}
+
+                        {userWords.length < 6 ? 
+                        <div className="not_enough_words">
+                           <p className="not_enough_words_p">אין מספיק מילים שמורות</p> 
+                           <p className="not_enough_words_p2">השתמש בתוסף או הוסף מילים</p> 
+                           <button className="btn_extension" >למעבר לתוסף</button>
+
+                           <div>
+                            <BankWords  refresh={refresh} setRefresh={setRefresh} />
+                           </div>
+                        </div>
+                        
+                        : 
+                        <div className="not_enough_words">
+                           <p className="enough_words_p2">השתמש בתוסף או הוסף מילים</p> 
+
+                           <div>
+                            <BankWords  refresh={refresh} setRefresh={setRefresh} />
+                           </div>
+                        </div>
+                        
+                        }
                         
         </div>
     );

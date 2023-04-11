@@ -1,5 +1,6 @@
 .SavedWords {
-	
+	max-height: 300px;
+    overflow-y: auto;
 }
 
 
@@ -8,6 +9,10 @@
     top: 2.5px;
 }
 
+.SavedWords .save_words_lists_line {
+    width: 90%;
+    margin: 0 auto;
+}
 .SavedWords .save_words_lists_line .icons {
     display: flex;
     gap: 10px;
@@ -33,3 +38,50 @@ display: none;
     display: block;
 }
 
+.SavedWords .not_enough_words {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-dark);
+}
+
+.SavedWords .not_enough_words_p {
+    font-weight: bold;
+}
+
+.SavedWords .not_enough_words_p2 {
+    font-size: 15px;
+}
+
+.SavedWords .enough_words_p2{
+    font-size: 15px;
+    margin-top: 35px;
+    margin-bottom: -15px;
+    font-weight: 500;
+    color: var(--color-light-green);
+}
+
+
+.SavedWords  .btn_extension {
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 0 6px -1px rgb(185, 185, 185);
+    transition: 0.2s;
+    transition: all .2s ease-in-out;
+    background-color: var(--color-light-green);
+    outline: 2px solid var(--color-light-green);
+    color: var(--color-white);
+    box-shadow: 0 0 0px 4px #4ce8a2;
+    cursor: pointer !important;
+}
+
+
+.SavedWords .btn_extension:hover {
+    font-size: 14.5px;
+}

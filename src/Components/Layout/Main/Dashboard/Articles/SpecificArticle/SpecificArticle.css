@@ -50,3 +50,44 @@
     margin-bottom: 20px;
     text-align: justify;
 }
+
+/* @media only screen and (max-width: 680px) {
+
+   } */
+
+   @media only screen and (max-width: 680px) {
+    .SpecificArticle .article_main_container {
+        /* max-width: 100%; */
+        max-width: calc(100% - 40px);
+        padding: 20px;
+    }
+
+    .SpecificArticle .article_main_container h2 {
+        font-size: 24px;
+    }
+
+    .SpecificArticle .article_main_container p {
+        font-size: 16px;
+    }
+
+    .SpecificArticle .specificArticle_top_container {
+        font-size: 1.1em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .article_main_container{
+        margin-bottom: -200px;
+    }
+    .SpecificArticle .specificArticle_top_container {
+        font-size: 1em;
+    }
+
+    .SpecificArticle .article_main_container h2 {
+        font-size: 20px;
+    }
+
+    .SpecificArticle .article_main_container p {
+        font-size: 14px;
+    }
+}

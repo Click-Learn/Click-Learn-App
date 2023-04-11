@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-  toggle: true
-}
+let webMode = window.localStorage.getItem("webMode");
+
+  const initialState = {
+    toggle: webMode === "light" ? true : false
+  }
 
 const chosenMode = createSlice({
   name: 'modeToggle',
@@ -10,9 +12,11 @@ const chosenMode = createSlice({
   reducers: {
     setDark: (state) => {
       state.toggle = true
+      window.localStorage.setItem("webMode","light")
     },
     setLight: (state) => {
       state.toggle = false
+      window.localStorage.setItem("webMode", "dark")
     }
   }
 });

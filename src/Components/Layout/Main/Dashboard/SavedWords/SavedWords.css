@@ -7,3 +7,29 @@
     position: relative;
     top: 2.5px;
 }
+
+.SavedWords .save_words_lists_line .icons {
+    display: flex;
+    gap: 10px;
+}
+    
+  .save_words_lists_line .delete_icon_stoke:hover > .SavedWords .save_words_lists_line .delete_icon_full {
+    display: block;
+  }
+
+
+ .SavedWords .delete_icon_full,
+.SavedWords .delete_icon_stroke {
+display: none;
+}
+
+.save_words_lists_line:hover .delete_icon_stroke {
+    display: block;
+}
+.save_words_lists_line .delete_icons:hover > .delete_icon_stroke {
+    display: none;
+}
+.save_words_lists_line .delete_icons:hover > .delete_icon_full {
+    display: block;
+}
+

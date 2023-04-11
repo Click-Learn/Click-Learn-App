@@ -21,6 +21,13 @@ const cardData = [
     // Add more card data as needed
 ];
 
+// if user doesnt have minimun 6 words, then popup an alert info
+// if he does to orgnaize the json from the service function to a json like cardData
+
+// servicesFunctions.getAllWordByUser().then((words: WordModel[] | undefined) => {
+
+
+
 // Create card instances
 const cards = cardData.flatMap(({ englishWord, hebrewWord }) => [
     new CardModel(englishWord, hebrewWord),

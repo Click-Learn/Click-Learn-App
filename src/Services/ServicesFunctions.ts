@@ -69,6 +69,28 @@ class ServicesFunctions {
 
     }
 
+        async DeleteWord(wordId: number){
+            try {
+        const response =  await fetch(`${config.BASE_URL}/deleteWord/${wordId}`, {
+             mode: "cors",
+             method: "DELETE",
+             headers : {
+                "Content-Type": "application/json",                                                                                                
+                "Access-Control-Origin": "*",
+                "authorization": "" + window.localStorage.getItem("ClickLearnLogged")
+             },
+             
+          }).then(res => res.json());
+            console.log(response);
+            
+           return response;
+           
+        } catch(e: any) {
+            console.log(e);
+        }
+
+    }
+
 
 }
 

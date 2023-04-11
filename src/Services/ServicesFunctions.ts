@@ -3,7 +3,7 @@ import { WordModel } from "../Models/WordModel";
 
 class ServicesFunctions {
 
-    async getAllWordByUser(): Promise<WordModel[] | undefined>{
+    async getAllWordByUser(): Promise<WordModel[]>{
             try {
         const response =  await fetch(`${config.BASE_URL}/words`, {
              mode: "cors",
@@ -21,6 +21,7 @@ class ServicesFunctions {
            
         } catch(e: any) {
             console.log(e);
+            return [];
         }
     }
 

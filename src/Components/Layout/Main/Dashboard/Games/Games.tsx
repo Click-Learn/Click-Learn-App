@@ -3,9 +3,25 @@ import "./Games.css";
 import translateWithTimePhoto from './translate-with-time-photo.jpg';
 import memoryGamePhoto from './memory-game-photo.jpg';
 import quizGamePhoto from './quiz-game-photo.jpg';
+import { servicesFunctions } from "../../../../../Services/ServicesFunctions";
+import { toastsFunctions } from "../../../../../Services/ToastFunctions";
 
 function Games(): JSX.Element {
+
     const navigate = useNavigate();
+
+       
+    const  handleMemoryGameClick = async () =>  {
+        const totalWords = await servicesFunctions.getAllWordByUser();
+        console.log(totalWords?.length);
+        
+        if(totalWords?.length < 6 ){
+            toastsFunctions.toastError("חייבים לשמור לפחות 6 מילים על מנת לשחק במשחק הזיכרון")   
+        }else{
+            navigate("/memorygame")
+        }
+      };
+
     return (
         <div className="Games">
 			<div className="games_top_container">
@@ -26,7 +42,7 @@ function Games(): JSX.Element {
                     <span>עם המילים שלך</span>
                 </div>
 
-                <div className="game_box " onClick={() => navigate("/memoryGame")}>
+                <div className="game_box " onClick={handleMemoryGameClick}>
                     <img src={memoryGamePhoto} alt=""  />
                     <p className="game_name">משחק הזיכרון</p>
                     <span>עם המילים שלך</span>

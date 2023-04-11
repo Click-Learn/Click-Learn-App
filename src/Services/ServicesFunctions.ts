@@ -1,19 +1,9 @@
+import { log } from "console";
 import { config } from "../helpers/config";
 import { WordModel } from "../Models/WordModel";
 
 class ServicesFunctions {
-  async getAllWordByUser(): Promise<WordModel[] | undefined> {
-    try {
-      const response = await fetch(`${config.BASE_URL}/words`, {
-        mode: "cors",
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Origin": "*",
-          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
-        },
-      }).then((res) => res.json());
-      console.log(response);
+
 
     async getAllWordByUser(): Promise<WordModel[]>{
             try {
@@ -34,7 +24,6 @@ class ServicesFunctions {
         } catch(e: any) {
             console.log(e);
             return [];
-        }
     }
   }
 

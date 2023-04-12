@@ -50,15 +50,18 @@ function Dashboard(): JSX.Element {
 			<div className="dashboard_top_container">
                     <div className="dashboard_top_box saved_words_box" onClick={() => handleSavedWordsClick()}>
                         <span className="icon_box"><AiFillStar/></span>
-                        <div>
+                        <div className="saved_words_container">
+                            <div className="saved_words_inner">
+
                             <p className="saved_text">מילים שמורות</p>
                             <p className="saved_words_count">
                                 {isLogin ? 
                             userWords.length 
                             : 
                             0    
-                            }
+                        }
                             </p>
+                        </div>
                         </div>
                         <span className="icon_arrow"><BsArrowLeft/></span>
                     </div>

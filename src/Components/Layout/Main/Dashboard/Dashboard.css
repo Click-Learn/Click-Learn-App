@@ -50,8 +50,15 @@ margin-top:110px;
 .Dashboard .dashboard_top_container .dashboard_top_box .icon_box {
     font-size: 45px;
 }
+.Dashboard .dashboard_top_container .saved_words_container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 15px;
+}
 .Dashboard .dashboard_top_container .dashboard_top_box .saved_text {
-    font-size: 12px;
+    font-size: 18px;
+    font-weight: bold;
     height: 0px;
     color: var(--color-dark);
 
@@ -214,3 +221,15 @@ width: 30vw ;
         width: 70vw ;
     }
 }
+.saved_words_inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+@media only screen and (min-width: 681px) and (max-width: 1511px) {
+  .saved_words_inner {
+    flex-direction: row;
+    gap: 10px; 
+  }
+  }

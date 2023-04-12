@@ -36,9 +36,9 @@ function MemoryGame(): JSX.Element {
   })
 
   const [cardsState, setCardsState] = useState<CardModel[]>([]);
-const [isGameOver, setIsGameOver] = useState<boolean>(false);
-const [totalMoves, setTotalMoves] = useState<number>(0);
-const [game, setGame] = useState<GameModel>();
+  const [isGameOver, setIsGameOver] = useState<boolean>(false);
+  const [totalMoves, setTotalMoves] = useState<number>(0);
+  const [game, setGame] = useState<GameModel>();
 
 const resetGame = () => {
   game?.reset();

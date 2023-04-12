@@ -1,5 +1,5 @@
-import { log } from "console";
 import { config } from "../helpers/config";
+import { ArticleModel } from "../Models/ArticleModel";
 import { WordModel } from "../Models/WordModel";
 import { toastsFunctions } from "./ToastFunctions";
 
@@ -18,12 +18,9 @@ class ServicesFunctions {
              },
              
           }).then(res => res.json());
-            console.log(response);
-            
            return response;
            
         } catch(e: any) {
-            console.log(e);
             return [];
     }
   }
@@ -127,6 +124,30 @@ class ServicesFunctions {
     console.log(e);
     return false;
   }
+}
+
+
+
+
+
+async getAllArticlesByUser(): Promise<ArticleModel[]>{
+  try {
+const response =  await fetch(`${config.BASE_URL}/articles`, {
+   mode: "cors",
+   method: "GET",
+   headers : {
+      "Content-Type": "application/json",                                                                                                
+      "Access-Control-Origin": "*",
+      "authorization": "" + window.localStorage.getItem("ClickLearnLogged")
+   },
+   
+}).then(res => res.json());
+  
+ return response;
+ 
+} catch(e: any) {
+  return [];
+}
 }
 }
 

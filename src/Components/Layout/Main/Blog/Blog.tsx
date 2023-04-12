@@ -6,6 +6,8 @@ import blog2Image from "./blog2.jpg";
 import blog3Image from "./blog3.jpg";
 import blog4Image from "./blog4.jpg";
 import { useNavigate } from "react-router-dom";
+import PodcastsSection from "./PodcastsSection/PodcastsSection";
+import AdvantagesSection from "./AdvantagesSection/AdvantagesSection";
 
 function Blog(): JSX.Element {
     const navigate = useNavigate()
@@ -33,10 +35,8 @@ function Blog(): JSX.Element {
 
             </div>
 
-                <div>
-                    <h3 className="vacation_advantages_title">Vacations Advantages</h3>
-                    {/* <img width={400} src="https://img.freepik.com/free-vector/online-app-tourism-traveler-with-mobile-phone-passport-booking-buying-plane-ticket_74855-10966.jpg?w=1380&t=st=1676228322~exp=1676228922~hmac=bd0cab36d7d64e6db59a31886c00851e097dfc003814284f204fae78af19325d" alt="" /> */}
-                </div>
+                <PodcastsSection/>
+                <AdvantagesSection/>
         </div>
     );
 }

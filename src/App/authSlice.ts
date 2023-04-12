@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import jwtDecode from "jwt-decode";
+import { servicesFunctions } from "../Services/ServicesFunctions";
 
 const token = window.localStorage.getItem('ClickLearnLogged');
 let initialState = null;
@@ -14,6 +15,10 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         loginRedux: (state, action) => {
+                if (!token) {
+                    console.log("test");
+                    servicesFunctions.Register(action.payload)
+                }
             window.localStorage.setItem('ClickLearnLogged', action.payload);
             const { email, name, picture } : any= jwtDecode(action.payload);
             console.log({email, name, picture});

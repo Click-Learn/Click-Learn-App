@@ -15,6 +15,7 @@
     align-items: center;
     font-size: 1.3em;
     margin-bottom: 40px;
+    margin-top: 20px;
     color: var(--color-dark);
 }
 
@@ -32,8 +33,22 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+@media only screen and (min-width: 550px) {
+    .ArticleById_breadCrumbs {
+    position: absolute !important;
+    right: 15% !important;
+    }
+}
+.ArticleById_breadCrumbs {
+    direction: rtl;
+}
 
-
+.ArticleById_breadCrumbs a {
+    color: var(--color-dark);
+}
+.ArticleById_breadCrumbs p {
+    color: var(--color-light-dark);
+}
 
 .ArticleById .article_main_container h2 {
     font-size: 28px;
@@ -61,7 +76,7 @@
    @media only screen and (max-width: 680px) {
     .ArticleById .article_main_container {
         /* max-width: 100%; */
-        max-width: calc(100% - 40px);
+        max-width: calc(100% - 60px);
         padding: 20px;
     }
 

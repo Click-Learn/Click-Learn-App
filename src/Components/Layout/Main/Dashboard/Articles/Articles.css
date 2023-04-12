@@ -29,6 +29,7 @@
     border: 1px solid var(--color-dark);
     border-radius: 15px;
     width: 450px;
+    overflow-y: auto;
     height: 450px;
 }
 .Articles .articles_container .create_new_article {
@@ -96,28 +97,81 @@
 .Articles .articles_container .article_by_user_container {
     display: flex;
     padding: 20px;
-    width: 85%;
+    width: 80%;
     margin: 0 auto;
     border-bottom:1px solid var(--color-light-green) ;
     height: 30px;
     cursor: pointer;
-    justify-content: start;
+    justify-content: space-between;
     gap: 15px;
     align-items: center;
     font-size: 35px;
 }
+.Articles .articles_container .article_by_user_container .article_icon_title_container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-.Articles .articles_container .delete_icon_full {
+.Articles .articles_container .article_icon_full {
     display: none;
 }
-.Articles .articles_container .delete_icon_stroke {
+.Articles .articles_container .article_icon_stroke {
     display: block;
 }
 
-.Articles .articles_container .article_by_user_container:hover .delete_icon_full {
+.Articles .articles_container .article_by_user_container:hover .article_icon_full {
     display: block;
 }
 
-.Articles .articles_container .article_by_user_container:hover .delete_icon_stroke {
+.Articles .articles_container .article_by_user_container:hover .article_icon_stroke {
     display: none;
+}
+
+
+
+
+  .last_articles_container::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  .last_articles_container::-webkit-scrollbar-track {
+    background-color: var(--color-white);
+    border-radius: 20px;
+}
+
+.last_articles_container::-webkit-scrollbar-thumb {
+    background: #464646;
+    border-radius: 20px;
+}
+
+.last_articles_container::-webkit-scrollbar-thumb:hover {
+    background-color: #575757;
+    cursor: pointer !important;
+  }
+  
+
+
+.Articles .delete_icons {
+    font-size: 25px;
+}
+
+  .save .article_by_user_container .delete_icon_stoke:hover > .Articles .article_by_user_container .delete_icon_full {
+    display: block;
+  }
+
+
+ .Articles .delete_icon_full,
+.Articles .delete_icon_stroke {
+display: none;
+}
+
+.article_by_user_container:hover .delete_icon_stroke {
+    display: block;
+}
+.article_by_user_container .delete_icons:hover > .delete_icon_stroke {
+    display: none;
+}
+.article_by_user_container .delete_icons:hover > .delete_icon_full {
+    display: block;
 }

@@ -6,6 +6,7 @@ import { toastsFunctions } from "../../../../../Services/ToastFunctions";
 import "./Articles.css";
 import { MdArticle, MdOutlineArticle } from "react-icons/md";
 import { ArticleModel } from "../../../../../Models/ArticleModel";
+import { MdDelete, MdDeleteOutline } from "react-icons/md";
 
 function Articles(): JSX.Element {
     const navigate = useNavigate();
@@ -27,6 +28,14 @@ function Articles(): JSX.Element {
         
     }, [isLogin])
 
+    async function deleteArticle(article : ArticleModel) {
+        servicesFunctions.DeleteArticle(article.id).then((res) =>{
+            // setRefresh(!refresh)
+            toastsFunctions.toastSuccess("Deleted")
+            return
+        }) 
+    }
+
     return (
         <div className="Articles">
 			<div className="Articles_top_container">
@@ -38,14 +47,21 @@ function Articles(): JSX.Element {
                     {articles.length >= 1 ?
                     articles.map((article) => (
                         <div className="article_by_user_container" onClick={() => navigate(`/article/${article.id}`)}>
-                        <div className="article_icon">
-                            <MdOutlineArticle className="delete_icon_stroke" style={{ color : 'var(--color-dark)'}}/>
-                            <MdArticle className="delete_icon_full" style={{ color : 'var(--color-dark)'}}/>
-                        </div>
-                        <div className="article_title_desc">
-                            <p className="article_title">{article.articleTitle} /</p>
-                            <p className="article_desc">{article.article.split(' ').slice(0, 3).join(' ')}...</p>
-                        </div>
+                            <div className="article_icon_title_container">
+                                <div className="article_icon">
+                                    <MdOutlineArticle className="article_icon_stroke" style={{ color : 'var(--color-dark)'}}/>
+                                    <MdArticle className="article_icon_full" style={{ color : 'var(--color-dark)'}}/>
+                                </div>
+                                <div className="article_title_desc">
+                                    <p className="article_title">{article.articleTitle} /</p>
+                                    <p className="article_desc">{article.article.split(' ').slice(0, 3).join(' ')}...</p>
+                                </div>
+                            </div>
+                            <div className="delete_icons" onClick={(e) => {e.stopPropagation(); deleteArticle(article);}}>
+                                <MdDelete className="delete_icon_full" style={{ color : 'var(--color-dark)'}} />
+                                <MdDeleteOutline className="delete_icon_stroke" style={{ color : 'var(--color-dark)'}} />
+                            </div>
+
                     </div>
                     ))
                    : <>

@@ -4,10 +4,14 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import { useSelector } from "react-redux";
 import { ArticleModel } from "../../../../../../Models/ArticleModel";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 import { useParams } from 'react-router-dom';
 import { servicesFunctions } from "../../../../../../Services/ServicesFunctions";
+
+import Typography from '@mui/material/Typography';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+
 
 function ArticleById(): JSX.Element {
     const isLogin = useSelector((state : any) => state.authSlice)
@@ -34,6 +38,23 @@ function ArticleById(): JSX.Element {
 
     return (
         <div className="ArticleById">
+            <div className="ArticleById_breadCrumbs">
+                    <Breadcrumbs aria-label="breadcrumb"  >
+                        <Link  color="inherit" to="/">
+                            דף הבית
+                        </Link>
+                        <Link  color="inherit" to="/dashboard">
+                            איזור אישי
+                        </Link>
+                        <Link
+                            color="inherit"
+                            to={"/articles"}
+                            >
+                            כל המאמרים
+                        </Link>
+                        <Typography color="text.primary"> מאמר הנוכחי</Typography>
+                    </Breadcrumbs>
+                    </div>
             <div className="ArticleById_top_container">
                     <h1>מאמר חדש </h1>
             </div>

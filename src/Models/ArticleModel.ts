@@ -3,4 +3,4 @@ export interface ArticleModel {
     userId: number,
     article: string,
     articleTitle: string
-}
+} 

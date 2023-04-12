@@ -1,9 +1,27 @@
 .SavedWords {
-	max-height: 300px;
+    max-height: 300px;
     overflow-y: auto;
+  }
+
+  .SavedWords::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  .SavedWords::-webkit-scrollbar-track {
+    background-color: var(--color-white);
+    border-radius: 20px;
 }
 
+.SavedWords::-webkit-scrollbar-thumb {
+    background: #464646;
+    border-radius: 20px;
+}
 
+.SavedWords::-webkit-scrollbar-thumb:hover {
+    background-color: #575757;
+    cursor: pointer !important;
+  }
+  
 .SavedWords .arrow_right {
     position: relative;
     top: 2.5px;

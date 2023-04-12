@@ -78,6 +78,25 @@ class ServicesFunctions {
     }
   }
 
+  async DeleteArticle(articleId: number) {
+    try {
+      const response = await fetch(`${config.BASE_URL}/deleteArticle/${articleId}`, {
+        mode: "cors",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Origin": "*",
+          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+        },
+      }).then((res) => res.json());
+      console.log(response);
+
+      return response;
+    } catch (e: any) {
+      console.log(e);
+    }
+  }
+
   async getAllWordsromBank() {
     try {
       const response = await fetch(`${config.BASE_URL}/wordsbank`, {

@@ -98,7 +98,7 @@
     padding: 20px;
     width: 85%;
     margin: 0 auto;
-    border-bottom:1px solid lightgray ;
+    border-bottom:1px solid var(--color-light-green) ;
     height: 30px;
     cursor: pointer;
     justify-content: start;

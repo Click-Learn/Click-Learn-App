@@ -20,10 +20,12 @@ function Articles(): JSX.Element {
             navigate('/specific-article')
         }
     }
-
+    
     useEffect(() => {
         if(isLogin){ 
             servicesFunctions.getAllArticlesByUser().then(res => setArticles(res));
+        } else {
+            setArticles([])
         }
         
     }, [isLogin])

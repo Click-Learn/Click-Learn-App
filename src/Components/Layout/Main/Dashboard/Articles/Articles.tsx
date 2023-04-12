@@ -1,13 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { servicesFunctions } from "../../../../../Services/ServicesFunctions";
 import { toastsFunctions } from "../../../../../Services/ToastFunctions";
 import "./Articles.css";
-
+import { MdArticle, MdOutlineArticle } from "react-icons/md";
+import { ArticleModel } from "../../../../../Models/ArticleModel";
 
 function Articles(): JSX.Element {
     const navigate = useNavigate();
-    const isLogin = useSelector((state : any) => state.authSlice)
+    const isLogin = useSelector((state : any) => state.authSlice);
+    const [articles, setArticles] = useState<ArticleModel[]>([]);
 
     function navigateToNewArticle(){
         if(!isLogin){
@@ -17,6 +20,11 @@ function Articles(): JSX.Element {
         }
     }
 
+    useEffect(() => {
+        servicesFunctions.getAllArticlesByUser().then(res => setArticles(res));
+
+    }, [])
+
     return (
         <div className="Articles">
 			<div className="Articles_top_container">
@@ -25,8 +33,18 @@ function Articles(): JSX.Element {
 
             <div className="articles_container">
                 <div className="last_articles_container">
-                    <p>המאמרים שקראת לאחרונה</p>
-
+                    {articles?.map((article) => (
+                    <div className="article_by_user_container">
+                        <div className="article_icon">
+                            <MdOutlineArticle className="delete_icon_stroke" style={{ color : 'var(--color-dark)'}}/>
+                            <MdArticle className="delete_icon_full" style={{ color : 'var(--color-dark)'}}/>
+                        </div>
+                        <div className="article_title_desc">
+                            <p className="article_title">{article.articleTitle} /</p>
+                            <p className="article_desc">{article.article.split(' ').slice(0, 3).join(' ')}...</p>
+                        </div>
+                    </div>
+                    ))}
                 </div>
 
                 <div className="create_new_article" onClick={()=> navigateToNewArticle()}>

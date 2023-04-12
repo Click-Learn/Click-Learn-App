@@ -77,3 +77,47 @@
     opacity: 0.6;
     box-shadow: 0 0 6px -1px rgba(0, 0, 0, 0.384);
 }
+.Articles .articles_container .article_by_user_container .article_title_desc .article_title {
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--color-dark);
+}
+.Articles .articles_container .article_by_user_container .article_title_desc .article_desc {
+    color: var(--color-light-dark);
+    font-size: 15px;
+}
+
+.Articles .articles_container .article_by_user_container .article_title_desc {
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.Articles .articles_container .article_by_user_container {
+    display: flex;
+    padding: 20px;
+    width: 85%;
+    margin: 0 auto;
+    border-bottom:1px solid lightgray ;
+    height: 30px;
+    cursor: pointer;
+    justify-content: start;
+    gap: 15px;
+    align-items: center;
+    font-size: 35px;
+}
+
+.Articles .articles_container .delete_icon_full {
+    display: none;
+}
+.Articles .articles_container .delete_icon_stroke {
+    display: block;
+}
+
+.Articles .articles_container .article_by_user_container:hover .delete_icon_full {
+    display: block;
+}
+
+.Articles .articles_container .article_by_user_container:hover .delete_icon_stroke {
+    display: none;
+}

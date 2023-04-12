@@ -22,7 +22,7 @@ function Articles(): JSX.Element {
 
     useEffect(() => {
         servicesFunctions.getAllArticlesByUser().then(res => setArticles(res));
-
+        
     }, [])
 
     return (
@@ -34,7 +34,7 @@ function Articles(): JSX.Element {
             <div className="articles_container">
                 <div className="last_articles_container">
                     {articles?.map((article) => (
-                    <div className="article_by_user_container">
+                    <div className="article_by_user_container" onClick={() => navigate(`/article/${article.id}`)}>
                         <div className="article_icon">
                             <MdOutlineArticle className="delete_icon_stroke" style={{ color : 'var(--color-dark)'}}/>
                             <MdArticle className="delete_icon_full" style={{ color : 'var(--color-dark)'}}/>

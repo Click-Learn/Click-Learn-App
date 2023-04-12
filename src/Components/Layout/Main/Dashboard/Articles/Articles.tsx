@@ -21,9 +21,11 @@ function Articles(): JSX.Element {
     }
 
     useEffect(() => {
-        servicesFunctions.getAllArticlesByUser().then(res => setArticles(res));
+        if(isLogin){ 
+            servicesFunctions.getAllArticlesByUser().then(res => setArticles(res));
+        }
         
-    }, [])
+    }, [isLogin])
 
     return (
         <div className="Articles">
@@ -33,8 +35,9 @@ function Articles(): JSX.Element {
 
             <div className="articles_container">
                 <div className="last_articles_container">
-                    {articles?.map((article) => (
-                    <div className="article_by_user_container" onClick={() => navigate(`/article/${article.id}`)}>
+                    {articles.length >= 1 ?
+                    articles.map((article) => (
+                        <div className="article_by_user_container" onClick={() => navigate(`/article/${article.id}`)}>
                         <div className="article_icon">
                             <MdOutlineArticle className="delete_icon_stroke" style={{ color : 'var(--color-dark)'}}/>
                             <MdArticle className="delete_icon_full" style={{ color : 'var(--color-dark)'}}/>
@@ -44,7 +47,10 @@ function Articles(): JSX.Element {
                             <p className="article_desc">{article.article.split(' ').slice(0, 3).join(' ')}...</p>
                         </div>
                     </div>
-                    ))}
+                    ))
+                   : <>
+                   Please Login
+                   </>}
                 </div>
 
                 <div className="create_new_article" onClick={()=> navigateToNewArticle()}>

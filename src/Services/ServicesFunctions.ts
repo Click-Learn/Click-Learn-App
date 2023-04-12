@@ -4,24 +4,20 @@ import { WordModel } from "../Models/WordModel";
 import { toastsFunctions } from "./ToastFunctions";
 
 class ServicesFunctions {
-
-
-    async getAllWordByUser(): Promise<WordModel[]>{
-            try {
-        const response =  await fetch(`${config.BASE_URL}/words`, {
-             mode: "cors",
-             method: "GET",
-             headers : {
-                "Content-Type": "application/json",                                                                                                
-                "Access-Control-Origin": "*",
-                "authorization": "" + window.localStorage.getItem("ClickLearnLogged")
-             },
-             
-          }).then(res => res.json());
-           return response;
-           
-        } catch(e: any) {
-            return [];
+  async getAllWordByUser(): Promise<WordModel[]> {
+    try {
+      const response = await fetch(`${config.BASE_URL}/words`, {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Origin": "*",
+          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+        },
+      }).then((res) => res.json());
+      return response;
+    } catch (e: any) {
+      return [];
     }
   }
 
@@ -102,7 +98,6 @@ class ServicesFunctions {
   }
 
   async addWordromBank(word: WordModel) {
-    
     try {
       const response = await fetch(`${config.BASE_URL}/wordfrombank`, {
         mode: "cors",
@@ -112,43 +107,55 @@ class ServicesFunctions {
           "Access-Control-Origin": "*",
           authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
         },
-        body : JSON.stringify({word})
+        body: JSON.stringify({ word }),
       }).then((res) => res.json());
       console.log(response);
-      if(response.error == "duplicate"){
-        toastsFunctions.toastInfo(` כבר שמורה ${response.word} המילה `)
+      if (response.error == "duplicate") {
+        toastsFunctions.toastInfo(` כבר שמורה ${response.word} המילה `);
         return false;
+      }
+      return true;
+    } catch (e: any) {
+      console.log(e);
+      return false;
     }
-    return true;
-  } catch (e: any) {
-    console.log(e);
-    return false;
+  }
+
+  async getAllArticlesByUser(): Promise<ArticleModel[]> {
+    try {
+      const response = await fetch(`${config.BASE_URL}/articles`, {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Origin": "*",
+          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+        },
+      }).then((res) => res.json());
+
+      return response;
+    } catch (e: any) {
+      return [];
+    }
+  }
+
+  async getArticleByIdByUser(id: number): Promise<ArticleModel | undefined> {
+    try {
+      const response = await fetch(`${config.BASE_URL}/article/${id}`, {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Origin": "*",
+          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+        },
+      }).then((res) => res.json());
+      
+      return response[0];
+    } catch (e: any) {
+      return undefined;
+    }
   }
 }
 
-
-
-
-
-async getAllArticlesByUser(): Promise<ArticleModel[]>{
-  try {
-const response =  await fetch(`${config.BASE_URL}/articles`, {
-   mode: "cors",
-   method: "GET",
-   headers : {
-      "Content-Type": "application/json",                                                                                                
-      "Access-Control-Origin": "*",
-      "authorization": "" + window.localStorage.getItem("ClickLearnLogged")
-   },
-   
-}).then(res => res.json());
-  
- return response;
- 
-} catch(e: any) {
-  return [];
-}
-}
-}
-
-export const servicesFunctions = new ServicesFunctions()
+export const servicesFunctions = new ServicesFunctions();

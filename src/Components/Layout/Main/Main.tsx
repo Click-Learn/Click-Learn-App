@@ -14,6 +14,7 @@ import Blog from "./Blog/Blog";
 import BlogArticle1 from "./Blog/BlogArticles/BlogArticle1/BlogArticle1";
 import BlogArticle2 from "./Blog/BlogArticles/BlogArticle2/BlogArticle2";
 import BlogArticle3 from "./Blog/BlogArticles/BlogArticle3/BlogArticle3";
+import ArticleById from "./Dashboard/Articles/ArticleById/ArticleById";
 
 function Main(): JSX.Element {
     return (
@@ -27,6 +28,7 @@ function Main(): JSX.Element {
                 <Route path="/TranslateWithTimer" element={<TranslateWithTimer/>}></Route>
                 <Route path="/memorygame" element={<MemoryGame/>}></Route>
                 <Route path="/articles" element={<Articles/>}></Route>
+                <Route path="/article/:id" element={<ArticleById/>}></Route>
                 <Route path="/video" element={<Video/>}></Route>
                 <Route path="/specific-article" element={<SpecificArticle/>}></Route>
                 <Route path="/blog" element={<Blog/>}></Route>

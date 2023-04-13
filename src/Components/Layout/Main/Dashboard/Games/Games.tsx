@@ -3,6 +3,8 @@ import "./Games.css";
 import translateWithTimePhoto from './translate-with-time-photo.jpg';
 import memoryGamePhoto from './memory-game-photo.jpg';
 import quizGamePhoto from './quiz-game-photo.jpg';
+import newMemoryGame from './memory-game2.jpg';
+import translatebyTime from './translateByTime.jpg';
 import { servicesFunctions } from "../../../../../Services/ServicesFunctions";
 import { toastsFunctions } from "../../../../../Services/ToastFunctions";
 
@@ -31,8 +33,8 @@ function Games(): JSX.Element {
 
             <div className="games_container">
                 <div className="game_box" onClick={() => navigate("/TranslateWithTimer")}>
-                    <img src={translateWithTimePhoto} alt="" />
-                    <p className="game_name">תרגום לפי זמן</p>
+                    <img src={translatebyTime} alt="" />
+                    {/* <p className="game_name">תרגום לפי זמן</p> */}
                     <span>עם המילים שלך</span>
                 </div>
 
@@ -43,8 +45,8 @@ function Games(): JSX.Element {
                 </div>
 
                 <div className="game_box " onClick={handleMemoryGameClick}>
-                    <img src={memoryGamePhoto} alt=""  />
-                    <p className="game_name">משחק הזיכרון</p>
+                    <img src={newMemoryGame} alt=""  />
+                    {/* <p className="game_name">משחק הזיכרון</p> */}
                     <span>עם המילים שלך</span>
                 </div>
             </div>

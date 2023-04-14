@@ -20,6 +20,22 @@ class ServicesFunctions {
       return [];
     }
   }
+  async getAllFavoriteWordsByUser(): Promise<WordModel[]> {
+    try {
+      const response = await fetch(`${config.BASE_URL}/favorite-words`, {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Origin": "*",
+          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+        },
+      }).then((res) => res.json());
+      return response;
+    } catch (e: any) {
+      return [];
+    }
+  }
 
   async Favorite(wordId: number) {
     try {
@@ -80,15 +96,18 @@ class ServicesFunctions {
 
   async DeleteArticle(articleId: number) {
     try {
-      const response = await fetch(`${config.BASE_URL}/deleteArticle/${articleId}`, {
-        mode: "cors",
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Origin": "*",
-          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
-        },
-      }).then((res) => res.json());
+      const response = await fetch(
+        `${config.BASE_URL}/deleteArticle/${articleId}`,
+        {
+          mode: "cors",
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Origin": "*",
+            authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+          },
+        }
+      ).then((res) => res.json());
       console.log(response);
 
       return response;
@@ -169,15 +188,13 @@ class ServicesFunctions {
           authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
         },
       }).then((res) => res.json());
-      
+
       return response[0];
     } catch (e: any) {
       return undefined;
     }
   }
 
-
-  
   async Register(token: string) {
     try {
       const response = await fetch(`${config.BASE_URL}/register`, {

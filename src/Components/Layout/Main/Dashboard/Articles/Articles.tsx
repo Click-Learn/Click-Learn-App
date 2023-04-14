@@ -13,6 +13,7 @@ function Articles(): JSX.Element {
     const navigate = useNavigate();
     const isLogin = useSelector((state: any) => state.authSlice);
     const [articles, setArticles] = useState<ArticleModel[]>([]);
+    const [refresh, setRefresh] = useState<boolean>(false);
 
     function navigateToNewArticle() {
         if (!isLogin) {
@@ -29,11 +30,12 @@ function Articles(): JSX.Element {
             setArticles([])
         }
 
-    }, [isLogin])
+    }, [isLogin, refresh])
 
     async function deleteArticle(article: ArticleModel) {
         servicesFunctions.DeleteArticle(article.id).then((res) => {
             // setRefresh(!refresh)
+            setRefresh(!refresh)
             toastsFunctions.toastSuccess("Deleted")
             return
         })
@@ -71,13 +73,16 @@ function Articles(): JSX.Element {
                             ))
 
                             : <>
-                                <div className="notLogged_articles_container">
-                                    <p>
-                                        התחבר כדי לראות את המאמרים ששמרת
-                                    </p>
-                                    <LoginButton />
-                                </div>
+                                אין עדיין מאמרים
                             </>}
+                            {!isLogin ? 
+                                  <div className="notLogged_articles_container">
+                                  <p>
+                                      התחבר כדי לראות את המאמרים ששמרת
+                                  </p>
+                                  <LoginButton />
+                              </div>
+                              : <></>}
                     </div>
                
                     <div className="create_new_article" onClick={() => navigateToNewArticle()}>

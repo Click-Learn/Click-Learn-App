@@ -22,7 +22,7 @@ margin-top:110px;
     max-width: 310px;
     max-height: 120px;
     height: 11vw;
-    width: 16vw;
+    width: 20vw;
     background-color: var(--color-white);
     padding: 20px 25px;
     /* box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.150); */
@@ -229,7 +229,7 @@ width: 30vw ;
 
 @media only screen and (min-width: 681px) and (max-width: 1511px) {
   .saved_words_inner {
-    flex-direction: row;
+    flex-direction: column;
     gap: 10px; 
   }
   }

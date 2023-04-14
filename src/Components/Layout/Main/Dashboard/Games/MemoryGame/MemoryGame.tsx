@@ -10,20 +10,12 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 import { servicesFunctions } from "../../../../../../Services/ServicesFunctions";
+import { WordModel } from "../../../../../../Models/WordModel";
 
-getCards().then((cards) => {
-  const game = new GameModel(cards);
-});
+// getCards().then((cards) => {
+//   const game = new GameModel(cards);
+// });
 
-async function getCards(): Promise<CardModel[]> {
-  const words = await servicesFunctions.getAllWordByUser();
-  const cards: CardModel[] = words.flatMap(({ englishWord, hebrewWord }) => [
-    new CardModel(englishWord, hebrewWord),
-    new CardModel(hebrewWord, englishWord),
-  ]);
-  
-  return cards.slice(0, 12);
-}
 
 function MemoryGame(): JSX.Element {
   const isLogin = useSelector((state : any) => state.authSlice)
@@ -34,6 +26,55 @@ function MemoryGame(): JSX.Element {
           toastsFunctions.toastError("Must be Login to continue...")
       }
   })
+
+
+  async function getCards(): Promise<CardModel[]> {
+  const words: WordModel[] = await servicesFunctions.getAllWordByUser();
+    
+  // Filter the words based on whether they are favorites or not
+  const favoriteWords = words.filter(({ favorite }) => favorite == true);
+  const unfavoriteWords = words.filter(({ favorite }) => favorite == false);
+  
+
+
+  // If the user doesn't have at least 6 words, navigate to "/"
+  if (words.length < 6) {
+    navigate("/dashboard");
+    toastsFunctions.toastError("חייבים לשמור לפחות 6 מילים על מנת לשחק במשחק הזיכרון")   
+    return [];
+  }
+
+  // Take the first 6 favorite words randomly
+  let selectedWords = favoriteWords
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 6);
+
+  // If there are not enough favorite words, complete with unfavorite words
+  if (selectedWords.length < 6) {
+    const remainingWords = 6 - selectedWords.length;
+    const remainingUnfavoriteWords = unfavoriteWords
+    .filter(({ englishWord }) => !selectedWords.some((word) => word.englishWord === englishWord && word.favorite))
+    .sort(() => Math.random() - 0.5)
+    .slice(0, remainingWords);
+  
+    selectedWords = selectedWords.concat(remainingUnfavoriteWords);
+  }
+
+  
+
+  // Create the card models
+  const cards: CardModel[] = selectedWords
+    .flatMap(({ englishWord, hebrewWord }) => [
+      new CardModel(englishWord, hebrewWord),
+      new CardModel(hebrewWord, englishWord),
+    ])
+    .slice(0, 12);
+    
+    
+  return cards;
+}
+
+  
 
   const [cardsState, setCardsState] = useState<CardModel[]>([]);
   const [isGameOver, setIsGameOver] = useState<boolean>(false);

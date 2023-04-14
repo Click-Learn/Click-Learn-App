@@ -127,7 +127,6 @@ class ServicesFunctions {
           authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
         },
       }).then((res) => res.json());
-      console.log(response);
 
       return response;
     } catch (e: any) {

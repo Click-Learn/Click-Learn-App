@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { WordModel } from "../../../../../../Models/WordModel";
+import { servicesFunctions } from "../../../../../../Services/ServicesFunctions";
 import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 import "./Quiz.css";
 
@@ -11,34 +13,32 @@ interface Word {
   hebrewWord: string;
 }
 
-const words: Word[] = [
-  { englishWord: "hello", hebrewWord: "שלום" },
-  { englishWord: "goodbye", hebrewWord: "להתראות" },
-  { englishWord: "please", hebrewWord: "בבקשה" },
-  { englishWord: "thank you", hebrewWord: "תודה" },
-  { englishWord: "sun", hebrewWord: "שמש" },
-  { englishWord: "hat", hebrewWord: "כובע" },
-  // Add more card data as needed
-];
-
 const Quiz: React.FC = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
   const [timer, setTimer] = useState(10);
   const [hasAnswered, setHasAnswered] = useState(false);
   const [isTimerRunning, setIsTimerRunning] = useState(true);
-
+  const [words, setWords] = useState<Word[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const isLogin = useSelector((state : any) => state.authSlice)
   const navigate = useNavigate()
   
   useEffect(() => {
-      if(!isLogin){
-          navigate("/")
-          toastsFunctions.toastError("Must be Login to continue...")
-      }
-  })
-
+    if (!isLogin) {
+      navigate("/");
+      toastsFunctions.toastError("Must be Login to continue...");
+    } else {
+      servicesFunctions.getAllFavoriteWordsByUser().then((res: WordModel[]) => {
+        const userWords = res.map(({ englishWord, hebrewWord }) => ({
+          englishWord,
+          hebrewWord,
+        }));
+          setWords(userWords);
+      });
+    }
+  }, [isLogin]);
   
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -51,7 +51,8 @@ const Quiz: React.FC = () => {
           setIsCorrectAnswer(false);
           setHasAnswered(true);
         }
-      }, 100);
+        
+      }, 1000);
     }
 
     return () => clearInterval(intervalId);
@@ -94,20 +95,27 @@ const Quiz: React.FC = () => {
     setIsTimerRunning(true);
   };
 
-  const currentWord = words[currentWordIndex];
-  const shuffledAnswers = React.useMemo(() => {
-    const answers = [
-      currentWord.hebrewWord,
-      ...words
-        .filter((word) => word.englishWord !== currentWord.englishWord)
-        .map((word) => word.hebrewWord),
-    ].slice(0, 4);
-    return answers.sort(() => Math.random() - 0.5);
-  }, [currentWord, words]);
 
+  const currentWord = words.length > 0 ? words[currentWordIndex] : { englishWord: '', hebrewWord: '' };
+    // const currentWord = words[currentWordIndex];
+    const shuffledAnswers = React.useMemo(() => {
+      if (currentWord && words.length > 1) {
+        const answers = [
+          currentWord.hebrewWord,
+          ...words
+          .filter((word) => word.englishWord !== currentWord.englishWord)
+          .map((word) => word.hebrewWord),
+        ].slice(0, 4);
+        return answers.sort(() => Math.random() - 0.5);
+      } else {
+        return [];
+      }
+    }, [currentWord, words]); 
+  
 
   return (
     <div className="Quiz">
+      
       <h1>Quiz Game</h1>
       <div>
         <p>Translate this word:</p>
@@ -119,7 +127,7 @@ const Quiz: React.FC = () => {
             key={index}
             onClick={() => handleAnswer(index)}
             disabled={hasAnswered}
-          >
+            >
             {answer}
           </button>
         ))}
@@ -130,11 +138,11 @@ const Quiz: React.FC = () => {
       </div>
       {isCorrectAnswer !== null && (
         <div>
-          {isCorrectAnswer ? (
-            <p className="correct-answer">Correct answer!</p>
+        {isCorrectAnswer ? (
+          <p className="correct-answer">Correct answer!</p>
           ) : (
             <p className="incorrect-answer">Incorrect answer.</p>
-          )}
+            )}
         </div>
       )}
       {hasAnswered && (

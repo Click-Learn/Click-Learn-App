@@ -20,25 +20,34 @@ const Quiz: React.FC = () => {
   const [hasAnswered, setHasAnswered] = useState(false);
   const [isTimerRunning, setIsTimerRunning] = useState(true);
   const [words, setWords] = useState<Word[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  const [numCorrectAnswers, setNumCorrectAnswers] = useState<number>(0)
+  const [numIncorrectAnswers, setNumIncorrectAnswers] = useState<number>(0)
   const isLogin = useSelector((state : any) => state.authSlice)
   const navigate = useNavigate()
-  
+  const [quizCompleted, setQuizCompleted] = useState(false);
+
   useEffect(() => {
     if (!isLogin) {
       navigate("/");
       toastsFunctions.toastError("Must be Login to continue...");
-    } else {
+    } else if(!quizCompleted){
+      setCurrentWordIndex(0);
+      setIsCorrectAnswer(null);
+      setNumCorrectAnswers(0);
+      setNumIncorrectAnswers(0);
+      setHasAnswered(false);
+      setIsTimerRunning(true);
+      setTimer(10);
       servicesFunctions.getAllFavoriteWordsByUser().then((res: WordModel[]) => {
         const userWords = res.map(({ englishWord, hebrewWord }) => ({
           englishWord,
           hebrewWord,
         }));
-          setWords(userWords);
+        const shuffledWords = userWords.sort(() => Math.random() - 0.5);
+        setWords(shuffledWords);
       });
     }
-  }, [isLogin]);
+  }, [isLogin, quizCompleted]);
   
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -52,18 +61,18 @@ const Quiz: React.FC = () => {
           setHasAnswered(true);
         }
         
-      }, 1000);
+      }, 100);
     }
 
     return () => clearInterval(intervalId);
   }, [timer, isTimerRunning]);
-
+  
   const handleAnswer = (answerIndex: number) => {
     const isAnswerCorrect = answerIndex === shuffledAnswers.indexOf(currentWord.hebrewWord);
     setIsCorrectAnswer(isAnswerCorrect);
     setIsTimerRunning(false);
     setHasAnswered(true);
-
+  
     const answerButtons = document.querySelectorAll(".Quiz button");
     answerButtons.forEach((button, index) => {
       if (index === shuffledAnswers.indexOf(currentWord.hebrewWord)) {
@@ -72,8 +81,14 @@ const Quiz: React.FC = () => {
         button.classList.add("incorrect");
       }
     });
+  
+    if (isAnswerCorrect) {
+      setNumCorrectAnswers(numCorrectAnswers + 1);
+    } else {
+      setNumIncorrectAnswers(numIncorrectAnswers + 1);
+    }
   };
-
+  
   const handleNextWord = () => {
     const answerButtons = document.querySelectorAll(".Quiz button");
     answerButtons.forEach((button, index) => {
@@ -117,42 +132,60 @@ const Quiz: React.FC = () => {
     <div className="Quiz">
       
       <h1>Quiz Game</h1>
+        {!quizCompleted ?
+        <>
+
       <div>
-        <p>Translate this word:</p>
-        <h2>{currentWord.englishWord}</h2>
+      <p>שאלה {currentWordIndex + 1} מתוך {words.length}</p>
+      <p>:תרגם/י את המילה</p>
+      <h2>{currentWord.englishWord}</h2>
       </div>
       <div className="answer_button_container">
         {shuffledAnswers.map((answer, index) => (
           <button
-            key={index}
-            onClick={() => handleAnswer(index)}
-            disabled={hasAnswered}
+          key={index}
+          onClick={() => handleAnswer(index)}
+          disabled={hasAnswered}
             >
             {answer}
           </button>
         ))}
       </div>
       <div>
-        <p className="time_left_p">Time left:</p>
+        <p className="time_left_p">:זמן שנשאר</p>
         <progress max="10" value={timer}></progress>
       </div>
       {isCorrectAnswer !== null && (
         <div>
         {isCorrectAnswer ? (
-          <p className="correct-answer">Correct answer!</p>
+          <p className="correct-answer">!תשובה נכונה</p>
           ) : (
-            <p className="incorrect-answer">Incorrect answer.</p>
+            <p className="incorrect-answer">.תשובה לא נכונה</p>
             )}
         </div>
       )}
       {hasAnswered && (
         <div>
+          {currentWordIndex === words.length - 1 ?
+          <button onClick={(() => setQuizCompleted(true))}>סיים/י</button>
+          :
           <button onClick={() => {handleNextWord()}}>
-            Next word
+            למילה הבאה
           </button>
+          }
         </div>
       )}
+      </>
+
+    : 
+      <>
+        <p style={{margin: '30px'}}>סיימת! הצלחת  {numCorrectAnswers} מתוך {words.length}  </p>
+        <h2 style={{margin: '30px'}}>{(numCorrectAnswers / words.length) * 100}%</h2>
+        <button onClick={() => setQuizCompleted(false)}>התחלה מחדש</button>
+      </>
+    }
     </div>
+    
   );
 };
 

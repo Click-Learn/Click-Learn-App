@@ -6,49 +6,6 @@ import { Link } from "react-router-dom";
 function Footer(): JSX.Element {
     return (
         <div className="Footer">
-     
-     {/* <footer className="footer">
-        <div className="start-learning">
-            <div className="footer-start">
-                <div className="texts">
-                    <h2 className="section-title">תתחיל/י לשפר את האנגלית</h2>
-                    <h3 className="section-sub-heading">
-                        <span>  בקרוב - לימוד עם  </span>
-                        <strong>מורה</strong> 
-                        <span> רק ב</span> 
-                        <strong>30 ש"ח</strong>
-                        <span> לשיעור </span>
-                    </h3>
-                </div>
-                <a href="#" className="button">
-                    <span className="label">הצטרף/י למשפחה</span>
-                </a>
-            </div>
-        </div>
-        <div className="inner">
-            <div className="column is-nav">
-                <div className="column-title">Navigation</div>
-                <ul>
-                </ul>
-            </div>
-            <div className="column is-nav">
-                <div className="column-title">Contact</div>
-                <ul>
-                    <li><a href="mailto:clicklearnapp@gmail.com"><i className="fa fa-envelope-open"></i> clicklearnapp@gmail.com</a></li>
-                    <li><a href="*"><i className="fa fa-twitter"></i>@Github</a></li>
-                </ul>
-            </div>
-            <div className="column is-nav">
-                <div className="column-title">Here</div>
-                <ul>
-                    <li>Here</li>
-                    <li>here</li>
-                </ul>
-            </div>
-        </div>
-    </footer> */}
-        
-        
         <footer className="footer">
         <div className="start-learning">
             <div className="footer-start">

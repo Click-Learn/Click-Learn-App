@@ -44,6 +44,7 @@ function TranslateWithTimer(): JSX.Element {
 
     }, [])
     const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
+    const [currentWordIndeCounting, setCurrentWordIndeCounting] = useState<number>(0);
     const [timeRemaining, setTimeRemaining] = useState<number>(60);
     const [userTranslation, setUserTranslation] = useState<string>("");
     const [countCorrect, setCountCorrect] = useState<number>(0);
@@ -72,6 +73,7 @@ function TranslateWithTimer(): JSX.Element {
     function startGame() {
         setTimeRemaining(60);
         getRandomWord();
+        setCurrentWordIndeCounting(0)
     }
 
     function resetGame() {
@@ -79,12 +81,14 @@ function TranslateWithTimer(): JSX.Element {
         setUserTranslation("");
         setCountCorrect(0);
         setCountUncorrect(0);
+        setCurrentWordIndeCounting(0);
         setUsedWordIndices(new Set());
         startGame();
         setGameComplete(false);
         setCorrectAnswer(false);
     }
     function getRandomWord() {
+        setCurrentWordIndeCounting(currentWordIndeCounting + 1)
         if (usedWordIndices.size === words.length) {
           gameOver();
           return;
@@ -96,7 +100,10 @@ function TranslateWithTimer(): JSX.Element {
         }
       
         setCurrentWordIndex(newIndex);
+        console.log(newIndex);
+        
         setUsedWordIndices((prevSet) => new Set(prevSet.add(newIndex)));
+
       }
 
     function checkAnswer() {
@@ -126,10 +133,20 @@ function TranslateWithTimer(): JSX.Element {
         // Implement your game over logic here, e.g., show a final score or a message
         setGameComplete(true);
     }
+
+
+
+    function handleKeypress(e: any) {
+        if (e.keyCode === 13) {
+            checkAnswer();
+          }
+    }
     return (
         <div className="TranslateWithTimer">
+
             {!gameComplete ? (
                 <div className="game-container">
+                  <p>שאלה {currentWordIndeCounting + 1} מתוך {words.length}</p>
 
 
                     <div className="word-container">
@@ -141,7 +158,8 @@ function TranslateWithTimer(): JSX.Element {
                         value={userTranslation}
                         onChange={(e) => setUserTranslation(e.target.value)}
                         placeholder="....כיתבו את המילה באנגלית"
-                    />
+                        onKeyDown={handleKeypress}
+                        />
                     {correctAnswer && <div className="end-of-time"><div className="text">{words[currentWordIndex].englishWord}: המילה הנכונה היא </div> <button className="next-button" onClick={endOfTime}>המשך לשאלה הבאה</button> </div>}
                     {!correctAnswer && <div className="timer">{timeRemaining}</div>}
                     {!correctAnswer &&<progress max="60" value={timeRemaining}></progress>}

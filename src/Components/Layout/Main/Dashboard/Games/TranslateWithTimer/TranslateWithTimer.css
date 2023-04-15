@@ -1,3 +1,148 @@
-.TranslateWithTimer {
-	
+.TranslateWithTimer  {
+	height: 564px;
+
 }
+
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 750px;
+    margin: 50px auto;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-container .word-container {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.game-container input[type="text"] {
+    font-size: 18px;
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.game-container ::placeholder {
+    text-align: right;
+}
+
+
+
+.game-container .timer {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.game-container .done-button {
+    width: 50%;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.game-container .next-button {
+    width: 70%;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+
+.TranslateWithTimer .game-footer{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 750px;
+    margin: 50px auto;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0px 0px 100px var(--color-white); */
+}
+
+.TranslateWithTimer .game-footer .game-data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.TranslateWithTimer .game-footer .reset-button{
+    margin-top: 15px;
+    width: 50%;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    cursor: pointer;
+}
+.end-of-time{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+.end-of-time .text{
+color: red;
+}
+
+.game-container progress {
+    margin: 20px;
+    width: 250px;
+    height: 24px;
+    appearance: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2) inset;
+  }
+  
+  .game-container progress::-webkit-progress-value {
+    background-color: var(--color-light-green);
+    border-radius: 12px;
+    transition: width 0.2s ease-in-out;
+  }
+  
+  .game-container progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 12px;
+  }
+  
+  .game-container progress[value="10"]::-webkit-progress-value {
+    width: 100%;
+  }
+
+
+@media only screen and (max-width: 800px) {
+    .game-container {
+        max-width: 80%;
+    }
+.game-footer{
+    max-width: 80%;
+}
+.TranslateWithTimer  {
+	height: 300px;
+
+}
+}
+
+
+  

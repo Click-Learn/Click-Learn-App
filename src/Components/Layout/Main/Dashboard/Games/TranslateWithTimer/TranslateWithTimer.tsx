@@ -3,9 +3,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 import "./TranslateWithTimer.css";
-import { dividerClasses } from "@mui/material";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import { log } from "console";
 
 interface WordPair {
     hebrew: string;
@@ -58,10 +55,7 @@ function TranslateWithTimer(): JSX.Element {
         return () => clearTimeout(timer);
     }, [timeRemaining]);
 
-    // const renderTime = ({ remainingTime }: { remainingTime: number }) => {
-    //     return <div className="timer">{remainingTime}</div>;
-    // };
-
+    
     function startGame() {
         setTimeRemaining(60);
         getRandomWord();

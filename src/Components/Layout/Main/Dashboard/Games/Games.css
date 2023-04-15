@@ -105,7 +105,9 @@
     }
     
     .Games .games_container .game_box {
-        width: 90%;
+        /* width: 90%; */
+        height: 180px;
+        width: 180px;
     
     }
     

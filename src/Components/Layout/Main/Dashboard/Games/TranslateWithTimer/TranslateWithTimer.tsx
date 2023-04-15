@@ -1,31 +1,48 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { WordModel } from "../../../../../../Models/WordModel";
+import { servicesFunctions } from "../../../../../../Services/ServicesFunctions";
 import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 import "./TranslateWithTimer.css";
 
 interface WordPair {
-    hebrew: string;
-    english: string;
+    hebrewWord: string;
+    englishWord: string;
 }
 
-const words: WordPair[] = [
-    { hebrew: "שלום", english: "hello" },
-    { hebrew: "כחול", english: "blue" },
-    // Add more words here
-];
+// const words: WordPair[] = [
+//     { hebrewWord: "שלום", englishWord: "hello" },
+//     { hebrewWord: "כחול", englishWord: "blue" },
+//     // Add more words here
+// ];
 
 
 function TranslateWithTimer(): JSX.Element {
 
     const isLogin = useSelector((state: any) => state.authSlice)
     const navigate = useNavigate()
+    const [words, setWords] = useState<WordPair[]>([])
     useEffect(() => {
         if (!isLogin) {
             navigate("/")
             toastsFunctions.toastError("Must be Login to continue...")
+        } else {
+            servicesFunctions.getAllFavoriteWordsByUser().then((res: WordModel[]) => {
+                const userWords = res.map(({ englishWord, hebrewWord }) => ({
+                    hebrewWord,
+                  englishWord,
+                }));
+                console.log(userWords);
+                
+                // const shuffledWords = userWords.sort(() => Math.random() - 0.5);
+                setWords(userWords);
+                startGame();
+
+        })
         }
-    })
+
+    }, [])
     const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
     const [timeRemaining, setTimeRemaining] = useState<number>(60);
     const [userTranslation, setUserTranslation] = useState<string>("");
@@ -36,10 +53,6 @@ function TranslateWithTimer(): JSX.Element {
 
     const [usedWordIndices, setUsedWordIndices] = useState<Set<number>>(new Set());
 
-
-    useEffect(() => {
-        startGame();
-    }, [gameComplete]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -55,7 +68,7 @@ function TranslateWithTimer(): JSX.Element {
         return () => clearTimeout(timer);
     }, [timeRemaining]);
 
-    
+
     function startGame() {
         setTimeRemaining(60);
         getRandomWord();
@@ -71,32 +84,30 @@ function TranslateWithTimer(): JSX.Element {
         setGameComplete(false);
         setCorrectAnswer(false);
     }
-
     function getRandomWord() {
         if (usedWordIndices.size === words.length) {
-            gameOver();
-            return;
+          gameOver();
+          return;
         }
-
+      
         let newIndex = Math.floor(Math.random() * words.length);
         while (usedWordIndices.has(newIndex)) {
-            newIndex = Math.floor(Math.random() * words.length);
+          newIndex = Math.floor(Math.random() * words.length);
         }
-
+      
         setCurrentWordIndex(newIndex);
         setUsedWordIndices((prevSet) => new Set(prevSet.add(newIndex)));
-    }
+      }
 
     function checkAnswer() {
         const inputElemnt = document.getElementById("input");
-        if (userTranslation.trim().toLowerCase() === words[currentWordIndex].english) {
+        if (userTranslation.toLowerCase() === words[currentWordIndex].englishWord.toLocaleLowerCase()) {
             // Correct answer
             setCountCorrect(countCorrect + 1);
             inputElemnt!.style.border = "1px solid grey";
             getRandomWord();
         } else {
             // Incorrect answer
-            console.log(inputElemnt);
             inputElemnt!.style.border = "1px solid red";
             setCountUncorrect(countUncorrect + 1);
         }
@@ -122,7 +133,7 @@ function TranslateWithTimer(): JSX.Element {
 
 
                     <div className="word-container">
-                        <span>{words[currentWordIndex].hebrew}</span>
+                        <span>{words[currentWordIndex]?.hebrewWord}</span>
                     </div>
                     <input
                         id="input"
@@ -131,7 +142,7 @@ function TranslateWithTimer(): JSX.Element {
                         onChange={(e) => setUserTranslation(e.target.value)}
                         placeholder="....כיתבו את המילה באנגלית"
                     />
-                    {correctAnswer && <div className="end-of-time"><div className="text">{words[currentWordIndex].english}: המילה הנכונה היא </div> <button className="next-button" onClick={endOfTime}>המשך לשאלה הבאה</button> </div>}
+                    {correctAnswer && <div className="end-of-time"><div className="text">{words[currentWordIndex].englishWord}: המילה הנכונה היא </div> <button className="next-button" onClick={endOfTime}>המשך לשאלה הבאה</button> </div>}
                     {!correctAnswer && <div className="timer">{timeRemaining}</div>}
                     {!correctAnswer &&<progress max="60" value={timeRemaining}></progress>}
                     

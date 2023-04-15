@@ -105,6 +105,10 @@
 color: red;
 }
 
+#input:focus {
+    border: none;
+    outline: none;
+}
 .game-container progress {
     margin: 20px;
     width: 250px;

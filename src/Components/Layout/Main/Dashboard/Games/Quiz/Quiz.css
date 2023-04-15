@@ -102,3 +102,8 @@
         border: 3px solid red;
       }
    
+      @media only screen and (max-width: 680px) {
+        .answer_button_container button {
+          width: 40vw;
+      }
+      }

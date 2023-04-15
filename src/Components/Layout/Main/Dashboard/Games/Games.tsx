@@ -40,12 +40,12 @@ function Games(): JSX.Element {
 
                 <div className="game_box" onClick={() => navigate("/quiz")}>
                     <img src={quizGamePhoto} alt="" />
-                    <p className="game_name">חידון</p>
+                    {/* <p className="game_name">חידון</p> */}
                     <span>עם המילים שלך</span>
                 </div>
 
                 <div className="game_box " onClick={handleMemoryGameClick}>
-                    <img src={newMemoryGame} alt=""  />
+                    <img src={memoryGamePhoto} alt=""  />
                     {/* <p className="game_name">משחק הזיכרון</p> */}
                     <span>עם המילים שלך</span>
                 </div>

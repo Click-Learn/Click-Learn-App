@@ -194,6 +194,25 @@ class ServicesFunctions {
     }
   }
 
+  async createNewArticle(): Promise<string> {
+    try {
+      const response = await fetch(`${config.BASE_URL}/newArticle`, {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Origin": "*",
+          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+        },
+      }).then((res) => res.json());
+      console.log(response);
+      
+      return response;
+    } catch (e: any) {
+      return "";
+    }
+  }
+
   async Register(token: string) {
     try {
       const response = await fetch(`${config.BASE_URL}/register`, {
@@ -205,6 +224,31 @@ class ServicesFunctions {
           authorization: token,
         },
       }).then((res) => res.json());
+      return response;
+    } catch (e: any) {
+      console.log(e);
+      return false;
+    }
+  }
+
+
+  async Subscribe(email: string) {
+    try {
+      const response = await fetch(`${config.BASE_URL}/subscribe`, {
+        mode: "cors",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Origin": "*",
+        },
+        body: JSON.stringify({ email }),
+      }).then((res) => res.json());
+
+  
+      if (response.errors) {
+        return false;
+      }
+  
       return response;
     } catch (e: any) {
       console.log(e);

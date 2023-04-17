@@ -141,6 +141,7 @@ ul > li { line-height: 1.5em; }
 a.button {
     display: inline-flex;
     position: relative;
+    cursor: pointer;
     height: 60px;
     margin-right: 20px;
     flex-direction: row;

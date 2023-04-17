@@ -13,9 +13,14 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    border: 'none',
     boxShadow: 24,
+    borderRadius: '15px',
     p: 4,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '35px',
+    alignItems: 'center',
     justifyContent: 'center'
   };
 
@@ -54,11 +59,8 @@ function Footer(): JSX.Element {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                     הרשם/י לקבלת עדכונים
                     </Typography>
-                    {/* <Typography id="modal-modal-description" sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: '10px' }}> */}
-                    {/* הרשם/י לקבלת עדכונים */}
-                    <TextField id="outlined-basic"   label="אימייל" variant="outlined" />
-
-                    {/* </Typography> */}
+                    <TextField id="outlined-basic" sx={{width: '80%'}}  label="Email" variant="outlined" />
+                    <button className="newsletter_modal_btn">שלח</button>
                 </Box>
                 </Modal>
                 <img className="illustration" src={studentHatImage} alt="illustration" width="120" height="94"/>

@@ -4,6 +4,8 @@ import logo from "../Header/clickLearnNewLogo.png";
 import { Link } from "react-router-dom";
 import { Modal, Box, Typography, TextField } from "@mui/material";
 import { useState } from "react";
+import { servicesFunctions } from "../../../Services/ServicesFunctions";
+import { toastsFunctions } from "../../../Services/ToastFunctions";
 
 
 const style = {
@@ -26,15 +28,45 @@ const style = {
 
 function Footer(): JSX.Element {
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () =>{
+        setOpen(true);
+        setEmailError("");
+    } 
+
     const handleClose = () => setOpen(false);
     const [emailInput, setEmailInput] = useState<string>("")
+    const [emailError, setEmailError] = useState<string>("");
 
-    function SubscribeNewsletter() {
-        console.log(emailInput);
+   async function SubscribeNewsletter() {
+        if(validateEmail(emailInput)){
+            // verify email 
+            const sub = await servicesFunctions.Subscribe(emailInput);
+            if(!sub){
+                toastsFunctions.toastError("🔒 המייל הזה כבר רשום")
+                handleClose();
+                return
+            } else {
 
-        // verify email 
-        
+                handleClose();
+                toastsFunctions.toastSuccess("👌 קיבלנו בהצלחה")
+            }
+        } else {
+            console.log("wrong email ");
+            setEmailError("כתובת המייל שהוזנה אינה חוקית");
+
+        }
+    }
+
+    function validateEmail(email: string) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      
+    function handleKeypress(e: any) {
+        if (e.keyCode === 13) {
+            SubscribeNewsletter();
+          }
     }
 
     return (
@@ -66,7 +98,8 @@ function Footer(): JSX.Element {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                     הרשם/י לקבלת עדכונים
                     </Typography>
-                    <TextField id="outlined-basic" sx={{width: '80%'}} onInput={(e: any) => setEmailInput(e.target.value)} label="Email" variant="outlined" />
+                    <TextField onKeyDown={handleKeypress} id="outlined-basic" sx={{width: '80%'}} onInput={(e: any) => setEmailInput(e.target.value)} label="Email" variant="outlined" />
+                    {emailError && <span style={{ color: "red", position:'absolute', bottom: '85px' }}>{emailError}</span>}
                     <button onClick={() => SubscribeNewsletter()} className="newsletter_modal_btn">שלח</button>
                 </Box>
                 </Modal>

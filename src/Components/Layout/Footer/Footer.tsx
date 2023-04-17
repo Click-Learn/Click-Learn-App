@@ -2,8 +2,29 @@ import "./Footer.css";
 import studentHatImage from "./illustration-student.png"
 import logo from "../Header/clickLearnNewLogo.png";
 import { Link } from "react-router-dom";
+import { Modal, Box, Typography, TextField } from "@mui/material";
+import { useState } from "react";
+
+
+const style = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    justifyContent: 'center'
+  };
 
 function Footer(): JSX.Element {
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+
     return (
         <div className="Footer">
         <footer className="footer">
@@ -19,9 +40,27 @@ function Footer(): JSX.Element {
                         <span> לשיעור </span>
                     </h3>
                 </div>
-                <a href="#" className="button">
-                <span className="label">הצטרף/י למשפחה</span>
+                <a onClick={handleOpen} className="button">
+                <span className="label">לקבלת עדכון</span>
                 </a>
+
+                <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                >
+                <Box sx={style}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    הרשם/י לקבלת עדכונים
+                    </Typography>
+                    {/* <Typography id="modal-modal-description" sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: '10px' }}> */}
+                    {/* הרשם/י לקבלת עדכונים */}
+                    <TextField id="outlined-basic"   label="אימייל" variant="outlined" />
+
+                    {/* </Typography> */}
+                </Box>
+                </Modal>
                 <img className="illustration" src={studentHatImage} alt="illustration" width="120" height="94"/>
             </div>
         </div>

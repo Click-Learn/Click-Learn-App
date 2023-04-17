@@ -28,7 +28,14 @@ function Footer(): JSX.Element {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [emailInput, setEmailInput] = useState<string>("")
 
+    function SubscribeNewsletter() {
+        console.log(emailInput);
+
+        // verify email 
+        
+    }
 
     return (
         <div className="Footer">
@@ -59,8 +66,8 @@ function Footer(): JSX.Element {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                     הרשם/י לקבלת עדכונים
                     </Typography>
-                    <TextField id="outlined-basic" sx={{width: '80%'}}  label="Email" variant="outlined" />
-                    <button className="newsletter_modal_btn">שלח</button>
+                    <TextField id="outlined-basic" sx={{width: '80%'}} onInput={(e: any) => setEmailInput(e.target.value)} label="Email" variant="outlined" />
+                    <button onClick={() => SubscribeNewsletter()} className="newsletter_modal_btn">שלח</button>
                 </Box>
                 </Modal>
                 <img className="illustration" src={studentHatImage} alt="illustration" width="120" height="94"/>

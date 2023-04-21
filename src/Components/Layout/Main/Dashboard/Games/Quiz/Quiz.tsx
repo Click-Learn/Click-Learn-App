@@ -29,7 +29,7 @@ const Quiz: React.FC = () => {
   useEffect(() => {
     if (!isLogin) {
       navigate("/");
-      toastsFunctions.toastError("Must be Login to continue...");
+      toastsFunctions.toastError("אנא התחבר בכדי להמשיך...");
     } else if(!quizCompleted){
       setCurrentWordIndex(0);
       setIsCorrectAnswer(null);

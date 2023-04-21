@@ -57,7 +57,7 @@ selectCard(index: number, callback?: () => void) {
         this.firstCardSelected.isMatched = true;
         this.secondCardSelected.isMatched = true;
         this.totalMatches++;
-  
+        
         if (this.totalMatches === this.cards.length / 2) {
           this.isGameOver = true;
         }

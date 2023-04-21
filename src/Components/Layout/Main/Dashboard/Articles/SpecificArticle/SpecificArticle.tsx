@@ -26,7 +26,7 @@ function SpecificArticle(): JSX.Element {
   useEffect(() => {
     if(!isLogin){
       navigate("/")
-      toastsFunctions.toastError("Must be Login to continue...")
+      toastsFunctions.toastError("אנא התחבר בכדי להמשיך...")
     } else {
       if(!hasLoaded && !description){
         setIsLoading(true);

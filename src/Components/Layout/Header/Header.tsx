@@ -84,7 +84,7 @@ function Header(): JSX.Element {
                             }}
                         >
 
-                            <img className="header_logo" src={logo} alt="" onClick={() => navigate("/") } />
+                            <img className="header_logo" style={{cursor: 'pointer'}} src={logo} alt="" onClick={() => navigate("/") } />
 
                         </Typography>
 
@@ -149,7 +149,7 @@ function Header(): JSX.Element {
                                 textDecoration: 'none',
                             }}
                         >
-                            <img src={logo} width={150} alt=""  onClick={() => navigate("/")}/>
+                            <img src={logo} style={{cursor: 'pointer'}} width={150} alt=""  onClick={() => navigate("/")}/>
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end', marginRight: '15px' }}>
                         <MenuItem onClick={handleCloseNavMenu}>

@@ -23,7 +23,7 @@ function SavedWords({ userWords, refresh, setRefresh }: { userWords: WordModel[]
     async function deleteWord(word : WordModel) {
         servicesFunctions.DeleteWord(word.id).then((res) =>{
             setRefresh(!refresh)
-            toastsFunctions.toastSuccess("Deleted")
+            toastsFunctions.toastSuccess("נמחק")
         }) 
     }
     return (

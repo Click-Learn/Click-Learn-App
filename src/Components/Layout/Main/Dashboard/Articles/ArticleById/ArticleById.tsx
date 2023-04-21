@@ -24,7 +24,7 @@ function ArticleById(): JSX.Element {
 
         if(!isLogin){
             navigate("/")
-            toastsFunctions.toastError("Must be Login to continue...")
+            toastsFunctions.toastError("אנא התחבר בכדי להמשיך...")
         } else {
             if(id){
                 servicesFunctions.getArticleByIdByUser(+id).then((res) => setArticles(res)).then(() => {

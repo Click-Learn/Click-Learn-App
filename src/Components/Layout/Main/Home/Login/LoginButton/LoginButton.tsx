@@ -24,7 +24,7 @@ function LoginButton(): JSX.Element {
                   }
             } catch (e : any) {
                 console.log(e);
-                toastsFunctions.toastError(e);
+                toastsFunctions.toastError("ישנה תקלה בהתחברות");
             }
         }
 

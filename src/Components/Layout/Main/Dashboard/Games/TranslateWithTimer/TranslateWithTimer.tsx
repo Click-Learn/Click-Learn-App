@@ -11,13 +11,6 @@ interface WordPair {
     englishWord: string;
 }
 
-// const words: WordPair[] = [
-//     { hebrewWord: "שלום", englishWord: "hello" },
-//     { hebrewWord: "כחול", englishWord: "blue" },
-//     // Add more words here
-// ];
-
-
 function TranslateWithTimer(): JSX.Element {
 
     const isLogin = useSelector((state: any) => state.authSlice)
@@ -26,7 +19,7 @@ function TranslateWithTimer(): JSX.Element {
     useEffect(() => {
         if (!isLogin) {
             navigate("/")
-            toastsFunctions.toastError("Must be Login to continue...")
+            toastsFunctions.toastError("אנא התחבר בכדי להמשיך...")
         } else {
             servicesFunctions.getAllFavoriteWordsByUser().then((res: WordModel[]) => {
                 const userWords = res.map(({ englishWord, hebrewWord }) => ({
@@ -35,24 +28,21 @@ function TranslateWithTimer(): JSX.Element {
                 }));
                 console.log(userWords);
                 
-                // const shuffledWords = userWords.sort(() => Math.random() - 0.5);
-                setWords(userWords);
-                startGame();
-
-        })
+                const shuffledWords = userWords.sort(() => Math.random() - 0.5);
+                setWords(shuffledWords);
+                
+            })
         }
 
     }, [])
     const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
-    const [currentWordIndeCounting, setCurrentWordIndeCounting] = useState<number>(0);
+    // const [currentWordIndeCounting, setCurrentWordIndeCounting] = useState<number>(1);
     const [timeRemaining, setTimeRemaining] = useState<number>(60);
     const [userTranslation, setUserTranslation] = useState<string>("");
     const [countCorrect, setCountCorrect] = useState<number>(0);
     const [countUncorrect, setCountUncorrect] = useState<number>(0);
     const [gameComplete, setGameComplete] = useState<boolean>(false);
     const [correctAnswer, setCorrectAnswer] = useState<boolean>(false);
-
-    const [usedWordIndices, setUsedWordIndices] = useState<Set<number>>(new Set());
 
 
     useEffect(() => {
@@ -62,7 +52,6 @@ function TranslateWithTimer(): JSX.Element {
             } else {
                 clearTimeout(timer);
                 setCorrectAnswer(true);
-                // gameOver();
             }
         }, 1000);
 
@@ -72,39 +61,38 @@ function TranslateWithTimer(): JSX.Element {
 
     function startGame() {
         setTimeRemaining(60);
-        getRandomWord();
-        setCurrentWordIndeCounting(0)
+        getNextWord();
+        // setCurrentWordIndeCounting(1)
+        setCountUncorrect(0);
     }
 
     function resetGame() {
+        const shuffledWords = words.sort(() => Math.random() - 0.5);
+        setWords(shuffledWords);
         setTimeRemaining(60);
         setUserTranslation("");
         setCountCorrect(0);
+        setCurrentWordIndex(0)
         setCountUncorrect(0);
-        setCurrentWordIndeCounting(0);
-        setUsedWordIndices(new Set());
+        // setCurrentWordIndeCounting(0);
         startGame();
         setGameComplete(false);
         setCorrectAnswer(false);
     }
-    function getRandomWord() {
-        setCurrentWordIndeCounting(currentWordIndeCounting + 1)
-        if (usedWordIndices.size === words.length) {
+
+
+      function getNextWord() {
+        if (currentWordIndex + 1 >= words.length) {
+          console.log("test");
           gameOver();
           return;
         }
+        // setCurrentWordIndeCounting(currentWordIndeCounting + 1);
       
-        let newIndex = Math.floor(Math.random() * words.length);
-        while (usedWordIndices.has(newIndex)) {
-          newIndex = Math.floor(Math.random() * words.length);
-        }
-      
-        setCurrentWordIndex(newIndex);
-        console.log(newIndex);
-        
-        setUsedWordIndices((prevSet) => new Set(prevSet.add(newIndex)));
-
+        setCurrentWordIndex(currentWordIndex + 1);
+        console.log(currentWordIndex);
       }
+      
 
     function checkAnswer() {
         const inputElemnt = document.getElementById("input");
@@ -112,7 +100,7 @@ function TranslateWithTimer(): JSX.Element {
             // Correct answer
             setCountCorrect(countCorrect + 1);
             inputElemnt!.style.border = "1px solid grey";
-            getRandomWord();
+            getNextWord();
         } else {
             // Incorrect answer
             inputElemnt!.style.border = "1px solid red";
@@ -123,7 +111,7 @@ function TranslateWithTimer(): JSX.Element {
     }
 
     function endOfTime(){
-        getRandomWord();
+        getNextWord();
         setCorrectAnswer(false);
         setCountUncorrect(countUncorrect + 1);
         setTimeRemaining(60);
@@ -146,7 +134,7 @@ function TranslateWithTimer(): JSX.Element {
 
             {!gameComplete ? (
                 <div className="game-container">
-                  <p>שאלה {currentWordIndeCounting + 1} מתוך {words.length}</p>
+                  <p>שאלה {currentWordIndex + 1 } מתוך {words.length}</p>
 
 
                     <div className="word-container">

@@ -57,3 +57,36 @@ text-align: right;
 font-size: 16px;
 color: var(--color-light-dark);
 }
+
+@media screen and (max-width: 925px) {
+    .PodcastsSection .podacsts_boxes {
+        font-size: 18px;
+        gap:  35px 10px; /* Adds a 20px gap between grid elements */
+        margin: 0 auto;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+      .PodcastsSection .podacsts_boxes .podacsts_box {
+        width: 50vw;
+        justify-content: end;
+    }
+    .PodcastsSection .podacsts_boxes .podacsts_box {
+        width: 325px;
+        padding: 0 23px 0 0;
+        height:97px
+    }
+    .PodcastsSection .podacsts_boxes .podacsts_box .podcast_name_topic {
+    font-size: 18px;
+    }
+
+    .PodcastsSection .podacsts_boxes .podacsts_box .podcast_topic {
+        font-size: 16px;
+    }
+
+    .PodcastsSection .podacsts_boxes .podcast_icon {
+        font-size: 45px;
+    }
+  
+}

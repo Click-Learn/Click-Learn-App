@@ -233,3 +233,9 @@ width: 30vw ;
     gap: 10px; 
   }
   }
+  @media screen and (min-width: 280px) and (max-width: 1200px) {
+    .saved_text {
+      position: relative;
+      bottom: 10px;
+    }
+  }

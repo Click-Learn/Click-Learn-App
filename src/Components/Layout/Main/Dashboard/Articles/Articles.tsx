@@ -17,7 +17,7 @@ function Articles(): JSX.Element {
 
     function navigateToNewArticle() {
         if (!isLogin) {
-            toastsFunctions.toastError("Must be Login to continue...")
+            toastsFunctions.toastError("אנא התחבר בכדי להמשיך...")
         } else {
             navigate('/specific-article')
         }
@@ -36,7 +36,7 @@ function Articles(): JSX.Element {
         servicesFunctions.DeleteArticle(article.id).then((res) => {
             // setRefresh(!refresh)
             setRefresh(!refresh)
-            toastsFunctions.toastSuccess("Deleted")
+            toastsFunctions.toastSuccess("נמחק")
             return
         })
     }
@@ -53,7 +53,7 @@ function Articles(): JSX.Element {
                     <div className="last_articles_container">
                         {articles.length >= 1 ?
                             articles.map((article) => (
-                                <div className="article_by_user_container" onClick={() => navigate(`/article/${article.id}`)}>
+                                <div key={article.id} className="article_by_user_container" onClick={() => navigate(`/article/${article.id}`)}>
                                     <div className="article_icon_title_container">
                                         <div className="article_icon">
                                             <MdOutlineArticle className="article_icon_stroke" style={{ color: 'var(--color-dark)' }} />

@@ -25,7 +25,7 @@ const isLogin = useSelector((state : any) => state.authSlice)
           <div className="login_google">
             <div className="click_here_icon">👇</div>
             {isLogin ? (
-            <button onClick={() => dispatch(logoutRedux())}>Logout</button>
+            <button onClick={() => dispatch(logoutRedux())}>התנתק/י</button>
             ) : (
          <LoginButton/>
         )}

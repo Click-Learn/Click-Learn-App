@@ -183,7 +183,6 @@ class ServicesFunctions {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Origin": "*",
           authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
         },
       }).then((res) => res.json());
@@ -201,7 +200,6 @@ class ServicesFunctions {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Origin": "*",
           authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
         },
       }).then((res) => res.json());
@@ -224,6 +222,8 @@ class ServicesFunctions {
           authorization: token,
         },
       }).then((res) => res.json());
+      console.log(response);
+      
       return response;
     } catch (e: any) {
       console.log(e);

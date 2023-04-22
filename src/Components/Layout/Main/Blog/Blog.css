@@ -67,6 +67,10 @@
         margin-bottom: 200px;
 
     }
+    .Blog .blog_articles_container .article .article_author {
+        display: none;
+    }
+    
     .Blog .blog_articles_container .article .image_article {
         width: 85%;
     }   
@@ -85,6 +89,7 @@
 
     .Blog .blog_articles_container {
         margin-bottom: 0;
+        gap: 45px;
         bottom: 0;
     }
   }

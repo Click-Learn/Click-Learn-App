@@ -15,6 +15,16 @@
     color: var(--color-dark);
 }
 
+.SpecificArticle .loader_container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.SpecificArticle .loader_container img {
+    width: 7%;
+    position: relative;
+    bottom: 20px;
+}
 
 
 .SpecificArticle .article_main_container {

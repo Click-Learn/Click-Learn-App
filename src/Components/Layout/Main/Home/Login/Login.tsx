@@ -1,12 +1,11 @@
 import "./Login.css";
-import { logoutRedux } from "../../../../../App/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import LoginButton from "./LoginButton/LoginButton";
+import { useNavigate } from "react-router-dom";
 
 
 function Login(): JSX.Element {
-    const dispatch = useDispatch();
-
+const navigate = useNavigate();
 const isLogin = useSelector((state : any) => state.authSlice)
 
 
@@ -25,7 +24,7 @@ const isLogin = useSelector((state : any) => state.authSlice)
           <div className="login_google">
             <div className="click_here_icon">👇</div>
             {isLogin ? (
-            <button onClick={() => dispatch(logoutRedux())}>התנתק/י</button>
+            <button onClick={() => navigate("/dashboard")}>לאיזור האישי</button>
             ) : (
          <LoginButton/>
         )}

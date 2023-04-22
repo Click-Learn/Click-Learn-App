@@ -77,11 +77,10 @@ function Footer(): JSX.Element {
                 <div className="texts">
                    <h2 className="section-title">תתחיל/י לשפר את האנגלית</h2>
                     <h3 className="section-sub-heading">
-                    <span>  בקרוב - לימוד עם  </span>
-                        <strong>מורה</strong> 
-                        <span> רק ב</span> 
-                        <strong>30 ש"ח</strong>
-                        <span> לשיעור </span>
+                        <strong>בקרוב</strong>
+                    <span>   - לימוד עם  </span>
+                        <strong>מורה  </strong> 
+                        <span>אונליין</span>
                     </h3>
                 </div>
                 <a onClick={handleOpen} className="button">
@@ -142,9 +141,9 @@ function Footer(): JSX.Element {
             <div className="column is-nav last_column">
                 <div className="column-title">בלוג</div>
                 <ul>
-                    <li> <Link to="/blog-post-1">"טיפים לשיפור האנגלית שלך"</Link></li>
-                    <li> <Link to="/blog-post-2">"הדרך הקלה ביותר ללמוד אנגלית"</Link></li>
-                    <li> <Link to="/blog-post-3">"האנגלית כשפת מפתח להצלחה"</Link></li>
+                    <li> <Link to="/blog-post-1">"היתרונות של למידת אנגלית"</Link></li>
+                    <li> <Link to="/blog-post-2">"מעבר מעברית לאנגלית טיפים וטכניקות"</Link></li>
+                    <li> <Link to="/blog-post-3">"למידת אנגלית באינטרנט"</Link></li>
                 </ul>
             </div>
         </div>

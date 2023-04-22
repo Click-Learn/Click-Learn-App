@@ -16,9 +16,12 @@ const authSlice = createSlice({
     reducers: {
         loginRedux: (state, action) => {
                 if (!token) {
-                    console.log("test");
+                    console.log("test register");
+                    
                     servicesFunctions.Register(action.payload)
                 }
+                console.log("test login");
+                
             window.localStorage.setItem('ClickLearnLogged', action.payload);
             const { email, name, picture } : any= jwtDecode(action.payload);
             console.log({email, name, picture});

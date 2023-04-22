@@ -152,7 +152,11 @@
 }
 
 
-
+.no_articles_p {
+    font-size: 20px;
+    text-align: center;
+    color: var(--color-dark);
+}
 
 .last_articles_container::-webkit-scrollbar {
     width: 9px;

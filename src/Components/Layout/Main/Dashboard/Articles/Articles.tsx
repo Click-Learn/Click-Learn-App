@@ -72,9 +72,9 @@ function Articles(): JSX.Element {
                                 </div>
                             ))
 
-                            : <>
-                                אין עדיין מאמרים
-                            </>}
+                            : isLogin ? <>
+                               <p className="no_articles_p"> אין עדיין מאמרים </p>
+                            </> : <></>}
                             {!isLogin ? 
                                   <div className="notLogged_articles_container">
                                   <p>

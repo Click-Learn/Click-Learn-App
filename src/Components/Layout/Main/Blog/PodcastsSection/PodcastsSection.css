@@ -21,14 +21,12 @@
 
 .PodcastsSection .podacsts_boxes .podacsts_box {
     width: 330px ;
-    /* width: 450px; */
     padding: 0 20px 0 80px;
     height: 120px ;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     gap: 20px;
-    /* border: 1px solid var(--color-dark); */
     color: var(--color-dark);
     box-shadow: 0 0 6px -2px var(--color-dark);
     cursor: pointer;

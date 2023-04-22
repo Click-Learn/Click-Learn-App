@@ -111,10 +111,6 @@ function Footer(): JSX.Element {
                     <div className="logo">
                         <img src={logo} alt="Click Learn App Logo"/>
                     </div>
-                    {/* <div className="logo-info">
-                        <div className="text">Click Learn App</div>
-                        <span className="copyright">© 2021. All rights reserved.</span>
-                    </div> */}
                 </a>
             </div>
             <div className="column is-nav">
@@ -133,10 +129,6 @@ function Footer(): JSX.Element {
                     <li><a href="#"><i className="fa fa-twitter"></i>@Youtube</a></li>
                     <li><a href="#"><i className="fa fa-linkedin"></i>Linkedin</a></li>
                 </ul>
-                {/* <div className="column-title">Other</div>
-                <ul>
-                    <li><a href="#">Quiz</a></li>
-                </ul> */}
             </div>
             <div className="column is-nav last_column">
                 <div className="column-title">בלוג</div>

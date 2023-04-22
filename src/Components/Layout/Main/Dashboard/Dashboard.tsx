@@ -1,6 +1,6 @@
 import "./Dashboard.css";
-import { AiFillStar, AiFillRead, AiOutlineStar } from "react-icons/ai";
-import { BsArrowLeft, BsSun } from "react-icons/bs";
+import { AiFillStar, AiFillRead } from "react-icons/ai";
+import { BsArrowLeft } from "react-icons/bs";
 import { IoGameController } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";

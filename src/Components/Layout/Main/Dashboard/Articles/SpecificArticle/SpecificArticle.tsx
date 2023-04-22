@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import { Breadcrumbs, Typography } from "@mui/material";
 import { servicesFunctions } from "../../../../../../Services/ServicesFunctions";
-import { ArticleModel } from "../../../../../../Models/ArticleModel";
 import loadingGIF from "./loadingGIF.gif";
 
 function SpecificArticle(): JSX.Element {

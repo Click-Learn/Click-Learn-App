@@ -30,13 +30,11 @@
 .SpecificArticle .article_main_container {
     max-width: 800px;
     width: 100%;
-    /* border: 1px solid rgba(0, 0, 0, 0.1); */
     border: 1px solid var(--color-dark);
     border-radius: 15px;
     padding: 30px;
     overflow-y: auto;
     background-color: var(--color-white);
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
     box-shadow: 0 4px 6px var(--color-dark);
 }
 
@@ -62,13 +60,9 @@
     text-align: justify;
 }
 
-/* @media only screen and (max-width: 680px) {
-
-   } */
 
    @media only screen and (max-width: 680px) {
     .SpecificArticle .article_main_container {
-        /* max-width: 100%; */
         max-width: calc(100% - 40px);
         padding: 20px;
     }

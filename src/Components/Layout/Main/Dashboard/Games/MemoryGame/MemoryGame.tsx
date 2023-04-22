@@ -12,11 +12,6 @@ import { toastsFunctions } from "../../../../../../Services/ToastFunctions";
 import { servicesFunctions } from "../../../../../../Services/ServicesFunctions";
 import { WordModel } from "../../../../../../Models/WordModel";
 
-// getCards().then((cards) => {
-//   const game = new GameModel(cards);
-// });
-
-
 function MemoryGame(): JSX.Element {
   const isLogin = useSelector((state : any) => state.authSlice)
   const navigate = useNavigate()

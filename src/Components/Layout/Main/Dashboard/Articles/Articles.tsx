@@ -34,7 +34,6 @@ function Articles(): JSX.Element {
 
     async function deleteArticle(article: ArticleModel) {
         servicesFunctions.DeleteArticle(article.id).then((res) => {
-            // setRefresh(!refresh)
             setRefresh(!refresh)
             toastsFunctions.toastSuccess("נמחק")
             return

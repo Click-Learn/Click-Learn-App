@@ -13,10 +13,6 @@ function LoginButton(): JSX.Element {
     
     function loginGoogle(credentialResponse: any) {
         const details: any = jwtDecode(credentialResponse.credential)
-        console.log(details);
-        
-        // const email= details.email; 
-        // console.log(email);
             try {
                 dispatch(loginRedux(credentialResponse.credential))
                 if (window.location.pathname === "/" || window.location.pathname === "/home") {
@@ -27,7 +23,6 @@ function LoginButton(): JSX.Element {
                 toastsFunctions.toastError("ישנה תקלה בהתחברות");
             }
         }
-
         
     return (
         <div className="LoginButton">

@@ -17,9 +17,6 @@
 
 .Articles .articles_container {
     display: flex;
-    /* width: 80%; */
-    /* margin: 0 auto; */
-    /* justify-content: space-around; */
     justify-content: center;
     gap: 40px;
     align-items: center;
@@ -50,7 +47,6 @@
 }
 
 .Articles .articles_container .create_new_article {
-    /* border: 1px solid black; */
     border-radius: 15px;
     display: flex;
     position: relative;

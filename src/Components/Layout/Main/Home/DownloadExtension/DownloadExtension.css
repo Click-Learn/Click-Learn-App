@@ -25,7 +25,6 @@
 }
 
 .DownloadExtension .Download_Video_Container button {
-    /* padding: 12px 37px; */
     width: 170px;
     height: 45px;
     border: none;
@@ -40,13 +39,10 @@
 
 
 .DownloadExtension .Download_Video_Container button:hover {
-    /* transition: 0.2s; */
     font-size: 18px;
-    /* padding: 11.5px 34.4px; */
 }
 
 .DownloadExtension .Download_Video_Container .btn_extension {
-    /* background-color: #2ccd85; */
     background-color: var(--color-light-green);
     outline: 2px solid var(--color-light-green);
     color: var(--color-white);

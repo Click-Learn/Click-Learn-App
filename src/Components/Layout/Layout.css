@@ -2,27 +2,3 @@
     margin: 0 auto;
     background-color: var(--color-white);
 }
-
-/* .Layout .svg1 {
-    display: none;
-    
-    
-    position:  absolute;
-    width: 700px;
-    right: 0%;
-    top: 15%;
-    z-index: 0;
-}
-.Layout .svg2 {
-    display: none;
-
-
-
-    
-    position:  absolute;
-    width: 600px;
-    left: 0%;
-    top: 75%;
-    z-index: 0;
-} */
-

@@ -1,10 +1,8 @@
 import "./Blog.css";
 import MainBanner from "./MainBanner.jpg";
-import MainBannerGIF from "./MainBannerBlogGIF.gif";
 import blog1Image from "./blog1.jpg";
 import blog2Image from "./blog2.jpg";
 import blog3Image from "./blog3.jpg";
-import blog4Image from "./blog4.jpg";
 import { useNavigate } from "react-router-dom";
 import PodcastsSection from "./PodcastsSection/PodcastsSection";
 import AdvantagesSection from "./AdvantagesSection/AdvantagesSection";

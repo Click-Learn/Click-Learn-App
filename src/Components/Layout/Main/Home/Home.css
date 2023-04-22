@@ -25,3 +25,12 @@
     top: 75%;
     z-index: 0;
 }
+
+@media only screen and (max-width: 1200px) {
+    .Layout .svg1 {
+        display: none;
+    }
+    .Layout .svg2 {
+        display: none;
+    }
+}

@@ -19,18 +19,18 @@ function Blog(): JSX.Element {
 			<div className="blog_articles_container">
                 <div className="article" onClick={() => navigate("/blog-post-3")}>
                 <img className="image_article" src={blog3Image} alt="" />
-                <p className="article_title">"האנגלית כשפת מפתח להצלחה"</p>
-                <p className="article_author">חשיבותה של השפה האנגלית בהשגת הצלחה, קידום אישי ומקצועי.</p>
+                <p className="article_title">"למידת אנגלית באינטרנט: הפתרון הנוח"</p>
+                <p className="article_author">היתרונות הרבים של למידת אנגלית באמצעות האתר שלנו, כולל לוח זמנים גמיש, מסלולי למידה מותאמים אישית, וגישה לדוברי אנגלית שוטפים.</p>
                 </div>
                 <div className="article" onClick={() => navigate("/blog-post-2")}>
                 <img className="image_article" src={blog2Image} alt="" />
-                <p className="article_title">"הדרך הקלה ביותר ללמוד אנגלית"</p>
-                <p className="article_author">גישה פשוטה ויעילה ללימוד אנגלית, שניתן להבין וליישם בקלותם.</p>
+                <p className="article_title">"מעבר מעברית לאנגלית: טיפים וטכניקות"</p>
+                <p className="article_author">אסטרטגיות מועילות שיעזרו לדוברי עברית להתמודד עם אתגרים נפוצים בלמידת האנגלית, כמו תרגול מילים, דקדוק וביטוי.</p>
                 </div>
                 <div className="article" onClick={() => navigate("/blog-post-1")}>
                 <img className="image_article" src={blog1Image} alt="" />
-                <p className="article_title">"טיפים לשיפור האנגלית שלך"</p>
-                <p className="article_author">עצות שימושיות לייעול תהליך למידת השפה האנגלית.</p>
+                <p className="article_title">"היתרונות של למידת אנגלית וההזדמנויות"</p>
+                <p className="article_author">היתרונות הרבים של שליטה בשפה אנגלית ועברית ברמה גבוהה, בין אם זה בתחום העבודה, קשרים בינלאומיים או טיולים.</p>
                 </div>
 
             </div>

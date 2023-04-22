@@ -8,7 +8,7 @@ import Skeleton from '@mui/material/Skeleton';
 import { Breadcrumbs, Typography } from "@mui/material";
 import { servicesFunctions } from "../../../../../../Services/ServicesFunctions";
 import { ArticleModel } from "../../../../../../Models/ArticleModel";
-
+import loadingGIF from "./loadingGIF.gif";
 
 function SpecificArticle(): JSX.Element {
     const [description, setDescription] = useState<string>("");
@@ -63,8 +63,15 @@ function SpecificArticle(): JSX.Element {
             </div>
             <article className="article_main_container">
                 {isLoading ? 
+                <div>
+                  <div className="loader_container">
+                    <p>...כותבים עבורך את המאמר עם המילים המועדפות שלך</p>
+                  <img src={loadingGIF} />
+                  </div>
+                <div>
+
                     <Box   sx={{
-                        width: 750,
+                      width: 750,
                         justifyContent: 'start',
                         gap: '30px',
                         margin: '0 auto',
@@ -87,6 +94,8 @@ function SpecificArticle(): JSX.Element {
                     <Skeleton animation="wave"  sx={{ height: 30 }} />
                     <Skeleton animation={false}  sx={{ height: 30 }} />
                   </Box>
+                      </div>
+                  </div>
                   :
                   <div>
                     

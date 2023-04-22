@@ -20,7 +20,6 @@ function ArticleById(): JSX.Element {
     const navigate = useNavigate();
     const { id } = useParams();
     useEffect(() => {
-        // get user by id
 
         if(!isLogin){
             navigate("/")

@@ -18,16 +18,13 @@ margin-top:110px;
 }
 
 .Dashboard .dashboard_top_container .dashboard_top_box {
-    /* border: 1px solid black; */
     max-width: 310px;
     max-height: 120px;
     height: 11vw;
     width: 20vw;
     background-color: var(--color-white);
     padding: 20px 25px;
-    /* box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.150); */
     box-shadow: 0 0 10px -1px var(--color-dark);
-    /* box-shadow: 0 0 16px -8px var(--color-light-green); */
     border-radius: 10px;
     cursor: pointer;
     display: flex;
@@ -94,7 +91,6 @@ margin-top:110px;
 }
 
 .Dashboard .dashboard_bottom_container .save_words_list_container {
-    /* border: 1px solid black; */
     padding: 25px;
     max-width: 450px;
     width: 35vw;
@@ -104,13 +100,11 @@ margin-top:110px;
     font-size: 18px;
     background-color: var(--color-white);
     justify-content: space-between;
-    /* box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.350); */
     box-shadow: 0 0 10px 0px var(--color-light-green);
     
 }
 
 .Dashboard .dashboard_bottom_container .save_words_list_container.animating {
-    /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); */
     animation: shadow-box 2s ease-out;
 }
 

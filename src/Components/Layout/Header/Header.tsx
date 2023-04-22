@@ -166,13 +166,6 @@ function Header(): JSX.Element {
                         </Box>
 
                         <Box sx={{ flexGrow: 0 }}>
-                                {/* <IconButton onClick={clickedWebMode}   sx={{ p: 0, fontSize: '35px !important', margin: '0 25px' }} >
-                                    { isDarkMode ? 
-                                      <MdDarkMode style={{color: 'white'}}/>
-                                      : 
-                                      <BsSun />
-                                    }
-                                </IconButton>           */}
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, fontSize: '35px !important' }} >
                                     {isLogin ? 

@@ -69,13 +69,9 @@
     text-align: justify;
 }
 
-/* @media only screen and (max-width: 680px) {
-
-   } */
 
    @media only screen and (max-width: 680px) {
     .ArticleById .article_main_container {
-        /* max-width: 100%; */
         max-width: calc(100% - 60px);
         padding: 20px;
     }

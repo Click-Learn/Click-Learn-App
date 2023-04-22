@@ -60,13 +60,7 @@
     opacity: 0.5;
     cursor: not-allowed;
     }
-    
-    /* .Quiz progress {
-    margin-top: 20px;
-    width: 250px;
-    height: 24px;
-    }
-     */
+
     .Quiz progress {
         margin: 20px;
         width: 250px;

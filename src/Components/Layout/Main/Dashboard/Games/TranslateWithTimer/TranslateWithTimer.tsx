@@ -62,7 +62,6 @@ function TranslateWithTimer(): JSX.Element {
     function startGame() {
         setTimeRemaining(60);
         getNextWord();
-        // setCurrentWordIndeCounting(1)
         setCountUncorrect(0);
     }
 
@@ -74,7 +73,6 @@ function TranslateWithTimer(): JSX.Element {
         setCountCorrect(0);
         setCurrentWordIndex(0)
         setCountUncorrect(0);
-        // setCurrentWordIndeCounting(0);
         startGame();
         setGameComplete(false);
         setCorrectAnswer(false);
@@ -87,8 +85,6 @@ function TranslateWithTimer(): JSX.Element {
           gameOver();
           return;
         }
-        // setCurrentWordIndeCounting(currentWordIndeCounting + 1);
-      
         setCurrentWordIndex(currentWordIndex + 1);
         console.log(currentWordIndex);
       }

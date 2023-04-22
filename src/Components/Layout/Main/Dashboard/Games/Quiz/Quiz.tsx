@@ -112,7 +112,6 @@ const Quiz: React.FC = () => {
 
 
   const currentWord = words.length > 0 ? words[currentWordIndex] : { englishWord: '', hebrewWord: '' };
-    // const currentWord = words[currentWordIndex];
     const shuffledAnswers = React.useMemo(() => {
       if (currentWord && words.length > 1) {
         const answers = [

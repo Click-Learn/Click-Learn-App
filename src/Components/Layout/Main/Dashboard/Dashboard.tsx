@@ -41,7 +41,7 @@ function Dashboard(): JSX.Element {
             console.log("not logged");
             
         }
-      }, [refresh]);
+      }, [refresh, isLogin]);
       
  
 

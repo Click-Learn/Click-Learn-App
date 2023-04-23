@@ -15,7 +15,7 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         loginRedux: (state, action) => {
-                if (!token) {
+                if (!window.localStorage.getItem('ClickLearnLogged')) {
                     console.log("test register");
                     
                     servicesFunctions.Register(action.payload)

@@ -7,13 +7,19 @@ import newMemoryGame from './memory-game2.jpg';
 import translatebyTime from './translateByTime.jpg';
 import { servicesFunctions } from "../../../../../Services/ServicesFunctions";
 import { toastsFunctions } from "../../../../../Services/ToastFunctions";
+import { useSelector } from "react-redux";
 
 function Games(): JSX.Element {
 
     const navigate = useNavigate();
+    const isLogin = useSelector((state : any) => state.authSlice)
 
        
     const  handleMemoryGameClick = async () =>  {
+        if (!isLogin) {
+            navigate("/");
+            toastsFunctions.toastError("אנא התחבר בכדי להמשיך...");
+          } 
         const totalWords = await servicesFunctions.getAllWordByUser();
         console.log(totalWords?.length);
         

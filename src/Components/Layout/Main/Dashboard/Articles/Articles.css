@@ -208,6 +208,9 @@
 }
 
 @media only screen and (max-width: 925px) {
+    .Articles {
+        margin-bottom: 250px;
+    }
     .articles_container {
         display: flex;
         flex-direction: column;
@@ -223,8 +226,15 @@
     }
 }
 
+@media only screen and (max-width: 750px) {
+    .Articles {
+        margin-bottom: 450px;
+    }
+}
 @media only screen and (max-width: 480px) {
-
+    .Articles {
+        margin-bottom: 750px;
+    }
     .Articles .articles_container .last_articles_container,
     .Articles .articles_container .create_new_article {
         width: 100%;

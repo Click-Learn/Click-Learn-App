@@ -91,6 +91,9 @@
     }
 }
 @media only screen and (max-width: 680px) {
+    .Games {
+        margin-bottom: 600px !important;
+    }
     .Games .games_container {
         flex-direction: column;
         justify-content: center;

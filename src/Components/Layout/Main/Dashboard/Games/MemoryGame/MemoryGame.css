@@ -49,7 +49,7 @@
 @media only screen and (max-width: 680px) {
     .MemoryGame {
         max-width: 350px;
-        margin-bottom: 100px;
+        margin-bottom: 500px;
     }
 
     .MemoryGame .game-board {

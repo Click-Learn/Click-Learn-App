@@ -135,6 +135,9 @@ color: red;
 
 
 @media only screen and (max-width: 800px) {
+    .TranslateWithTimer  {
+        margin-bottom: 350px;
+    }
     .game-container {
         max-width: 80%;
     }
@@ -145,6 +148,16 @@ color: red;
 	height: 300px;
 
 }
+
+}
+
+
+
+@media only screen and (max-width: 680px) {
+    .TranslateWithTimer  {
+        margin-bottom: 550px;
+    }
+
 
 }
 

@@ -49,13 +49,13 @@ selectCard(index: number, callback?: () => void) {
     } else {
       this.secondCardSelected = selectedCard;
       this.totalMoves++;
-  
+      
       if (
         this.firstCardSelected.englishWord === this.secondCardSelected.hebrewWord ||
         this.firstCardSelected.hebrewWord === this.secondCardSelected.englishWord
-      ) {
-        this.firstCardSelected.isMatched = true;
-        this.secondCardSelected.isMatched = true;
+        ) {
+          this.firstCardSelected.isMatched = true;
+          this.secondCardSelected.isMatched = true;
         this.totalMatches++;
         
         if (this.totalMatches === this.cards.length / 2) {
@@ -63,6 +63,9 @@ selectCard(index: number, callback?: () => void) {
         }
         this.firstCardSelected = null;
         this.secondCardSelected = null;
+        if (callback) {
+          callback();
+        }
       } else {
         setTimeout(() => {
           this.firstCardSelected!.isFlipped = false;

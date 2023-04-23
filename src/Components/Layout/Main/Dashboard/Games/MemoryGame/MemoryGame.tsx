@@ -91,8 +91,8 @@ const playResetSound = () => {
 
 const handleCardClick = (index: number) => {
   game?.selectCard(index, () => {
-    setCardsState([...(game?.cards || [])]);
     setTotalMoves(game?.totalMoves || 0);
+    setCardsState([...(game?.cards || [])]);
   });
 
   setCardsState([...(game?.cards || [])]);

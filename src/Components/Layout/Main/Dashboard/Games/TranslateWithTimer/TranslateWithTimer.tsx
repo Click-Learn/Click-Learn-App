@@ -97,6 +97,7 @@ function TranslateWithTimer(): JSX.Element {
             setCountCorrect(countCorrect + 1);
             inputElemnt!.style.border = "1px solid grey";
             getNextWord();
+            setTimeRemaining(60);
         } else {
             // Incorrect answer
             inputElemnt!.style.border = "1px solid red";

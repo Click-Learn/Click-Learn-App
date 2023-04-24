@@ -145,20 +145,20 @@ function TranslateWithTimer(): JSX.Element {
                         placeholder="....כיתבו את המילה באנגלית"
                         onKeyDown={handleKeypress}
                         />
-                    {correctAnswer && <div className="end-of-time"><div className="text">{words[currentWordIndex].englishWord}: המילה הנכונה היא </div> <button className="next-button" onClick={endOfTime}>המשך לשאלה הבאה</button> </div>}
+                    {correctAnswer && <div className="end-of-time"><div className="text">{words[currentWordIndex].englishWord}: המילה הנכונה היא </div> <button className="next-button btn " onClick={endOfTime}>המשך לשאלה הבאה</button> </div>}
                     {!correctAnswer && <div className="timer">{timeRemaining}</div>}
                     {!correctAnswer &&<progress max="60" value={timeRemaining}></progress>}
                     
 
-                    {!correctAnswer && <button className="done-button" onClick={checkAnswer}>שלח</button>}
+                    {!correctAnswer && <button className="done-button btn " onClick={checkAnswer}>שלח</button>}
                     
                 </div>
             ) : (
                 <div className="game-footer">
                     <div className="game-data">
-                        <div>כישלונות: {countUncorrect}</div>
-                        <div>הצלחות: {countCorrect}</div>
-                        <div> כמות מילים: {words.length}</div>
+                        <div className="game-data-text"> כמות מילים: {words.length}</div>
+                        <div className="game-data-text">הצלחות: {countCorrect}</div>
+                        <div className="game-data-text">כישלונות: {countUncorrect}</div>
                     </div>
                     <button className="reset-button" onClick={resetGame}>איפוס משחק</button>
                 </div>

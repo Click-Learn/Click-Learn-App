@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "./Games.css";
-import memoryGamePhoto from './memory-game-photo.jpg';
-import quizGamePhoto from './quiz-game-photo.jpg';
-import translatebyTime from './translateByTime.jpg';
+import memoryGamePhoto from './memory-game-photo.webp';
+import quizGamePhoto from './quiz-game-photo.webp';
+import translatebyTime from './translateByTime.webp';
 import { servicesFunctions } from "../../../../../Services/ServicesFunctions";
 import { toastsFunctions } from "../../../../../Services/ToastFunctions";
 import { useSelector } from "react-redux";

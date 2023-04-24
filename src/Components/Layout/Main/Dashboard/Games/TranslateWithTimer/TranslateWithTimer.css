@@ -1,7 +1,9 @@
-.TranslateWithTimer  {
-	height: 564px;
+.TranslateWithTimer {
+    height: 564px;
 
 }
+
+
 
 
 .game-container {
@@ -11,14 +13,20 @@
     align-items: center;
     max-width: 750px;
     margin: 50px auto;
-    background-color: #f0f0f0;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    background: linear-gradient(135deg, #58E5A5 0%, rgba(58, 213, 173, 0.9) 50%, rgba(58, 193, 180, 0.9) 100%);
+    border-radius: 16px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    backdrop-filter: blur(11.6px);
+    -webkit-backdrop-filter: blur(11.6px);
+    border: 1px solid rgba(88, 229, 165, 0.14);
 }
 
+
+
 .game-container .word-container {
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
@@ -27,6 +35,9 @@
     padding: 10px;
     width: 80%;
     margin-bottom: 10px;
+    border: 0.5px solid var(--color-light-green);
+    border-radius: 6px;
+    /* border-color: var(--color-light-green); */
 }
 
 .game-container ::placeholder {
@@ -38,76 +49,129 @@
 .game-container .timer {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
 .game-container .done-button {
+
     width: 50%;
     height: 50px;
     font-size: 18px;
     border-radius: 5px;
-    background-color: var(--color-dark);
-    color: var(--color-white);
+    background-color: #252525;
+    color: whitesmoke;
     cursor: pointer;
+}
+
+.game-container .done-button:hover {
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 50%, transparent 100%);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .game-container .next-button {
-    width: 70%;
+    width: 50%;
     height: 50px;
     font-size: 18px;
     border-radius: 5px;
-    background-color: var(--color-dark);
-    color: var(--color-white);
+    background-color: #252525;
+    color: whitesmoke;
     cursor: pointer;
 }
 
+.game-container .next-button:hover {
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 50%, transparent 100%);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+}
 
-.TranslateWithTimer .game-footer{
-    margin-top: 15px;
+
+
+
+
+/* .TranslateWithTimer .game-footer {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 750px;
     margin: 50px auto;
-    background-color: #f0f0f0;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+
+    background: rgba(88, 229, 165, 0.32);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.6px);
+    -webkit-backdrop-filter: blur(11.6px);
+    border: 1px solid rgba(88, 229, 165, 0.14);
+} */
+
+.TranslateWithTimer .game-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 20px;
+
+    background: linear-gradient(135deg, #58E5A5 0%, rgba(58, 213, 173, 0.9) 50%, rgba(58, 193, 180, 0.9) 100%);
+    border-radius: 16px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    backdrop-filter: blur(11.6px);
+    -webkit-backdrop-filter: blur(11.6px);
+    border: 1px solid rgba(88, 229, 165, 0.14);
 }
 
-.TranslateWithTimer .game-footer .game-data{
+.game-footer .game-data .game-data-text{
+    font-size: 25px;
+    /* font-weight: bold; */
+}
+.TranslateWithTimer .game-footer .game-data {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 15px;
+    margin-bottom: 15px;
 }
 
-.TranslateWithTimer .game-footer .reset-button{
-    margin-top: 15px;
+
+
+
+
+.TranslateWithTimer .game-footer .reset-button {
     width: 50%;
     height: 50px;
     font-size: 18px;
     border-radius: 5px;
-    background-color: var(--color-dark);
-    color: var(--color-white);
+    background-color: #252525;
+    color: whitesmoke;
     cursor: pointer;
 }
-.end-of-time{
+.game-footer .reset-button {
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 50%, transparent 100%);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.end-of-time {
     display: flex;
     flex-direction: column;
     gap: 8px;
     justify-content: center;
     align-items: center;
 }
-.end-of-time .text{
-color: red;
+
+.end-of-time .text {
+    font-size: 20px;
+    margin: 10px;
+    color: rgba(248, 61, 70, 0.774);
 }
 
 #input:focus {
     border: none;
     outline: none;
 }
+
+
 .game-container progress {
     margin: 20px;
     width: 250px;
@@ -116,50 +180,53 @@ color: red;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2) inset;
-  }
-  
-  .game-container progress::-webkit-progress-value {
-    background-color: var(--color-light-green);
+}
+
+.game-container progress::-webkit-progress-value {
+    background-color: #273834;
     border-radius: 12px;
     transition: width 0.2s ease-in-out;
-  }
-  
-  .game-container progress[value]::-webkit-progress-bar {
-    background-color: #eee;
+}
+
+.game-container progress[value]::-webkit-progress-bar {
+    background-color: rgba(200, 200, 200, 0.2);
     border-radius: 12px;
-  }
-  
-  .game-container progress[value="10"]::-webkit-progress-value {
+}
+
+.game-container progress[value="10"]::-webkit-progress-value {
     width: 100%;
-  }
+}
+
+
+
 
 
 @media only screen and (max-width: 800px) {
-    .TranslateWithTimer  {
+    .TranslateWithTimer {
         margin-bottom: 350px;
     }
+
     .game-container {
         max-width: 80%;
     }
-.game-footer{
-    max-width: 80%;
-}
-.TranslateWithTimer  {
-	height: 300px;
 
-}
+    .game-footer {
+        max-width: 80%;
+    }
+
+    .TranslateWithTimer {
+        height: 300px;
+
+    }
 
 }
 
 
 
 @media only screen and (max-width: 680px) {
-    .TranslateWithTimer  {
+    .TranslateWithTimer {
         margin-bottom: 550px;
     }
 
 
 }
-
-
-  

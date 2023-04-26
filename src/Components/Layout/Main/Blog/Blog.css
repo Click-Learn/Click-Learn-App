@@ -104,3 +104,11 @@
     }   
   }
 
+
+
+  @media only screen and (max-width: 680px) {
+    .Blog {
+        margin-bottom: 500px;
+    }
+
+}

@@ -27,7 +27,12 @@ function TranslateWithTimer(): JSX.Element {
                   englishWord,
                 }));
                 console.log(userWords);
-                
+
+                if(!userWords || userWords.length < 1){
+                    toastsFunctions.toastError("חייב לפחות מילה אחת מועדפת כדי לשחק במשחק")
+                    navigate("/dashboard");
+                  }
+
                 const shuffledWords = userWords.sort(() => Math.random() - 0.5);
                 setWords(shuffledWords);
                 

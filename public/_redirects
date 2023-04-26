@@ -1,0 +1,16 @@
+/                  /index.html 200
+/home              /index.html 200
+/dashboard         /index.html 200
+/games             /index.html 200
+/quiz              /index.html 200
+/TranslateWithTimer /index.html 200
+/memorygame        /index.html 200
+/articles          /index.html 200
+/article/:id       /index.html 200
+/video             /index.html 200
+/specific-article  /index.html 200
+/blog              /index.html 200
+/blog-post-1       /index.html 200
+/blog-post-2       /index.html 200
+/blog-post-3       /index.html 200
+/*                 /index.html 200

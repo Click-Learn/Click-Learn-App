@@ -82,3 +82,9 @@ color: var(--color-light-dark);
     width: 70%;
 }
 }
+@media only screen and (max-width: 680px) {
+    .BlogArticle1 {
+        margin-bottom: 500px;
+    }
+
+}

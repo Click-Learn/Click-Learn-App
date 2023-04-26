@@ -43,6 +43,10 @@ const Quiz: React.FC = () => {
           englishWord,
           hebrewWord,
         }));
+        if(!userWords || userWords.length < 4){
+          toastsFunctions.toastError("חייב לפחות 4 מילים מועדפות כדי לשחק בחידון")
+          navigate("/dashboard");
+        }
         const shuffledWords = userWords.sort(() => Math.random() - 0.5);
         setWords(shuffledWords);
       });

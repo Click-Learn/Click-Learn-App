@@ -18,6 +18,9 @@ function LoginButton(): JSX.Element {
                 if (window.location.pathname === "/" || window.location.pathname === "/home") {
                     navigate("/dashboard");
                   }
+                  window.location.reload();
+
+              
             } catch (e : any) {
                 console.log(e);
                 toastsFunctions.toastError("ישנה תקלה בהתחברות");

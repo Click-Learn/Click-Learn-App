@@ -217,11 +217,13 @@ width: 30vw ;
 }
 .saved_words_inner {
     display: flex;
+    gap: 6px;
     flex-direction: column;
   }
 
 
 @media only screen and (min-width: 681px) and (max-width: 1511px) {
+    
   .saved_words_inner {
     flex-direction: column;
     gap: 10px; 
@@ -233,3 +235,10 @@ width: 30vw ;
       bottom: 10px;
     }
   }
+
+  @media only screen and (max-width: 680px) {
+
+      .Dashboard {
+        margin-bottom: 500px;
+    }
+}

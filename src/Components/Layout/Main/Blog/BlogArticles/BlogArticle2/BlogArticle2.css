@@ -18,3 +18,11 @@
     }
 
 }
+
+
+@media only screen and (max-width: 680px) {
+    .BlogArticle2 {
+        margin-bottom: 500px;
+    }
+
+}

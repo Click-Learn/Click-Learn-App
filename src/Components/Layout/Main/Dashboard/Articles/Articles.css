@@ -96,13 +96,13 @@
 
 .Articles .articles_container .article_by_user_container .article_title_desc .article_title {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--color-dark);
 }
 
 .Articles .articles_container .article_by_user_container .article_title_desc .article_desc {
     color: var(--color-light-dark);
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .Articles .articles_container .article_by_user_container .article_title_desc {
@@ -231,9 +231,9 @@
         margin-bottom: 450px;
     }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
     .Articles {
-        margin-bottom: 750px;
+        margin-bottom: 850px;
     }
     .Articles .articles_container .last_articles_container,
     .Articles .articles_container .create_new_article {
@@ -247,5 +247,11 @@
         text-align: center;
         word-wrap: break-word;
         padding: 0 15px;
+    }
+    .last_articles_container .article_by_user_container .article_title{
+        font-size: small !important;
+    }
+    .delete_icon_full{
+        display: block !important;
     }
 }

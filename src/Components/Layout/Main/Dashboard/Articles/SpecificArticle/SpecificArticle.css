@@ -102,11 +102,15 @@
 }
 
 @media only screen and (max-width: 865px) {
-    .article_main_container{
-        margin-bottom: -200px;
+    .SpecificArticle{
+        margin-bottom: 550px;
     }
+    .article_main_container{
+        margin-bottom: -00px;
+    }
+
     .SpecificArticle .article_main_container {
-        width: 88%;
+        /* width: 88%; */
         margin: 0 auto; /* Centers the div horizontally */
       }
     .SpecificArticle .specificArticle_top_container {

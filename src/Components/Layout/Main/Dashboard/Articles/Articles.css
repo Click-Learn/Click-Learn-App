@@ -254,4 +254,7 @@
     .delete_icon_stroke{
         display: block !important;
     }
+    h1 {
+        font-size:  35px;
+    }
 }

@@ -55,11 +55,11 @@ function Header(): JSX.Element {
 
     function clickedWebMode() {
         if(isDarkMode){
-          dispatch(setDark())
-          setIsDarkMode(!isDarkMode)
+            dispatch(setLight())
+            setIsDarkMode(!isDarkMode)
         } else {
-          dispatch(setLight())
-          setIsDarkMode(!isDarkMode)
+            dispatch(setDark())
+            setIsDarkMode(!isDarkMode)
         }
       }
     return (

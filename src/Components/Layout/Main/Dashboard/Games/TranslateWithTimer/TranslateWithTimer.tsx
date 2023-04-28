@@ -163,7 +163,7 @@ function TranslateWithTimer(): JSX.Element {
                     <div className="game-data">
                         <div className="game-data-text"> כמות מילים: {words.length}</div>
                         <div className="game-data-text">הצלחות: {countCorrect}</div>
-                        <div className="game-data-text">כישלונות: {countUncorrect}</div>
+                        {/* <div className="game-data-text">כישלונות: {countUncorrect}</div> */}
                     </div>
                     <button className="reset-button" onClick={resetGame}>איפוס משחק</button>
                 </div>

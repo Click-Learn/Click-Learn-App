@@ -29,14 +29,17 @@
   .card:hover {
     box-shadow: 0 0 10px 1px var(--color-light-green);
   }
-  
-  
+
   
   .flipped {
     transform: rotateY(360deg);
     background-color: var(--color-light-green);
     color: white;
     background-image: url("");
+  }
+
+  .card_inner {
+    font-size: 22px;
   }
   
 
@@ -71,4 +74,9 @@
   .flipped {
       background-image: url("");
   }
+
+  .card_inner {
+    font-size: 16px;
+  }
+  
 }

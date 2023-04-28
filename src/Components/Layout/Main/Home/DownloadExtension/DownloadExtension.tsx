@@ -10,7 +10,9 @@ function DownloadExtension(): JSX.Element {
 
             <div className="Download_Video_Container">
                 <button className="btn_video" onClick={() => navigate("/video")}>צפה הדגמה <BsFillPlayFill/></button>
-                <button className="btn_extension" >למעבר לתוסף</button>
+                <a href="https://chrome.google.com/webstore/detail/english-to-hebrew-transla/pdchgmgjkeopcekfahjaikiclljlcpjc">
+                    <button className="btn_extension" >למעבר לתוסף</button>
+                </a>
             </div>
         </div>
     );

@@ -15,8 +15,16 @@
     color: var(--color-dark);
 }
 
+.SpecificArticle .loader_container p {
+    text-align: right;
+    direction: rtl;
+}
+.SpecificArticle .timeText {
+    justify-content: center !important;
+}
 .SpecificArticle .loader_container {
     display: flex;
+    /* flex-direction: column; */
     justify-content: end;
     align-items: center;
 }
@@ -123,5 +131,9 @@
 
     .SpecificArticle .article_main_container p {
         font-size: 18px;
+    }
+
+    .SpecificArticle .loader_container p {
+        font-size: 15px;
     }
 }

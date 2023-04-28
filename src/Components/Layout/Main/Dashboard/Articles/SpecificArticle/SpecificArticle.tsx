@@ -26,14 +26,14 @@ function SpecificArticle(): JSX.Element {
     } else {
       if(!hasLoaded && !description){
         setIsLoading(true);
-        servicesFunctions.createNewArticle().then((res: any) => {
-          res = JSON.parse(res);
-          console.log(res);
-          setDescription(res.article)
-          setTitle(res.articleTitle ?? "אירעה שגיאה, נסה/י שוב מאוחר יותר")
-          setIsLoading(false)
-          setHasLoaded(true);
-        });
+        // servicesFunctions.createNewArticle().then((res: any) => {
+        //   res = JSON.parse(res);
+        //   console.log(res);
+        //   setDescription(res.article)
+        //   setTitle(res.articleTitle ?? "אירעה שגיאה, נסה/י שוב מאוחר יותר")
+        //   setIsLoading(false)
+        //   setHasLoaded(true);
+        // });
       }
                 
     }
@@ -64,9 +64,12 @@ function SpecificArticle(): JSX.Element {
                 {isLoading ? 
                 <div>
                   <div className="loader_container">
-                    <p>...כותבים עבורך את המאמר עם המילים המועדפות שלך</p>
+                    <p>כותבים עבורך את המאמר עם המילים המועדפות שלך...</p>
                   <img src={loadingGIF} />
                   </div>
+                    <div className="loader_container timeText"> 
+                      <p>פעולה זו עשויה להימשך כדקה</p>
+                    </div>
                 <div>
 
                     <Box   sx={{

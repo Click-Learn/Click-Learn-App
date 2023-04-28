@@ -59,8 +59,8 @@ function Articles(): JSX.Element {
                                             <MdArticle className="article_icon_full" style={{ color: 'var(--color-dark)' }} />
                                         </div>
                                         <div className="article_title_desc">
-                                            <p className="article_title">{article.articleTitle} /</p>
-                                            <p className="article_desc">{article.article.split(' ').slice(0, 3).join(' ')}...</p>
+                                            <p className="article_title">{article.articleTitle}</p>
+                                            {/* <p className="article_desc">{article.article.split(' ').slice(0, 3).join(' ')}...</p> */}
                                         </div>
                                     </div>
                                     <div className="delete_icons" onClick={(e) => { e.stopPropagation(); deleteArticle(article); }}>

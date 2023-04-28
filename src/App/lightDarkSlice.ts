@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 let webMode = window.localStorage.getItem("webMode");
 
   const initialState = {
-    toggle: webMode === "dark" ? true : false
+    toggle: webMode === "light" ? true : false
   }
 
 const chosenMode = createSlice({

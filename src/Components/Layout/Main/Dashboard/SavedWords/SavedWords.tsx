@@ -63,7 +63,9 @@ function SavedWords({ userWords, refresh, setRefresh }: { userWords: WordModel[]
                         <div className="saved_words_container">
                            <p className="not_enough_words_p">אין מספיק מילים שמורות</p> 
                            <p className="not_enough_words_p2">השתמש בתוסף או הוסף מילים</p> 
-                           <button className="btn_extension" >למעבר לתוסף</button>
+                           <a target="_blank" href="https://chrome.google.com/webstore/detail/english-to-hebrew-transla/pdchgmgjkeopcekfahjaikiclljlcpjc">
+                               <button className="btn_extension" >למעבר לתוסף</button>
+                            </a>
                         </div>
                         : 
                            <p className="enough_words_p2">השתמש בתוסף או הוסף מילים</p> 

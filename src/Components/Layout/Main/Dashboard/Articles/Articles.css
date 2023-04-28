@@ -140,7 +140,7 @@
 }
 
 .Articles .articles_container .article_by_user_container:hover .article_icon_full {
-    display: block;
+    display: block ;
 }
 
 .Articles .articles_container .article_by_user_container:hover .article_icon_stroke {
@@ -180,7 +180,7 @@
 }
 
 .save .article_by_user_container .delete_icon_stoke:hover>.Articles .article_by_user_container .delete_icon_full {
-    display: block;
+    display: block ;
 }
 
 
@@ -194,11 +194,11 @@
 }
 
 .article_by_user_container .delete_icons:hover>.delete_icon_stroke {
-    display: none;
+    display: none !important;
 }
 
 .article_by_user_container .delete_icons:hover>.delete_icon_full {
-    display: block;
+    display: block ;
 }
 
 
@@ -249,9 +249,9 @@
         padding: 0 15px;
     }
     .last_articles_container .article_by_user_container .article_title{
-        font-size: small !important;
+        font-size: 12px !important;
     }
-    .delete_icon_full{
+    .delete_icon_stroke{
         display: block !important;
     }
 }

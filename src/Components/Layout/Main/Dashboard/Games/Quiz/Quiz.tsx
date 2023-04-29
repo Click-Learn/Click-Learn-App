@@ -183,7 +183,7 @@ const Quiz: React.FC = () => {
     : 
       <>
         <p style={{margin: '30px'}}>סיימת! הצלחת  {numCorrectAnswers} מתוך {words.length}  </p>
-        <h2 style={{margin: '30px'}}>{(numCorrectAnswers / words.length) * 100}%</h2>
+        <h2 style={{margin: '30px'}}>{((numCorrectAnswers / words.length) * 100).toFixed(2)}%</h2>
         <button onClick={() => setQuizCompleted(false)}>התחלה מחדש</button>
       </>
     }

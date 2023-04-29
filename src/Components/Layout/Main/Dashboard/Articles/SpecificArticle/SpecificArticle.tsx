@@ -27,7 +27,7 @@ function SpecificArticle(): JSX.Element {
       if(!hasLoaded && !description){
         setIsLoading(true);
         servicesFunctions.createNewArticle().then((res: any) => {
-          res = JSON.parse(res);
+          // res = JSON.parse(res);
           console.log(res);
           setDescription(res.article)
           setTitle(res.articleTitle ?? "אירעה שגיאה, נסה/י שוב מאוחר יותר")

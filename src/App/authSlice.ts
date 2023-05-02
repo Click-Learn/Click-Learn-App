@@ -18,7 +18,14 @@ const authSlice = createSlice({
                 if (!window.localStorage.getItem('ClickLearnLogged')) {
                     console.log("test register");
                     
-                    servicesFunctions.Register(action.payload)
+                    servicesFunctions.Register(action.payload).then(() => {
+                                      
+                        window.localStorage.setItem('ClickLearnLogged', action.payload);
+                        const { email, name, picture } : any= jwtDecode(action.payload);
+                        console.log({email, name, picture});
+                        state =  { email, name, picture };
+                        return state;
+                    })
                 }
                 console.log("test login");
                 

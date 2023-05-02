@@ -120,6 +120,8 @@ function Footer(): JSX.Element {
                     <li> <Link to="/dashboard">איזור אישי</Link></li>
                     <li> <Link to="/games">משחקים</Link></li>
                     <li> <Link to="/blog">בלוג</Link></li>
+                    <li> <Link to="/termsofservice">תנאי שימוש</Link></li>
+                    <li> <Link to="/privacypolicy">מדיניות פרטיות</Link></li>
                 </ul>
             </div>
             <div className="column is-nav">

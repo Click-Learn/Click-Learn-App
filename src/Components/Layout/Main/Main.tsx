@@ -15,6 +15,8 @@ import BlogArticle1 from "./Blog/BlogArticles/BlogArticle1/BlogArticle1";
 import BlogArticle2 from "./Blog/BlogArticles/BlogArticle2/BlogArticle2";
 import BlogArticle3 from "./Blog/BlogArticles/BlogArticle3/BlogArticle3";
 import ArticleById from "./Dashboard/Articles/ArticleById/ArticleById";
+import PrivacyPolicy from "../Footer/PrivacyPolicy/PrivacyPolicy";
+import TermsOfService from "../Footer/TermsOfService/TermsOfService";
 
 function Main(): JSX.Element {
     return (
@@ -35,6 +37,8 @@ function Main(): JSX.Element {
                 <Route path="/blog-post-1" element={<BlogArticle1/>}></Route>
                 <Route path="/blog-post-2" element={<BlogArticle2/>}></Route>
                 <Route path="/blog-post-3" element={<BlogArticle3/>}></Route>
+                <Route path="/termsofservice" element={<TermsOfService/>}></Route>
+                <Route path="/privacypolicy" element={<PrivacyPolicy/>}></Route>
                 <Route path="/*" element={<PageNotFound/>}></Route>
 			</Routes>
         </div>

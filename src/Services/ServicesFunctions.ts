@@ -193,7 +193,7 @@ class ServicesFunctions {
     }
   }
 
-  async createNewArticle(): Promise<string> {
+  async createNewArticle(): Promise<ArticleModel | undefined> {
     try {
       const response = await fetch(`${config.BASE_URL}/newArticle`, {
         mode: "cors",
@@ -207,7 +207,7 @@ class ServicesFunctions {
       
       return response;
     } catch (e: any) {
-      return "";
+      return undefined;
     }
   }
 

@@ -30,6 +30,8 @@
 .SavedWords .save_words_lists_line {
     width: 90%;
     margin: 0 auto;
+    margin:  var(--save-words-lists-line-margin-bottom) 15px !important;
+    padding-bottom: var(--save-words-lists-line-margin-bottom) ;
 }
 .SavedWords .save_words_lists_line .icons {
     display: flex;

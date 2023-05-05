@@ -15,6 +15,10 @@ code {
     monospace;
 }
 
+:root {
+  --save-words-lists-line-margin-bottom: 10px;
+  --save-words-lists-line-padding-bottom: 10px;
+}
 
 .Layout[data-theme='dark-mode'] {
   --color-light-green: #2ccd85;

@@ -17,6 +17,7 @@ import BlogArticle3 from "./Blog/BlogArticles/BlogArticle3/BlogArticle3";
 import ArticleById from "./Dashboard/Articles/ArticleById/ArticleById";
 import PrivacyPolicy from "../Footer/PrivacyPolicy/PrivacyPolicy";
 import TermsOfService from "../Footer/TermsOfService/TermsOfService";
+import AllWords from "./Dashboard/AllWords/AllWords";
 
 function Main(): JSX.Element {
     return (
@@ -25,6 +26,7 @@ function Main(): JSX.Element {
                 <Route path="/" element={<Home/>}></Route>
                 <Route path="/home" element={<Home/>}></Route>
                 <Route path="/dashboard" element={<Dashboard/>}></Route>
+                <Route path="/allwords" element={<AllWords/>}></Route>
                 <Route path="/games" element={<Games/>}></Route>
                 <Route path="/quiz" element={<Quiz/>}></Route>
                 <Route path="/TranslateWithTimer" element={<TranslateWithTimer/>}></Route>

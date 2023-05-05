@@ -1,0 +1,247 @@
+.AllWords {
+    width: 65vw;
+    display: flex;
+    justify-content: center;
+    margin: 100px auto;
+    margin-bottom: 450px;
+	direction: rtl;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+.AllWords .filter_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.AllWords .save_words_lists_line .icons {
+    margin-right: 30px;
+}
+
+.AllWords .translate_saved_word {
+    margin-left: 30px;
+}
+
+.AllWords .not_enough_words_p {
+    display: none;
+}
+.AllWords .search_text_container {
+    position: relative;
+}
+
+.AllWords .search_text_container img {
+    position: absolute;
+    width: 20px;
+    left: 15px;
+    top: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.AllWords .search_text_container:focus-within img {
+    width: 22px;
+    top: 13.8px;
+  }
+  
+
+.AllWords .text_search_words {
+    padding: 15px;
+    background-color: var(--color-light-green);
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    font-size: 18px;
+  }
+  
+  .AllWords .text_search_words::placeholder {
+    color: #272727a6;
+    opacity: 1; 
+  }
+  
+  .AllWords .text_search_words:focus::placeholder {
+    opacity: 0; 
+  }
+  
+
+.AllWords .SavedWords{
+    max-height: 800px !important;
+    overflow-y: auto;
+  }
+
+
+  
+  .AllWords .save_words_lists_line {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  /* .AllWords .save_words_lists_line {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  } */
+
+  .AllWords .translate_saved_word {
+    gap: 40px;
+    font-size: 18px;
+  }
+  .AllWords::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  .AllWords::-webkit-scrollbar-track {
+    background-color: var(--color-white);
+    border-radius: 20px;
+}
+
+.AllWords::-webkit-scrollbar-thumb {
+    background: #464646;
+    border-radius: 20px;
+}
+
+.AllWords::-webkit-scrollbar-thumb:hover {
+    background-color: #575757;
+    cursor: pointer !important;
+  }
+  
+.AllWords .arrow_right {
+    position: relative;
+    top: 2.5px;
+}
+
+.AllWords .save_words_lists_line {
+    width: 90%;
+    margin: 0 auto;
+}
+.AllWords .save_words_lists_line .icons {
+    display: flex;
+    gap: 10px;
+}
+    
+  .save_words_lists_line .delete_icon_stoke:hover > .AllWords .save_words_lists_line .delete_icon_full {
+    display: block;
+  }
+
+
+ .AllWords .delete_icon_full,
+.AllWords .delete_icon_stroke {
+display: none;
+}
+
+.save_words_lists_line:hover .delete_icon_stroke {
+    display: block;
+}
+.save_words_lists_line .delete_icons:hover > .delete_icon_stroke {
+    display: none;
+}
+.save_words_lists_line .delete_icons:hover > .delete_icon_full {
+    display: block;
+}
+.not_enough_words .saved_words_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.AllWords .not_enough_words {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-dark);
+    margin-top: 100px;
+}
+
+.AllWords .not_enough_words_p {
+    font-weight: bold;
+}
+
+.AllWords .not_enough_words_p2 {
+    font-size: 15px;
+}
+
+.AllWords .enough_words_p2{
+    font-size: 15px;
+    margin-top: 35px;
+    margin-bottom: -15px;
+    font-weight: 500;
+    color: var(--color-light-green);
+}
+
+
+.AllWords  .btn_extension {
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 0 6px -1px rgb(185, 185, 185);
+    transition: 0.2s;
+    transition: all .2s ease-in-out;
+    background-color: var(--color-light-green);
+    outline: 2px solid var(--color-light-green);
+    color: var(--color-white);
+    box-shadow: 0 0 0px 4px #4ce8a2;
+    cursor: pointer !important;
+}
+
+
+.AllWords .btn_extension:hover {
+    font-size: 14.5px;
+}
+
+
+.AllWords .save_words_lists_line {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    border-bottom:1px solid lightgray ;
+    color: var(--color-dark);
+}
+
+.AllWords .words_not_found {
+    text-align: center;
+    color: var(--color-dark);
+    margin-bottom: 100px;
+}
+
+.AllWords .translate_saved_word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+
+
+.AllWords  .save_words_list_container.animating {
+    animation: shadow-box 2s ease-out;
+}
+
+
+.AllWords  .save_words_list_container {
+    padding: 25px;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    font-size: 18px;
+    background-color: var(--color-white);
+    justify-content: space-between;
+    box-shadow: 0 0 10px 0px var(--color-light-green);
+    
+}
+
+
+
+
+
+
+
+
+

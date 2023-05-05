@@ -20,14 +20,15 @@ function Dashboard(): JSX.Element {
     const saveWordsListRef = useRef<HTMLDivElement>(null);
     
     const handleSavedWordsClick = () => {
-      if (saveWordsListRef.current) {
-        saveWordsListRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    //   if (saveWordsListRef.current) {
+    //     saveWordsListRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' });
         
-        setIsAnimating(true);
+    //     setIsAnimating(true);
 
-        setTimeout(() => {
-              setIsAnimating(false);
-        }, 2000);      }
+    //     setTimeout(() => {
+    //           setIsAnimating(false);
+    //     }, 2000);      }
+    navigate("/allwords")
     };
 
     useEffect(() => {
@@ -35,6 +36,11 @@ function Dashboard(): JSX.Element {
             servicesFunctions.getAllWordByUser().then((words: WordModel[] | undefined) => {
                 if (words) {
                     setUserWords(words);
+                    setIsAnimating(true);
+
+                    setTimeout(() => {
+                          setIsAnimating(false);
+                    }, 2000);   
                 }
             });
         } else {

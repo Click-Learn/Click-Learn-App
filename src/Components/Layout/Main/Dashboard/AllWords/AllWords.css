@@ -53,11 +53,13 @@
     top: 13.8px;
   }
   
-
+.AllWords .MuiChip-label {
+    padding: 0;
+}
 
 .AllWords .text_search_words {
-    padding: 15px 0;
-    width: 100%;
+    padding: 15px 10px;
+    width: calc(100% - 20px);
     background-color: var(--color-light-green);
     border: none;
     border-radius: 16px;

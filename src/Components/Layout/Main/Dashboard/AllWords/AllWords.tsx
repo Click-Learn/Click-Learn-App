@@ -90,6 +90,9 @@ function AllWords(): JSX.Element {
           />
         </div>
 
+      <div className="filters">
+
+        <div>
 
         {favoriteFilter ? (
                         <Chip
@@ -118,6 +121,9 @@ function AllWords(): JSX.Element {
             }
             />
         )}
+        </div>
+
+            <div>
 
 
         {unFavoriteFilter ? (
@@ -141,6 +147,9 @@ function AllWords(): JSX.Element {
           icon={<AiOutlineStar style={{ borderRadius: "20px", fontSize: "20px", color: theme.palette.success.main }}          />}
         />
         )}
+            </div>
+
+      </div>
             
         </div>
 

@@ -9,11 +9,18 @@
     gap: 40px;
     align-items: center;
 }
+.AllWords .filters {
+    gap: 20px;
+    justify-content: center;
+    display: flex;
+}
 .AllWords .filter_container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 50px;
+    flex-wrap: wrap;
 }
 
 .AllWords .save_words_lists_line .icons {
@@ -29,6 +36,8 @@
 }
 .AllWords .search_text_container {
     position: relative;
+    order: 3;
+    width: 100%;
 }
 
 .AllWords .search_text_container img {
@@ -45,11 +54,13 @@
   }
   
 
+
 .AllWords .text_search_words {
-    padding: 15px;
+    padding: 15px 0;
+    width: 100%;
     background-color: var(--color-light-green);
     border: none;
-    border-radius: 25px;
+    border-radius: 16px;
     outline: none;
     font-size: 18px;
   }
@@ -57,6 +68,8 @@
   .AllWords .text_search_words::placeholder {
     color: #272727a6;
     opacity: 1; 
+    position: relative;
+    right: 12px;
   }
   
   .AllWords .text_search_words:focus::placeholder {
@@ -241,7 +254,15 @@ display: none;
 
 
 
+@media only screen and (max-width: 550px) {
 
+    .AllWords  .save_words_list_container {
+        max-width: 300px;
+    }
+    .AllWords .filters {
+        flex-direction: column;
+    }
+}
 
 
 

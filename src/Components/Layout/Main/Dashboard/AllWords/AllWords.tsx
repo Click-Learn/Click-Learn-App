@@ -97,7 +97,7 @@ function AllWords(): JSX.Element {
         {favoriteFilter ? (
                         <Chip
             label="פילטור לפי מילים מועדפות"
-            sx={{ width: "230px", height: "51px" }}
+            sx={{ width: "230px", height: "51px", fontSize: "15px", }}
             onClick={() => setFavorieFilter(!favoriteFilter)}
             color="success"
             style={{ backgroundColor: theme.palette.success.main }}
@@ -110,7 +110,7 @@ function AllWords(): JSX.Element {
         ) : (
             <Chip
             label="פילטור לפי מילים מועדפות"
-            sx={{ width: "230px", height: "51px" }}
+            sx={{ width: "230px", height: "51px", fontSize: "15px", }}
             onClick={() => setFavorieFilter(!favoriteFilter)}
             color="success"
             style={{ color: theme.palette.success.main, backgroundColor: "transparent", border: `1px solid ${theme.palette.success.main}` }}
@@ -129,7 +129,7 @@ function AllWords(): JSX.Element {
         {unFavoriteFilter ? (
           <Chip
           label="פילטור לפי מילים לא מועדפות"
-          sx={{width: "230px", height: "51px"}}
+          sx={{width: "230px", height: "51px", fontSize: "15px"}}
           onClick={() => setUnFavorieFilter(!unFavoriteFilter)}
           color="secondary"
           style={{ backgroundColor: `${theme.palette.success.main} `, outline: `1px solid ${theme.palette.success.main}` }}
@@ -140,7 +140,7 @@ function AllWords(): JSX.Element {
           <Chip
           variant="outlined"
           label="פילטור לפי מילים לא מועדפות"
-          sx={{width: "230px", height: "51px"}}
+          sx={{width: "230px", height: "51px", fontSize: "15px"}}
           onClick={() => setUnFavorieFilter(!unFavoriteFilter)}
           color="secondary"
           style={{ color: theme.palette.success.main, backgroundColor: "transparent", border: `1px solid ${theme.palette.success.main}` }}

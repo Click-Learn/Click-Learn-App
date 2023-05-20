@@ -3,5 +3,5 @@ export interface ChatModel {
     message: string,
     timestamp: string,
     role: number,
-    userId: number
+    userId?: number
 } 

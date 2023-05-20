@@ -18,6 +18,7 @@ import ArticleById from "./Dashboard/Articles/ArticleById/ArticleById";
 import PrivacyPolicy from "../Footer/PrivacyPolicy/PrivacyPolicy";
 import TermsOfService from "../Footer/TermsOfService/TermsOfService";
 import AllWords from "./Dashboard/AllWords/AllWords";
+import Chat from "./Dashboard/Chat/Chat";
 
 function Main(): JSX.Element {
     return (
@@ -36,6 +37,7 @@ function Main(): JSX.Element {
                 <Route path="/video" element={<Video/>}></Route>
                 <Route path="/specific-article" element={<SpecificArticle/>}></Route>
                 <Route path="/blog" element={<Blog/>}></Route>
+                <Route path="/chat" element={<Chat/>}></Route>
                 <Route path="/blog-post-1" element={<BlogArticle1/>}></Route>
                 <Route path="/blog-post-2" element={<BlogArticle2/>}></Route>
                 <Route path="/blog-post-3" element={<BlogArticle3/>}></Route>

@@ -26,6 +26,9 @@ code {
   --color-light-dark: #423f3fce;
   --color-white: #fff;
   
+
+  /*chat component */
+  --color-dark-29: #f3f3f3;
 }
 
 .Layout[data-theme='light-mode'] {
@@ -33,5 +36,9 @@ code {
   --color-dark: #c9c9c9;
   --color-light-dark: #a1a1a1ce;
   --color-white: #252525;
+
+
+    /*chat component */
+  --color-dark-29: #292929;
 
 }

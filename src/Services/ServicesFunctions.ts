@@ -255,6 +255,36 @@ class ServicesFunctions {
       return false;
     }
   }
+
+
+
+
+
+
+  async getConversationChat() {
+    try {
+      const response = await fetch(`${config.BASE_URL}/getChatConversation`, {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Origin": "*",
+          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+        },
+        // body: JSON.stringify({ email }),
+      }).then((res) => res.json());
+
+  
+      if (response.errors) {
+        return false;
+      }
+  
+      return response;
+    } catch (e: any) {
+      console.log(e);
+      return false;
+    }
+  }
 }
 
 export const servicesFunctions = new ServicesFunctions();

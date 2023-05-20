@@ -285,6 +285,60 @@ class ServicesFunctions {
       return false;
     }
   }
+
+
+  
+//   sendChatMessageToChatGPT(message: string) {
+//     const results = fetch(`${config.BASE_URL}/newMessage`, {
+//         method: 'POST',
+//         body: JSON.stringify(message),
+//         mode: 'cors',
+//         headers: {
+//           "Content-Type": "application/json",
+//           "Access-Control-Origin": "*",
+//           authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+//         },
+//     })
+//     return results;
+// }
+
+async sendChatMessageToChatGPT(message: string) {
+  try {
+    const response = await fetch(`${config.BASE_URL}/newMessage`, {
+      mode: "cors",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Origin": "*",
+        authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+      },
+      body: JSON.stringify({ message }),
+    }).then((res) => res.json());
+
+
+    if (response.errors) {
+      return false;
+    }
+
+    return response;
+  } catch (e: any) {
+    console.log(e);
+    return false;
+  }
 }
+
+
+ formatTimestamp(timestamp: string) {
+  const date = new Date(+timestamp);
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const formattedTime = `${hours % 12}:${minutes.toString().padStart(2, '0')} ${period}`;
+  return formattedTime;
+}
+
+}
+
+
 
 export const servicesFunctions = new ServicesFunctions();

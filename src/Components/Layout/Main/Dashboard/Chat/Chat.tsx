@@ -10,17 +10,33 @@ const avatar1 = "https://img.freepik.com/free-photo/portrait-teenage-boy_23-2148
 function Chat(): JSX.Element {
     const isLogin = useSelector((state: any) => state.authSlice);
     const [newMessage, setNewMessage] = useState<string>("");
-    const [messages, setMessages] = useState([])
-
+    const [messages, setMessages] = useState<ChatModel[]>([])
+    const [refresh, setRefresh] = useState<boolean>(true)
     useEffect(() => {
         servicesFunctions.getConversationChat().then((res) => {
             setMessages(res);
         })
-    }, [])
+    }, [refresh])
     
     function sendNewMessage(){ 
         console.log(newMessage);
-        servicesFunctions.sendChatMessageToChatGPT(newMessage);
+        const newChatModel: ChatModel = {
+            id: 99999999,
+            message: newMessage,
+            timestamp: new Date().getTime().toString(),
+            role: 1,
+          };
+          
+          const updatedMessages: ChatModel[] = [...messages];
+          updatedMessages.push(newChatModel);
+          setMessages(updatedMessages);
+          
+          
+
+
+        servicesFunctions.sendChatMessageToChatGPT(newMessage).then(() => {
+            setRefresh(!refresh)
+        });
 
         setNewMessage("");
         
@@ -52,7 +68,7 @@ function Chat(): JSX.Element {
             </div>
             <div className="Content">
               <div className="Text">{m.message}</div>
-              <div className="Time">10:30 AM</div>
+              <div className="Time">{servicesFunctions.formatTimestamp(m.timestamp)}</div>
             </div>
           </div>
             

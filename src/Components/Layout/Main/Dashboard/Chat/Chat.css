@@ -16,7 +16,11 @@
     padding: 26px;
     max-width: 600px;
     margin: 50px auto 0 auto;
+    min-height: 400px;
     max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow-y: scroll;
 }
   
@@ -132,4 +136,24 @@
 
   .Chat .hidden {
     display: none;
+  }
+
+
+  .Chat .chat_container::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  .Chat .chat_container::-webkit-scrollbar-track {
+    background-color: var(--color-white);
+    border-radius: 20px;
+}
+
+.Chat .chat_container::-webkit-scrollbar-thumb {
+    background: #464646;
+    border-radius: 20px;
+}
+
+.Chat .chat_container::-webkit-scrollbar-thumb:hover {
+    background-color: #575757;
+    cursor: pointer !important;
   }

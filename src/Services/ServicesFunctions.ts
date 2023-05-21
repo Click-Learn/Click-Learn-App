@@ -287,6 +287,32 @@ class ServicesFunctions {
   }
 
 
+  async deleteChatMessages() {
+    try {
+      const response = await fetch(`${config.BASE_URL}/deleteChatMessages`, {
+        mode: "cors",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Origin": "*",
+          authorization: "" + window.localStorage.getItem("ClickLearnLogged"),
+        },
+        // body: JSON.stringify({ email }),
+      }).then((res) => res.json());
+
+  
+      if (response.errors) {
+        return false;
+      }
+  
+      return response;
+    } catch (e: any) {
+      console.log(e);
+      return false;
+    }
+  }
+
+
   
 //   sendChatMessageToChatGPT(message: string) {
 //     const results = fetch(`${config.BASE_URL}/newMessage`, {

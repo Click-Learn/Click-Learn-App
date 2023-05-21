@@ -6,6 +6,13 @@ import { servicesFunctions } from "../../../../../Services/ServicesFunctions";
 import { ChatModel } from "../../../../../Models/chatModel";
 import Avatar from "@mui/material/Avatar";
 
+const AiirstMessage: ChatModel = {
+  id: 10000000,
+  message: "Hello! You can ask me anything...",
+  timestamp: "",
+  role: 0,
+};
+
 const avatar1 = "https://img.freepik.com/free-photo/portrait-teenage-boy_23-2148105583.jpg?w=1380&t=st=1684585170~exp=1684585770~hmac=b4abeab810b9bf12b2a968dd7971ab32b953aee95f82eb5ee059d6636094bde3"
 function Chat(): JSX.Element {
     const isLogin = useSelector((state: any) => state.authSlice);
@@ -14,12 +21,15 @@ function Chat(): JSX.Element {
     const [refresh, setRefresh] = useState<boolean>(true)
     const chatContainerRef = useRef<null | HTMLDivElement>(null);
 
-    
+
     useEffect(() => {
-        servicesFunctions.getConversationChat().then((res) => {
-            setMessages(res);
-        })
-    }, [refresh])
+      servicesFunctions.getConversationChat().then((res) => {
+        // if (res.length >= 1) {
+          setMessages(res);
+        // }
+      });
+    }, [refresh]);
+    
 
     useEffect(() => {
         scrollToBottom();
@@ -64,8 +74,16 @@ function Chat(): JSX.Element {
         setNewMessage("");
         
     }
+
+    function deleteMessages(){
+      servicesFunctions.deleteChatMessages().then(() => {
+        setRefresh(!refresh)
+      });
+      
+    }
   return (
     <div className="Chat">
+      <button onClick={deleteMessages}>Delete History Chat</button>
         <div className="chat_container" ref={chatContainerRef} >
 
 
@@ -103,33 +121,6 @@ function Chat(): JSX.Element {
     ))}
 
 
-{/* {messages && messages.map((m: ChatModel, index) => (
-  <div key={m.id} className={m.message === "Typing..." ? "Message typing" : "Message"}>
-    {m.role === 0 ? (
-        <div className="Message">
-            <div className="Avatar">
-                <img src={avatar1} alt="Avatar" />
-            </div>
-            <div className="Content">
-                <div className="Text">{m.message}</div>
-                <div className="Time">{servicesFunctions.formatTimestamp(m.timestamp)}</div>
-            </div>
-        </div>
-    ) : (
-      <div className="Message  align-right">
-            <div className="Avatar">
-              <Avatar alt={isLogin.name} src={isLogin.picture} />
-
-              
-            </div>
-            <div className="Content">
-              <div className="Text">{m.message}</div>
-              <div className="Time">{servicesFunctions.formatTimestamp(m.timestamp)}</div>
-            </div>
-          </div>
-    )}
-  </div>
-))} */}
 
      
       <div className="chat__conversation-panel">

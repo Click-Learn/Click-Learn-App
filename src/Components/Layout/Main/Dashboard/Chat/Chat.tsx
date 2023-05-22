@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { servicesFunctions } from "../../../../../Services/ServicesFunctions";
 import { ChatModel } from "../../../../../Models/chatModel";
 import Avatar from "@mui/material/Avatar";
+import { useNavigate } from "react-router-dom";
+import { toastsFunctions } from "../../../../../Services/ToastFunctions";
 
 const AiirstMessage: ChatModel = {
   id: 10000000,
@@ -20,9 +22,15 @@ function Chat(): JSX.Element {
     const [messages, setMessages] = useState<ChatModel[]>([])
     const [refresh, setRefresh] = useState<boolean>(true)
     const chatContainerRef = useRef<null | HTMLDivElement>(null);
-
+    const navigate = useNavigate()
 
     useEffect(() => {
+
+      if(!isLogin){
+        navigate("/")
+        toastsFunctions.toastError("אנא התחבר בכדי להמשיך...")
+      }
+
       servicesFunctions.getConversationChat().then((res) => {
         // if (res.length >= 1) {
           setMessages(res);

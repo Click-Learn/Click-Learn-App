@@ -86,6 +86,8 @@ function Chat(): JSX.Element {
       <button onClick={deleteMessages}>Delete History Chat</button>
         <div className="chat_container" ref={chatContainerRef} >
 
+    <div className="inner_chat_messages">
+
 
     {messages && messages.map((m: ChatModel) => (
             <div key={m.id} >
@@ -119,8 +121,8 @@ function Chat(): JSX.Element {
 
             </div>
     ))}
-
-
+   
+ 
 
      
       <div className="chat__conversation-panel">
@@ -139,6 +141,8 @@ function Chat(): JSX.Element {
       </div>
     </div>
       </div>
+    </div>
+
     </div>
   );
 }

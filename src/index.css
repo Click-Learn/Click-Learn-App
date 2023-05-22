@@ -29,6 +29,7 @@ code {
 
   /*chat component */
   --color-dark-29: #f3f3f3;
+  --color-dark-31: #eeeeee;
 }
 
 .Layout[data-theme='light-mode'] {
@@ -40,5 +41,6 @@ code {
 
     /*chat component */
   --color-dark-29: #292929;
+  --color-dark-31: #313131;
 
 }

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "./Chat.css";
-import { BsFillSendFill } from "react-icons/bs";
+import { BsFillSendFill,BsEraserFill } from "react-icons/bs";
 import { useEffect, useRef, useState } from "react";
 import { servicesFunctions } from "../../../../../Services/ServicesFunctions";
 import { ChatModel } from "../../../../../Models/chatModel";
@@ -26,6 +26,25 @@ function Chat(): JSX.Element {
       servicesFunctions.getConversationChat().then((res) => {
         // if (res.length >= 1) {
           setMessages(res);
+          if(res.length == 0) {
+            setTimeout(() => {
+              const AITypingMessage: ChatModel = {
+                  id: 10000000,
+                  message: "Typing",
+                  timestamp: "",
+                  role: 0,
+                };
+                let updatedMessages2: ChatModel[] = [];
+                updatedMessages2.push(AITypingMessage);
+                setMessages(updatedMessages2);
+            }, 300);
+
+
+
+            servicesFunctions.sendChatMessageToChatGPT("Hey im new here").then(() => {
+              setRefresh(!refresh)
+          });
+          }
         // }
       });
     }, [refresh]);
@@ -95,7 +114,6 @@ function Chat(): JSX.Element {
 
   return (
     <div  className={`Chat`}>
-      <button onClick={deleteMessages}>Delete History Chat</button>
         <div className="chat_container" ref={chatContainerRef}  >
 
     <div className="inner_chat_messages">
@@ -103,9 +121,11 @@ function Chat(): JSX.Element {
 
     {messages && messages.map((m: ChatModel) => (
             <div key={m.id} >
+
                 {m.role === 0 ? 
                     <div className={m.message === "Typing" ? "Message typing" : "Message"}>
-                    <div className="Avatar">
+
+              <div className="Avatar">
                         <img src={avatar1} alt="Avatar" />
                     </div>
                     <div className="Content">
@@ -117,7 +137,7 @@ function Chat(): JSX.Element {
                     </div>
 
             :
-            <div className={"Message align-right"}>
+            <div className={m.message === "Hey im new here" ? "Message align-right d-none" : "Message align-right" }>
             <div className="Avatar">
               <Avatar alt={isLogin.name} src={isLogin.picture} />
 
@@ -146,13 +166,12 @@ function Chat(): JSX.Element {
             className="chat__conversation-panel__input panel-item"
             placeholder="Type a message..."
 
-            onKeyDown={(e) => {
-              if (e.keyCode === 13 && !e.shiftKey) {
-                e.preventDefault(); // Prevent new line
-                sendNewMessage(); // Call the function to submit the message
-              }
-            }}
-            
+             onKeyDown={(e) => {
+    if (e.keyCode === 13 && !e.shiftKey) {
+      e.preventDefault(); // Prevent new line
+      sendNewMessage(); // Call the function to submit the message
+    }
+  }}
             ></textarea>
 
         <button className="chat__conversation-panel__button" onClick={sendNewMessage}>
@@ -167,6 +186,7 @@ function Chat(): JSX.Element {
 
       </div>
     </div>
+    <button onClick={deleteMessages} className="delete_chat_history_btn"><span className="text">מחק/י היסטוריה</span><span className="icon"><BsEraserFill/></span></button>
 
     </div>
   );

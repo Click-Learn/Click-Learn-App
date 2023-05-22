@@ -124,9 +124,18 @@ function Header(): JSX.Element {
                         אזור אישי
                         </MenuItem>
 
+                        <MenuItem sx={{justifyContent: 'flex-end', WebkitJustifyContent: 'flex-end'}} onClick={handleCloseNavMenu} component={RouterLink} to="/chat">
+                        צ'אט
+                        </MenuItem>
+
                         <MenuItem sx={{justifyContent: 'flex-end', WebkitJustifyContent: 'flex-end'}} onClick={handleCloseNavMenu} component={RouterLink} to="/games">
                         משחקים
                         </MenuItem>
+
+                        <MenuItem sx={{justifyContent: 'flex-end', WebkitJustifyContent: 'flex-end'}} onClick={handleCloseNavMenu} component={RouterLink} to="/articles">
+                        מאמרים
+                        </MenuItem>
+
                         <MenuItem sx={{justifyContent: 'flex-end', WebkitJustifyContent: 'flex-end'}} onClick={handleCloseNavMenu} component={RouterLink} to="/blog">
                         בלוג
                         </MenuItem>
@@ -156,8 +165,16 @@ function Header(): JSX.Element {
                         <RouterLink to="/blog">בלוג</RouterLink>
                         </MenuItem>
 
+                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/chat">
+                        צ'אט
+                        </MenuItem>
+
                         <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/games">
                         משחקים
+                        </MenuItem>
+
+                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/articles">
+                        מאמרים
                         </MenuItem>
 
                         <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to="/dashboard">

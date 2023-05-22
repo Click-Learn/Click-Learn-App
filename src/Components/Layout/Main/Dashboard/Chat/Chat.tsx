@@ -41,6 +41,8 @@ function Chat(): JSX.Element {
         }
     }
     
+
+    
     function sendNewMessage(){ 
         console.log(newMessage);
         const newChatModel: ChatModel = {
@@ -81,10 +83,20 @@ function Chat(): JSX.Element {
       });
       
     }
+
+
+
+
+
+
+
+
+
+
   return (
-    <div className="Chat">
+    <div  className={`Chat`}>
       <button onClick={deleteMessages}>Delete History Chat</button>
-        <div className="chat_container" ref={chatContainerRef} >
+        <div className="chat_container" ref={chatContainerRef}  >
 
     <div className="inner_chat_messages">
 
@@ -122,17 +134,27 @@ function Chat(): JSX.Element {
             </div>
     ))}
    
- 
 
      
+        {/* <div className="input_container"> */}
       <div className="chat__conversation-panel">
+
       <div className="chat__conversation-panel__container">
         <textarea
             onInput={(e: any) => setNewMessage(e.target.value)}
             value={newMessage}
-          className="chat__conversation-panel__input panel-item"
-          placeholder="Type a message..."
-        ></textarea>
+            className="chat__conversation-panel__input panel-item"
+            placeholder="Type a message..."
+
+            onKeyDown={(e) => {
+              if (e.keyCode === 13 && !e.shiftKey) {
+                e.preventDefault(); // Prevent new line
+                sendNewMessage(); // Call the function to submit the message
+              }
+            }}
+            
+            ></textarea>
+
         <button className="chat__conversation-panel__button" onClick={sendNewMessage}>
           <BsFillSendFill
             style={{ fill: "var(--color-light-green)", fontSize: "25px" }}
@@ -140,6 +162,9 @@ function Chat(): JSX.Element {
         </button>
       </div>
     </div>
+
+    {/* </div> */}
+
       </div>
     </div>
 

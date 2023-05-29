@@ -58,7 +58,8 @@ function Chat(): JSX.Element {
 
 
 
-            servicesFunctions.sendChatMessageToChatGPT("Hey my name is " + capitalizeFirstLetterAndTakeOnlyFirstName(isLogin.name) + "lets start chat, write me hey " + capitalizeFirstLetterAndTakeOnlyFirstName(isLogin.name) + " how are you today?" ).then(() => {
+            // servicesFunctions.sendChatMessageToChatGPT("Answer me Hey " + capitalizeFirstLetterAndTakeOnlyFirstName(isLogin.name) + "How are you?" ).then(() => {
+            servicesFunctions.sendChatMessageToChatGPT("Hey my name is " + capitalizeFirstLetterAndTakeOnlyFirstName(isLogin.name) + "let's start chat, answer me 'hey " + capitalizeFirstLetterAndTakeOnlyFirstName(isLogin.name) + " how are you today'?" ).then(() => {
               setRefresh(!refresh)
           });
           }

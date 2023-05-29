@@ -14,7 +14,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { MdDarkMode } from "react-icons/md";
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLight, setDark } from "../../../App/lightDarkSlice";
@@ -28,7 +28,6 @@ function Header(): JSX.Element {
     const webMode = useSelector((state: any) => state.chosenMode.toggle)
     let dispatch = useDispatch();
     const isLogin = useSelector((state : any) => state.authSlice)
-
 
     const navigate = useNavigate();
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false)

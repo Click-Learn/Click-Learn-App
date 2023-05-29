@@ -23,6 +23,8 @@ function Chat(): JSX.Element {
     const [refresh, setRefresh] = useState<boolean>(true)
     const chatContainerRef = useRef<null | HTMLDivElement>(null);
     const navigate = useNavigate()
+    const [isAITyping, setIsAITyping] = useState<boolean>(false)
+
 
     useEffect(() => {
 
@@ -55,7 +57,7 @@ function Chat(): JSX.Element {
           }
         // }
       });
-    }, [refresh]);
+    }, [refresh, isLogin]);
     
 
     useEffect(() => {
@@ -71,6 +73,11 @@ function Chat(): JSX.Element {
 
     
     function sendNewMessage(){ 
+      if(isAITyping){
+         console.log("wait")
+         toastsFunctions.toastInfo("אנא המתן עד לקבלת תגובה")
+       return };
+      setIsAITyping(true)
         console.log(newMessage);
         const newChatModel: ChatModel = {
             id: 99999999,
@@ -98,6 +105,7 @@ function Chat(): JSX.Element {
 
         servicesFunctions.sendChatMessageToChatGPT(newMessage).then(() => {
             setRefresh(!refresh)
+            setIsAITyping(false)
         });
 
         setNewMessage("");
@@ -147,7 +155,7 @@ function Chat(): JSX.Element {
             :
             <div className={m.message === "Hey im new here" ? "Message align-right d-none" : "Message align-right" }>
             <div className="Avatar">
-              <Avatar alt={isLogin.name} src={isLogin.picture} />
+              <Avatar alt={isLogin?.name} src={isLogin?.picture} />
 
               
             </div>
@@ -182,7 +190,7 @@ function Chat(): JSX.Element {
   }}
             ></textarea>
 
-        <button className="chat__conversation-panel__button" onClick={sendNewMessage}>
+        <button className="chat__conversation-panel__button" title={isAITyping ? "המתן לקבלת תגובה" : "" } onClick={sendNewMessage}>
           <BsFillSendFill
             style={{ fill: "var(--color-light-green)", fontSize: "25px" }}
           />
@@ -194,7 +202,7 @@ function Chat(): JSX.Element {
 
       </div>
     </div>
-    <button onClick={deleteMessages} className="delete_chat_history_btn"><span className="text">מחק/י היסטוריה</span><span className="icon"><BsEraserFill/></span></button>
+    <button onClick={deleteMessages}  className="delete_chat_history_btn"><span className="text">מחק/י היסטוריה</span><span className="icon"><BsEraserFill/></span></button>
 
     </div>
   );

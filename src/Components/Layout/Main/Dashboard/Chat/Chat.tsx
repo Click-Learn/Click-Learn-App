@@ -26,13 +26,20 @@ function Chat(): JSX.Element {
     const [isAITyping, setIsAITyping] = useState<boolean>(false)
 
 
+
+    function capitalizeFirstLetterAndTakeOnlyFirstName(string: string) {
+      let firstName = string.split(' ')[0];
+      return firstName.charAt(0).toUpperCase() + firstName.slice(1);
+  }
+  
     useEffect(() => {
 
       if(!isLogin){
+      
         navigate("/")
         toastsFunctions.toastError("אנא התחבר בכדי להמשיך...")
       }
-
+      
       servicesFunctions.getConversationChat().then((res) => {
         // if (res.length >= 1) {
           setMessages(res);
@@ -51,7 +58,7 @@ function Chat(): JSX.Element {
 
 
 
-            servicesFunctions.sendChatMessageToChatGPT("Hey im new here").then(() => {
+            servicesFunctions.sendChatMessageToChatGPT("Hey my name is " + capitalizeFirstLetterAndTakeOnlyFirstName(isLogin.name) + "lets start chat, write me hey " + capitalizeFirstLetterAndTakeOnlyFirstName(isLogin.name) + " how are you today?" ).then(() => {
               setRefresh(!refresh)
           });
           }
@@ -115,6 +122,11 @@ function Chat(): JSX.Element {
     function deleteMessages(){
       servicesFunctions.deleteChatMessages().then(() => {
         setRefresh(!refresh)
+        document.documentElement.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth", // Optional if you want to skip the scrolling animation
+        });
       });
       
     }
@@ -153,7 +165,7 @@ function Chat(): JSX.Element {
                     </div>
 
             :
-            <div className={m.message === "Hey im new here" ? "Message align-right d-none" : "Message align-right" }>
+            <div className={m.message.includes("Hey my name is ") ? "Message align-right d-none" : "Message align-right" }>
             <div className="Avatar">
               <Avatar alt={isLogin?.name} src={isLogin?.picture} />
 
